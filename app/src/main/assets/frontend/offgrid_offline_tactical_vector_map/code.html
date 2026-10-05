@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500;600&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#0b1422;color:#dae3f7;}body{overscroll-behavior:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface": "#0b1422", "on-secondary-fixed": "#001f27", "secondary-fixed-dim": "#3cd7ff", "tertiary-fixed": "#e5deff", "inverse-on-surface": "#283140", "error-container": "#93000a", "on-secondary-container": "#005669", "secondary": "#a2e7ff", "error": "#ffb4ab", "on-error": "#690005", "primary-fixed": "#dce1ff", "on-error-container": "#ffdad6", "on-surface": "#dae3f7", "primary-container": "#2563ff", "on-secondary": "#003642", "surface-variant": "#2c3544", "surface-container": "#17202e", "surface-bright": "#313949", "surface-container-highest": "#2c3544", "surface-container-high": "#222a39", "outline-variant": "#434656", "inverse-surface": "#dae3f7", "on-primary-fixed": "#00164f", "on-primary-container": "#f7f6ff", "on-surface-variant": "#c3c5d8", "tertiary-container": "#7055f3", "secondary-container": "#00d2fd", "on-background": "#dae3f7", "surface-tint": "#b6c4ff", "background": "#0b1422", "on-tertiary-fixed-variant": "#441cc8", "outline": "#8d90a2", "tertiary": "#c9bfff", "surface-container-low": "#131c2a", "primary": "#b6c4ff", "on-tertiary-fixed": "#1a0063", "on-primary": "#00287d", "surface-dim": "#0b1422", "on-tertiary-container": "#faf5ff", "tertiary-fixed-dim": "#c9bfff", "on-primary-fixed-variant": "#003baf", "inverse-primary": "#004fe5", "surface-container-lowest": "#060e1c", "primary-fixed-dim": "#b6c4ff", "secondary-fixed": "#b4ebff", "on-tertiary": "#2e009c", "on-secondary-fixed-variant": "#004e5f" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "margin": "1rem", "space-lg": "1.5rem", "space-md": "1rem", "space-sm": "0.5rem", "space-xs": "0.25rem", "gutter": "1rem", "space-xl": "2rem" }, fontFamily: { "label-md": ["JetBrains Mono"], "headline-sm": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "label-sm": ["JetBrains Mono"], "headline-lg": ["Plus Jakarta Sans"], "title-md": ["Inter"], "body-sm": ["Inter"], "title-lg": ["Plus Jakarta Sans"], "label-lg": ["JetBrains Mono"], "headline-md": ["Plus Jakarta Sans"], "body-md": ["Inter"], "display-lg": ["Plus Jakarta Sans"] }, fontSize: { "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" }], "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "600" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "title-lg": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500" }], "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface text-on-surface font-body-md flex flex-col antialiased selection:bg-primary-container selection:text-on-primary-container flex flex-col h-screen flex flex-col"><header class="fixed top-0 w-full z-50 bg-surface-container-lowest/80 backdrop-blur-xl shadow-[0_4px_20px_rgba(0,0,0,0.4)] shrink-0"><div class="pt-safe"><div class="flex justify-between items-center px-margin h-6 text-on-surface-variant font-label-sm text-label-sm select-none"><span class="tracking-wider text-on-surface font-semibold">09:41</span><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[14px] text-secondary">airplanemode_active</span><span class="material-symbols-outlined text-[14px] text-secondary">bluetooth</span><span class="material-symbols-outlined text-[14px] text-secondary">hub</span><div class="flex items-center gap-0.5 ml-1"><span class="text-[10px] text-on-surface font-label-sm">89%</span><span class="material-symbols-outlined text-[14px] text-on-surface">battery_charging_80</span></div></div></div><div class="h-14 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm"><img alt="OFFGRID Emblem Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1W1UO3PQHgzib33NT8zog8migShUE78Om_OV9GEgx5rwxYniV9l0LUqeItxdIouGv1gE1-xC9qqqVdpqsMK1PIFbBuQVYxHF1AwY2oCU6CnOpkBAkk3-Rkel-KjTmpH8sMqNusl2mU7UW9KzgQ6FVR-zqWIeIXnCP5qWNFu_CHKW666wlmSo-0fJ-NdbW65vnzvNJatZrOjOFvLdimq9qeTHyGEKqsnOttnp0jYbI1jC9LWnAuHMvOeN8K1"/><div class="flex flex-col"><span class="font-title-lg text-title-lg tracking-tight font-bold text-on-surface leading-tight">OFFGRID</span><span class="font-label-sm text-label-sm text-secondary tracking-widest uppercase">Radar Mesh</span></div></div><div class="flex items-center gap-space-sm"><div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high/90 shadow-[0_0_12px_rgba(0,210,253,0.15)]"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span class="font-label-sm text-label-sm text-secondary font-medium whitespace-nowrap">Mesh Active (14 nodes)</span></div><div class="w-8 h-8 rounded-full p-0.5 bg-gradient-to-tr from-secondary to-primary-container shrink-0 flex items-center justify-center"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBicInjDpQSxL6H_1VIkNE0ww9tTlWtPwtTZc-ZKVCQvM_DVHVBMQK1ZQIDLItsl7QpiEaKIc1oYhIlFiYB3HUDjbteWzpS5n99XGgoy7CpVFOpNpDA5_f3seNVOHIknhSUGr6StTRDOgUb20EuxmDTZ9bFJwbmZQR-VI3SzNm3EMUynpstt1YoBqfO0WYB2Y_4OG9ShEt5QC5gnhn1TKv5oT-K-VtG_uv8E5JuhzBGmHaEFaqXNZsSZw"/></div></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-20 pb-28 bg-surface overflow-y-auto"><div class="flex flex-col w-full relative select-none">
+<!-- Top Tactical HUD / Control Matrix -->
+<div class="sticky top-0 z-30 flex flex-col gap-space-sm px-margin py-space-sm bg-surface-container-lowest/90 backdrop-blur-xl shadow-lg">
+<!-- Row 1: Nav return, Title & Sat Status -->
+<div class="flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<button aria-label="Back" class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-secondary active:scale-95 transition-transform" id="hud-back-btn">
+<span class="material-symbols-outlined text-xl">arrow_back</span>
+</button>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-title-lg text-title-lg text-on-surface font-bold tracking-tight truncate">Vector Map</span>
+<span class="font-label-sm text-label-sm text-secondary bg-surface-container-high px-1.5 py-0.5 rounded uppercase">Offline</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+            24km² DEM Topo Cached
+          </span>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0">
+<div class="flex items-center gap-1 text-secondary bg-surface-container-high px-2 py-1 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-sm animate-pulse">satellite_alt</span>
+<span class="font-label-sm text-label-sm font-semibold">RTK Locked</span>
+</div>
+<span class="font-label-sm text-[10px] text-on-surface-variant mt-0.5">17 Sats • 0.4m acc</span>
+</div>
+</div>
+<!-- Row 2: Compass & Azimuth Telemetry Readout -->
+<div class="flex items-center justify-between px-space-md py-2 rounded-lg bg-surface-container-high/70 shadow-inner">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-base">explore</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary font-semibold">042° NE</span>
+<span class="font-label-sm text-[9px] text-on-surface-variant">BEARING AZIMUTH</span>
+</div>
+</div>
+<div class="h-6 w-px bg-surface-variant"></div>
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-base">landscape</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-primary font-semibold">512m MSL</span>
+<span class="font-label-sm text-[9px] text-on-surface-variant">BARO ELEVATION</span>
+</div>
+</div>
+<div class="h-6 w-px bg-surface-variant"></div>
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-base">wifi_channel</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary font-semibold">868.1 MHz</span>
+<span class="font-label-sm text-[9px] text-on-surface-variant">LORA DIRECT</span>
+</div>
+</div>
+</div>
+<!-- Row 3: Tactical Filter Chips (Horizontal Scroll) -->
+<div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1" id="filter-chip-row">
+<button class="filter-chip px-3 py-1.5 rounded-full font-label-sm text-label-sm whitespace-nowrap bg-secondary text-on-secondary shadow-md font-semibold transition-all">All Layers</button>
+<button class="filter-chip px-3 py-1.5 rounded-full font-label-sm text-label-sm whitespace-nowrap bg-surface-container-high text-on-surface-variant active:bg-surface-variant font-medium transition-all">Responders (4)</button>
+<button class="filter-chip px-3 py-1.5 rounded-full font-label-sm text-label-sm whitespace-nowrap bg-surface-container-high text-error active:bg-surface-variant font-medium transition-all flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-error animate-pulse"></span>
+        Distress Pins (1)
+      </button>
+<button class="filter-chip px-3 py-1.5 rounded-full font-label-sm text-label-sm whitespace-nowrap bg-surface-container-high text-on-surface-variant active:bg-surface-variant font-medium transition-all">Relays (7)</button>
+<button class="filter-chip px-3 py-1.5 rounded-full font-label-sm text-label-sm whitespace-nowrap bg-surface-container-high text-on-surface-variant active:bg-surface-variant font-medium transition-all">Shelters (2)</button>
+</div>
+</div>
+<!-- Interactive Vector Canvas Area -->
+<div class="relative w-full h-[580px] bg-surface-container-lowest overflow-hidden">
+<!-- Google Static Map Proxy / Offline Vector Tile Base -->
+<div class="absolute inset-0 w-full h-full opacity-35 filter contrast-125 saturate-50 pointer-events-none" data-location="Hyderabad Hills Ridge Topography" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDXAtBhg7FsiMo5Xl85mpMol-VrdEy9X0L9WxT7-jaonS8MGKIcfaa5I_16YGcdqmk-KfPdnKfWiBKQhqdbQo7PeZi6jFx399pCliP7zMN_3lvmuizP1DQ4ceVgZEvhYloHeUNb4r8BB2YJUKzeRoDx8XZKRDBqD-45OAfv7Mb4qC4qciRt0dk6DRitC2G-Egm05X5H3yKfNifuYQ76FmAoSNHUwDIn6cks4iP_Fg1PQfQzpyBRdw7LEg'); background-size: cover; background-position: center;"></div>
+<!-- Procedural Tactical Vector Topo Overlay (SVG) -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" fill="none" viewbox="0 0 390 580" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<!-- Grid pattern -->
+<pattern height="40" id="tactical-grid" patternunits="userSpaceOnUse" width="40">
+<path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(162, 231, 255, 0.05)" stroke-width="0.75"></path>
+<circle cx="0" cy="0" fill="rgba(162, 231, 255, 0.15)" r="1"></circle>
+</pattern>
+<!-- Gradients -->
+<lineargradient id="heading-beam-grad" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#00d2fd" stop-opacity="0.45"></stop>
+<stop offset="100%" stop-color="#00d2fd" stop-opacity="0.0"></stop>
+</lineargradient>
+<lineargradient id="safe-route-grad" x1="0" x2="1" y1="0" y2="1">
+<stop offset="0%" stop-color="#00d2fd"></stop>
+<stop offset="60%" stop-color="#b6c4ff"></stop>
+<stop offset="100%" stop-color="#ffb4ab"></stop>
+</lineargradient>
+<radialgradient cx="50%" cy="50%" id="hazard-wash" r="50%">
+<stop offset="0%" stop-color="#93000a" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="#93000a" stop-opacity="0"></stop>
+</radialgradient>
+</defs>
+<!-- Background Orthogonal Grid -->
+<rect fill="url(#tactical-grid)" height="100%" width="100%"></rect>
+<!-- Contour Elevation Curves (Topography) -->
+<path d="M-20,120 Q120,90 200,140 T380,110 T440,160" fill="none" stroke="rgba(162, 231, 255, 0.12)" stroke-dasharray="2 3" stroke-width="1.2"></path>
+<path d="M-30,170 Q100,150 180,210 T360,190 T430,240" fill="none" stroke="rgba(162, 231, 255, 0.18)" stroke-width="1.2"></path>
+<path d="M-10,240 Q130,210 220,290 T400,270" fill="none" stroke="rgba(162, 231, 255, 0.14)" stroke-width="1"></path>
+<path d="M-40,320 Q80,280 190,360 T420,330" fill="none" stroke="rgba(162, 231, 255, 0.16)" stroke-width="1.2"></path>
+<path d="M10,410 Q140,360 260,430 T430,400" fill="none" stroke="rgba(162, 231, 255, 0.12)" stroke-dasharray="4 4" stroke-width="0.8"></path>
+<!-- Elevation Labels on Vector -->
+<text fill="rgba(162, 231, 255, 0.35)" font-family="JetBrains Mono" font-size="8" letter-spacing="1" x="32" y="182">480m</text>
+<text fill="rgba(162, 231, 255, 0.35)" font-family="JetBrains Mono" font-size="8" letter-spacing="1" x="310" y="200">510m</text>
+<text fill="rgba(162, 231, 255, 0.35)" font-family="JetBrains Mono" font-size="8" letter-spacing="1" x="28" y="330">540m</text>
+<!-- Flooded Ravine Zone (Hazard Area) -->
+<path d="M140,290 C180,310 190,360 170,400 C150,440 120,430 110,380 C100,330 110,290 140,290 Z" fill="url(#hazard-wash)"></path>
+<path d="M140,290 C180,310 190,360 170,400 C150,440 120,430 110,380 Z" fill="none" opacity="0.4" stroke="#ffb4ab" stroke-dasharray="3 3" stroke-width="1"></path>
+<text fill="#ffb4ab" font-family="JetBrains Mono" font-size="7.5" font-weight="600" opacity="0.8" text-anchor="middle" x="135" y="365">SUBMERGED RAVINE</text>
+<text fill="#ffb4ab" font-family="Inter" font-size="6.5" opacity="0.6" text-anchor="middle" x="135" y="376">Water Surge +1.8m</text>
+<!-- Mesh Interlink: You to Dr. Priya Sharma -->
+<line opacity="0.75" stroke="#b6c4ff" stroke-dasharray="4 4" stroke-width="1.5" x1="205" x2="95" y1="275" y2="165"></line>
+<!-- Mesh Interlink: You to Base Relay Alpha-04 -->
+<line opacity="0.6" stroke="#00d2fd" stroke-dasharray="2 3" stroke-width="1" x1="205" x2="310" y1="275" y2="340"></line>
+<!-- Synthetic Safe Routing Vector: Ridge Line to Distress Pin -->
+<path d="M205,275 C230,250 245,210 230,175 C220,150 195,130 172,118" fill="none" stroke="url(#safe-route-grad)" stroke-linecap="round" stroke-width="3"></path>
+<path d="M205,275 C230,250 245,210 230,175 C220,150 195,130 172,118" fill="none" opacity="0.9" stroke="#f7f6ff" stroke-dasharray="3 6" stroke-linecap="round" stroke-width="1"></path>
+<!-- Elevation Profile Waypoint Ticks along route -->
+<circle cx="232" cy="225" fill="#00d2fd" r="2"></circle>
+<circle cx="228" cy="165" fill="#b6c4ff" r="2"></circle>
+<!-- Local Node Directional Heading Vision Beam -->
+<polygon fill="url(#heading-beam-grad)" points="205,275 140,80 270,80"></polygon>
+</svg>
+<!-- Geographic Graticule Coordinates HUD -->
+<div class="absolute top-3 left-3 bg-surface-container-lowest/80 backdrop-blur-md px-2.5 py-1 rounded shadow-sm flex items-center gap-1.5 pointer-events-none">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-[10px] text-on-surface font-mono tracking-wide">17.4485° N, 78.3741° E</span>
+</div>
+<div class="absolute top-3 right-3 bg-surface-container-lowest/80 backdrop-blur-md px-2 py-1 rounded shadow-sm text-right pointer-events-none">
+<span class="font-label-sm text-[9px] text-on-surface-variant font-mono">GRID: WGS-84 UTM-44Q</span>
+</div>
+<!-- INTERACTIVE NODE 1: Distress Beacon [Sec-04] (Hazard Target) -->
+<div class="absolute top-[96px] left-[150px] -translate-x-1/2 -translate-y-1/2 cursor-pointer z-20 group" id="node-distress">
+<div class="relative flex items-center justify-center">
+<!-- Pulse ring 1 -->
+<div class="absolute w-16 h-16 rounded-full bg-error-container/30 animate-ping"></div>
+<!-- Pulse ring 2 -->
+<div class="absolute w-10 h-10 rounded-full bg-error/20 animate-pulse"></div>
+<!-- Pin Marker Base -->
+<div class="relative w-8 h-8 rounded-full bg-error-container text-on-error flex items-center justify-center shadow-[0_0_20px_rgba(255,59,92,0.6)]">
+<span class="material-symbols-outlined text-base">emergency</span>
+</div>
+<!-- Tooltip Pill -->
+<div class="absolute -top-7 whitespace-nowrap bg-error-container text-on-error px-2 py-0.5 rounded-full font-label-sm text-[9px] font-bold tracking-tight shadow-md">
+          DISTRESS [SEC-04]
+        </div>
+</div>
+</div>
+<!-- INTERACTIVE NODE 2: Local User Node (You) -->
+<div class="absolute top-[275px] left-[205px] -translate-x-1/2 -translate-y-1/2 cursor-pointer z-20" id="node-user">
+<div class="relative flex items-center justify-center">
+<!-- Radial wave -->
+<div class="absolute w-12 h-12 rounded-full bg-secondary/15 animate-pulse"></div>
+<!-- Outer halo -->
+<div class="w-6 h-6 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-[0_0_16px_rgba(0,210,253,0.7)] ring-2 ring-secondary">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+</div>
+<!-- Heading Chevron indicator -->
+<div class="absolute -top-3 text-secondary">
+<span class="material-symbols-outlined text-xs">navigation</span>
+</div>
+<div class="absolute -bottom-5 whitespace-nowrap bg-surface-container-high/90 text-secondary px-1.5 py-0.2 rounded font-label-sm text-[8px] font-bold">
+          YOU (0.0km)
+        </div>
+</div>
+</div>
+<!-- INTERACTIVE NODE 3: Dr. Priya Sharma (Medic Peer) -->
+<div class="absolute top-[165px] left-[95px] -translate-x-1/2 -translate-y-1/2 cursor-pointer z-20" id="node-medic">
+<div class="relative flex items-center justify-center">
+<div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-[0_0_14px_rgba(182,196,255,0.4)]">
+<span class="material-symbols-outlined text-sm">medical_services</span>
+</div>
+<div class="absolute -top-6 whitespace-nowrap bg-surface-container-high/90 text-primary-fixed px-1.5 py-0.5 rounded font-label-sm text-[8px] font-medium flex items-center gap-1">
+<span class="w-1 h-1 rounded-full bg-secondary"></span>
+          Dr. Priya (120m)
+        </div>
+</div>
+</div>
+<!-- INTERACTIVE NODE 4: Base Relay Alpha-04 (Anchor Node) -->
+<div class="absolute top-[340px] left-[310px] -translate-x-1/2 -translate-y-1/2 cursor-pointer z-20" id="node-relay">
+<div class="relative flex items-center justify-center">
+<div class="w-7 h-7 rounded-full bg-surface-container-high text-secondary flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-sm">cell_tower</span>
+</div>
+<div class="absolute -bottom-5 whitespace-nowrap bg-surface-container-lowest/90 text-on-surface-variant px-1.5 py-0.5 rounded font-label-sm text-[8px]">
+          Relay A-04 [98%]
+        </div>
+</div>
+</div>
+<!-- Tactical Canvas Control Floating Bar (Right-side column) -->
+<div class="absolute right-3 top-14 z-20 flex flex-col gap-2">
+<!-- Zoom In -->
+<button class="w-10 h-10 rounded-xl bg-surface-container-high/90 backdrop-blur-md text-on-surface shadow-lg flex items-center justify-center active:scale-90 transition-transform" id="ctrl-zoom-in" title="Zoom In">
+<span class="material-symbols-outlined text-xl">add</span>
+</button>
+<!-- Zoom Out -->
+<button class="w-10 h-10 rounded-xl bg-surface-container-high/90 backdrop-blur-md text-on-surface shadow-lg flex items-center justify-center active:scale-90 transition-transform" id="ctrl-zoom-out" title="Zoom Out">
+<span class="material-symbols-outlined text-xl">remove</span>
+</button>
+<!-- Recenter on User -->
+<button class="w-10 h-10 rounded-xl bg-surface-container-high/90 backdrop-blur-md text-secondary shadow-lg flex items-center justify-center active:scale-90 transition-transform" id="ctrl-recenter" title="Recenter">
+<span class="material-symbols-outlined text-xl">my_location</span>
+</button>
+<!-- Layer Toggle -->
+<button class="w-10 h-10 rounded-xl bg-surface-container-high/90 backdrop-blur-md text-on-surface shadow-lg flex items-center justify-center active:scale-90 transition-transform" id="ctrl-layers" title="Toggle Layers">
+<span class="material-symbols-outlined text-xl">layers</span>
+</button>
+<!-- 3D Topo Toggle -->
+<button class="w-10 h-10 rounded-xl bg-surface-container-high/90 backdrop-blur-md text-secondary shadow-lg flex items-center justify-center font-label-sm text-xs font-bold active:scale-90 transition-transform" id="ctrl-3d" title="3D Topography">
+        3D
+      </button>
+</div>
+<!-- Floating Mini Status Chip (Left-side bottom) -->
+<div class="absolute left-3 bottom-8 z-10 flex items-center gap-2 bg-surface-container-lowest/85 backdrop-blur-md px-3 py-1.5 rounded-full shadow-md">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-label-sm text-[10px] text-on-surface">Mesh Vector Rate: 24 kbps</span>
+</div>
+</div>
+<!-- Bottom Expandable Tactical Sheet (Frosted Glass Drawer) -->
+<div class="relative z-30 -mt-6 bg-surface-container-high/95 backdrop-blur-2xl rounded-t-[32px] p-space-md shadow-[0_-8px_32px_rgba(0,0,0,0.5)] transition-all duration-300 flex flex-col gap-space-md" id="tactical-drawer">
+<!-- Drag Handle Indicator -->
+<div class="w-12 h-1.5 rounded-full bg-outline-variant/60 mx-auto cursor-pointer hover:bg-outline" id="drawer-handle"></div>
+<!-- Drawer Target Header -->
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-start gap-3 min-w-0">
+<div class="w-11 h-11 rounded-2xl bg-error-container text-on-error flex items-center justify-center shrink-0 shadow-[0_0_16px_rgba(255,59,92,0.4)]">
+<span class="material-symbols-outlined text-2xl">e911_emergency</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold truncate">Distress Beacon [Sec-04]</span>
+<span class="font-label-sm text-[10px] bg-error/20 text-error px-1.5 py-0.5 rounded font-bold uppercase">SOS P-1</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1.5 mt-0.5">
+<span class="material-symbols-outlined text-sm text-error">near_me</span>
+            Triangulated 340m away • Bearing 294° NW
+          </span>
+</div>
+</div>
+<button aria-label="Bookmark node" class="w-9 h-9 rounded-full bg-surface-variant/50 text-on-surface-variant flex items-center justify-center active:scale-95 transition-transform" id="target-favorite-btn">
+<span class="material-symbols-outlined text-lg">bookmark</span>
+</button>
+</div>
+<!-- Target Telemetry Metrics Matrix -->
+<div class="grid grid-cols-3 gap-2">
+<div class="bg-surface-container px-3 py-2 rounded-xl flex flex-col">
+<span class="font-label-sm text-[10px] text-on-surface-variant uppercase">EST TIME</span>
+<span class="font-headline-sm text-headline-sm text-secondary font-bold">7 min</span>
+<span class="font-label-sm text-[9px] text-secondary/80">Fast Ridge Pace</span>
+</div>
+<div class="bg-surface-container px-3 py-2 rounded-xl flex flex-col">
+<span class="font-label-sm text-[10px] text-on-surface-variant uppercase">ELEV GAIN</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">+55m</span>
+<span class="font-label-sm text-[9px] text-on-surface-variant">457m → 512m</span>
+</div>
+<div class="bg-surface-container px-3 py-2 rounded-xl flex flex-col">
+<span class="font-label-sm text-[10px] text-on-surface-variant uppercase">SIGNAL RELIABILITY</span>
+<span class="font-headline-sm text-headline-sm text-secondary font-bold">-78 dBm</span>
+<span class="font-label-sm text-[9px] text-secondary/80">2-Hop Mesh</span>
+</div>
+</div>
+<!-- AI Terrain Assessment Card -->
+<div class="bg-surface-container-lowest/80 rounded-2xl p-3 flex flex-col gap-2 shadow-inner">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base text-secondary">psychology</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold uppercase tracking-wider">Tactical AI Terrain Advisory</span>
+</div>
+<span class="font-label-sm text-[9px] text-on-surface-variant">Llama-3 On-Device</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface leading-relaxed">
+<strong class="text-secondary font-semibold">Dry ridge route recommended.</strong> The direct ravine gully has experienced flash flooding (+1.8m surge risk). Proceed northwest along contour 510 to reach beacon coordinates without water transit.
+      </p>
+</div>
+<!-- Interactive Primary Actions -->
+<div class="flex flex-col gap-2.5 pt-1">
+<!-- Main Nav Start Action -->
+<button class="w-full py-3.5 px-space-md rounded-2xl bg-gradient-to-r from-error-container via-primary-container to-secondary-container text-on-primary-container flex items-center justify-center gap-2 shadow-[0_4px_24px_rgba(37,99,255,0.4)] active:scale-[0.98] transition-all" id="start-nav-btn">
+<span class="material-symbols-outlined text-2xl animate-pulse">navigation</span>
+<span class="font-title-md text-title-md font-bold tracking-wide">Start Turn-by-Turn Navigation</span>
+</button>
+<!-- Secondary Quick Actions Row -->
+<div class="grid grid-cols-2 gap-2">
+<button class="py-2.5 px-3 rounded-xl bg-surface-container text-secondary flex items-center justify-center gap-1.5 active:bg-surface-bright transition-all shadow-sm" id="ptt-btn">
+<span class="material-symbols-outlined text-lg">mic</span>
+<span class="font-title-md text-body-md font-semibold truncate">Direct PTT Mesh</span>
+</button>
+<button class="py-2.5 px-3 rounded-xl bg-surface-container text-on-surface flex items-center justify-center gap-1.5 active:bg-surface-bright transition-all shadow-sm" id="share-coords-btn">
+<span class="material-symbols-outlined text-lg">share_location</span>
+<span class="font-title-md text-body-md font-semibold truncate">Relay Coordinates</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Interactive Feedback Overlay Modal (Hidden by default) -->
+<div class="fixed top-24 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 transition-opacity duration-300 bg-surface-container-highest/95 text-on-surface px-4 py-2 rounded-full shadow-2xl flex items-center gap-2 backdrop-blur-xl" id="hud-toast">
+<span class="material-symbols-outlined text-secondary text-base" id="toast-icon">check_circle</span>
+<span class="font-label-sm text-label-sm font-medium" id="toast-msg">Action confirmed</span>
+</div>
+</div>
+<script>
+  (function() {
+    // Micro-interactions & Tactical Map Drawer Logic
+    const toast = document.getElementById('hud-toast');
+    const toastMsg = document.getElementById('toast-msg');
+    const toastIcon = document.getElementById('toast-icon');
+
+    function triggerToast(message, icon = 'info') {
+      if (!toast) return;
+      toastMsg.textContent = message;
+      toastIcon.textContent = icon;
+      toast.classList.remove('opacity-0');
+      toast.classList.add('opacity-100');
+      setTimeout(() => {
+        toast.classList.remove('opacity-100');
+        toast.classList.add('opacity-0');
+      }, 2200);
+    }
+
+    // Filter Chips Toggle
+    const filterChips = document.querySelectorAll('.filter-chip');
+    filterChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        filterChips.forEach(c => {
+          c.classList.remove('bg-secondary', 'text-on-secondary');
+          c.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+        });
+        chip.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+        chip.classList.add('bg-secondary', 'text-on-secondary');
+        triggerToast('Filter applied: ' + chip.textContent.trim(), 'filter_alt');
+      });
+    });
+
+    // Interactive Map Nodes
+    const nodeDistress = document.getElementById('node-distress');
+    const nodeUser = document.getElementById('node-user');
+    const nodeMedic = document.getElementById('node-medic');
+    const nodeRelay = document.getElementById('node-relay');
+
+    if (nodeDistress) {
+      nodeDistress.addEventListener('click', () => {
+        triggerToast('Target focused: Distress Beacon [Sec-04]', 'emergency');
+      });
+    }
+
+    if (nodeUser) {
+      nodeUser.addEventListener('click', () => {
+        triggerToast('Current Location: 17.4485° N, 78.3741° E (GPS Lock)', 'my_location');
+      });
+    }
+
+    if (nodeMedic) {
+      nodeMedic.addEventListener('click', () => {
+        triggerToast('Selected: Dr. Priya Sharma • 120m away (Direct Link)', 'medical_services');
+      });
+    }
+
+    if (nodeRelay) {
+      nodeRelay.addEventListener('click', () => {
+        triggerToast('Selected: Base Relay Alpha-04 • 98% Battery (Healthy)', 'cell_tower');
+      });
+    }
+
+    // Tactical Map Controls
+    document.getElementById('ctrl-zoom-in')?.addEventListener('click', () => {
+      triggerToast('Vector Topo Zoom: 18x Level', 'zoom_in');
+    });
+
+    document.getElementById('ctrl-zoom-out')?.addEventListener('click', () => {
+      triggerToast('Vector Topo Zoom: 14x Level', 'zoom_out');
+    });
+
+    document.getElementById('ctrl-recenter')?.addEventListener('click', () => {
+      triggerToast('Re-centering on your position...', 'gps_fixed');
+    });
+
+    document.getElementById('ctrl-layers')?.addEventListener('click', () => {
+      triggerToast('Layer cycle: Contour + Water + Hazard overlays', 'layers');
+    });
+
+    const btn3D = document.getElementById('ctrl-3d');
+    let is3d = false;
+    btn3D?.addEventListener('click', () => {
+      is3d = !is3d;
+      btn3D.classList.toggle('text-secondary', !is3d);
+      btn3D.classList.toggle('text-primary-container', is3d);
+      btn3D.classList.toggle('bg-secondary/20', is3d);
+      triggerToast(is3d ? '3D Isometric Topo Enabled (Pitch 45°)' : '2D Orthographic Vector Restored', 'view_in_ar');
+    });
+
+    // Drawer Actions
+    const navBtn = document.getElementById('start-nav-btn');
+    let navigating = false;
+    navBtn?.addEventListener('click', () => {
+      navigating = !navigating;
+      if (navigating) {
+        navBtn.classList.remove('from-error-container', 'via-primary-container', 'to-secondary-container');
+        navBtn.classList.add('from-secondary-container', 'to-primary-container');
+        navBtn.querySelector('span:last-child').textContent = 'Navigation Active: Ridge Path';
+        triggerToast('Starting offline turn-by-turn guidance along ridge...', 'turn_right');
+      } else {
+        navBtn.classList.add('from-error-container', 'via-primary-container', 'to-secondary-container');
+        navBtn.classList.remove('from-secondary-container', 'to-primary-container');
+        navBtn.querySelector('span:last-child').textContent = 'Start Turn-by-Turn Navigation';
+        triggerToast('Navigation paused.', 'pause_circle');
+      }
+    });
+
+    // PTT Direct Mic Trigger
+    const pttBtn = document.getElementById('ptt-btn');
+    pttBtn?.addEventListener('mousedown', () => {
+      pttBtn.classList.add('bg-error-container', 'text-on-error');
+      triggerToast('Transmitting Voice to Tactical Mesh (Channel 3)...', 'mic');
+    });
+    pttBtn?.addEventListener('mouseup', () => {
+      pttBtn.classList.remove('bg-error-container', 'text-on-error');
+    });
+
+    // Share Coordinates
+    document.getElementById('share-coords-btn')?.addEventListener('click', () => {
+      triggerToast('Beacon Coordinates broadcasted via LoRa broadcast packet', 'broadcast_on_personal');
+    });
+
+    // Bookmark Toggle
+    const favBtn = document.getElementById('target-favorite-btn');
+    let fav = false;
+    favBtn?.addEventListener('click', () => {
+      fav = !fav;
+      favBtn.classList.toggle('text-secondary', fav);
+      triggerToast(fav ? 'Beacon pinned to offline Quick Access' : 'Beacon unpinned', 'bookmark');
+    });
+
+    // Header Back action
+    document.getElementById('hud-back-btn')?.addEventListener('click', () => {
+      triggerToast('Returning to Mesh Operations Overview...', 'arrow_back');
+    });
+  })();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe pointer-events-none" data-active-classes="text-secondary bg-surface-bright/40 shadow-[0_0_16px_rgba(0,210,253,0.35)]"><div class="px-margin pb-3 pt-1 pointer-events-auto"><div class="relative flex items-center justify-around h-16 rounded-full bg-surface-container-high/90 backdrop-blur-2xl shadow-[0_8px_32px_-4px_rgba(0,0,0,0.6)] px-2"><a class="flex flex-col items-center justify-center min-w-[48px] h-12 rounded-full text-on-surface-variant hover:text-on-surface transition-all duration-300" data-path="network-dashboard" href="#"><span class="material-symbols-outlined text-2xl">home</span><span class="font-label-sm text-[9px] mt-0.5">Home</span></a><a aria-current="page" class="flex flex-col items-center justify-center min-w-[48px] h-12 rounded-full transition-all duration-300 text-secondary bg-surface-bright/40 shadow-[0_0_16px_rgba(0,210,253,0.35)]" data-path="radar-mesh" href="#"><span class="material-symbols-outlined text-2xl">radar</span><span class="font-label-sm text-[9px] mt-0.5">Radar</span></a><div class="relative flex items-center justify-center -mt-6 px-1"><a class="w-14 h-14 rounded-full bg-error-container text-on-error-container flex items-center justify-center shadow-[0_0_24px_rgba(255,59,92,0.55)] active:scale-95 transition-transform duration-200 animate-pulse" data-path="emergency-sos" href="#"><span class="material-symbols-outlined text-3xl font-bold text-on-error">sos</span></a></div><a class="flex flex-col items-center justify-center min-w-[48px] h-12 rounded-full text-on-surface-variant hover:text-on-surface transition-all duration-300" data-path="offline-map" href="#"><span class="material-symbols-outlined text-2xl">map</span><span class="font-label-sm text-[9px] mt-0.5">Map</span></a><a class="flex flex-col items-center justify-center min-w-[48px] h-12 rounded-full text-on-surface-variant hover:text-on-surface transition-all duration-300" data-path="tactical-ai-assistant" href="#"><span class="material-symbols-outlined text-2xl">smart_toy</span><span class="font-label-sm text-[9px] mt-0.5">Tactical AI</span></a></div></div></nav></body></html>

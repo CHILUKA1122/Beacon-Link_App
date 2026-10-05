@@ -1,0 +1,62 @@
+import java.util.regex.Pattern
+
+rootProject {
+    def dirs = [
+        file("app/src/main/assets/frontend"),
+        file("extracted_frontend/stitch_offgrid_emergency_network_app")
+    ]
+    
+    dirs.each { dir ->
+        if (dir.exists()) {
+            dir.eachFileRecurse(groovy.io.FileType.FILES) { f ->
+                if (f.name == "code.html") {
+                    def content = f.text
+                    def changed = false
+                    
+                    def mBody = content =~ /(?s)(<body[^>]*class=")([^"]*)(")/
+                    if (mBody.find()) {
+                        def cls = mBody.group(2).replace("min-h-screen", "").replace("h-screen", "")
+                        cls += " h-screen flex flex-col"
+                        cls = cls.replaceAll("\\s+", " ").trim()
+                        content = content.replaceFirst(/(?s)(<body[^>]*class=")([^"]*)(")/, "\$1" + cls + "\$3")
+                        changed = true
+                    }
+                    
+                    def mMain = content =~ /(?s)(<main[^>]*class=")([^"]*)(")/
+                    if (mMain.find()) {
+                        def cls = mMain.group(2).replace("overflow-hidden", "")
+                        if (!cls.contains("flex-1")) cls += " flex-1"
+                        if (!cls.contains("overflow-y-auto")) cls += " overflow-y-auto"
+                        cls = cls.replaceAll("\\s+", " ").trim()
+                        content = content.replaceFirst(/(?s)(<main[^>]*class=")([^"]*)(")/, "\$1" + cls + "\$3")
+                        changed = true
+                    }
+                    
+                    def mHeader = content =~ /(?s)(<header[^>]*class=")([^"]*)(")/
+                    if (mHeader.find()) {
+                        def cls = mHeader.group(2)
+                        if (!cls.contains("shrink-0") && !cls.contains("flex-shrink-0")) cls += " shrink-0"
+                        cls = cls.replaceAll("\\s+", " ").trim()
+                        content = content.replaceFirst(/(?s)(<header[^>]*class=")([^"]*)(")/, "\$1" + cls + "\$3")
+                        changed = true
+                    }
+                    
+                    def mNav = content =~ /(?s)(<nav[^>]*class=")([^"]*)(")/
+                    if (mNav.find()) {
+                        def cls = mNav.group(2).replace("absolute", "fixed")
+                        if (!cls.contains("fixed")) cls += " fixed"
+                        if (!cls.contains("bottom-0")) cls += " bottom-0"
+                        cls = cls.replaceAll("\\s+", " ").trim()
+                        content = content.replaceFirst(/(?s)(<nav[^>]*class=")([^"]*)(")/, "\$1" + cls + "\$3")
+                        changed = true
+                    }
+                    
+                    if (changed) {
+                        f.text = content
+                        println("Modified ${f.absolutePath}")
+                    }
+                }
+            }
+        }
+    }
+}

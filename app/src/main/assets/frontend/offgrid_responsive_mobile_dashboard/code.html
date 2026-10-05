@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "surface-variant": "#2c3544",
+          "surface": "#08111F",
+          "surface-container": "#0e1828",
+          "surface-container-low": "#08101c",
+          "surface-container-high": "#162338",
+          "surface-container-highest": "#1f2f48",
+          "surface-container-lowest": "#02050b",
+          "surface-bright": "#283b57",
+          "on-surface": "#dae3f7",
+          "on-surface-variant": "#92a0b8",
+          "primary": "#b6c4ff",
+          "primary-container": "#2563ff",
+          "on-primary": "#00287d",
+          "secondary": "#3cd7ff",
+          "secondary-container": "#00d2fd",
+          "secondary-fixed-dim": "#3cd7ff",
+          "tertiary": "#c9bfff",
+          "tertiary-container": "#7055f3",
+          "tertiary-fixed": "#e5deff",
+          "error": "#ff6b7e",
+          "error-container": "#700416",
+          "on-error": "#ffffff"
+        },
+        fontFamily: {
+          "display-lg": ["Plus Jakarta Sans", "sans-serif"],
+          "headline-lg": ["Plus Jakarta Sans", "sans-serif"],
+          "headline-md": ["Plus Jakarta Sans", "sans-serif"],
+          "headline-sm": ["Plus Jakarta Sans", "sans-serif"],
+          "title-lg": ["Plus Jakarta Sans", "sans-serif"],
+          "title-md": ["Inter", "sans-serif"],
+          "body-lg": ["Inter", "sans-serif"],
+          "body-md": ["Inter", "sans-serif"],
+          "body-sm": ["Inter", "sans-serif"],
+          "label-lg": ["JetBrains Mono", "monospace"],
+          "label-md": ["JetBrains Mono", "monospace"],
+          "label-sm": ["JetBrains Mono", "monospace"]
+        }
+      }
+    }
+  };
+</script>
+<style>
+  @layer base {
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #08111F;
+      color: #dae3f7;
+      font-family: 'Inter', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+  }
+  .pt-safe { padding-top: env(safe-area-inset-top, 44px); }
+  .pb-safe { padding-bottom: env(safe-area-inset-bottom, 20px); }
+
+  /* Custom Glass Styling */
+  .glass-panel {
+    background: linear-gradient(145deg, rgba(22, 35, 56, 0.72) 0%, rgba(11, 20, 36, 0.85) 100%);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(0, 210, 253, 0.06) inset;
+  }
+  .glass-card-interactive {
+    background: linear-gradient(135deg, rgba(26, 38, 58, 0.65) 0%, rgba(14, 24, 40, 0.8) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    transition: all 0.24s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .glass-card-interactive:active {
+    transform: scale(0.97);
+    border-color: rgba(60, 215, 255, 0.35);
+    box-shadow: 0 8px 24px -4px rgba(0, 210, 253, 0.2);
+  }
+  .glass-capsule {
+    background: linear-gradient(180deg, rgba(16, 25, 41, 0.88) 0%, rgba(6, 14, 28, 0.94) 100%);
+    backdrop-filter: blur(32px);
+    -webkit-backdrop-filter: blur(32px);
+    border: 1px solid rgba(60, 215, 255, 0.18);
+    box-shadow: 0 12px 32px -4px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 210, 253, 0.12);
+  }
+
+  /* Ambient Aurora Motion */
+  @keyframes auroraDrift1 {
+    0%, 100% { transform: translate(0px, 0px) scale(1); opacity: 0.3; }
+    50% { transform: translate(25px, 15px) scale(1.12); opacity: 0.45; }
+  }
+  @keyframes auroraDrift2 {
+    0%, 100% { transform: translate(0px, 0px) scale(1); opacity: 0.2; }
+    50% { transform: translate(-20px, -15px) scale(1.18); opacity: 0.38; }
+  }
+  .aurora-orb-cyan { animation: auroraDrift1 12s ease-in-out infinite; }
+  .aurora-orb-indigo { animation: auroraDrift2 16s ease-in-out infinite; }
+
+  /* Waveform audio bars */
+  @keyframes wavePulse {
+    0%, 100% { height: 6px; }
+    50% { height: 26px; }
+  }
+  .wave-bar:nth-child(1) { animation: wavePulse 0.9s ease-in-out infinite 0.1s; }
+  .wave-bar:nth-child(2) { animation: wavePulse 0.75s ease-in-out infinite 0.3s; }
+  .wave-bar:nth-child(3) { animation: wavePulse 1.1s ease-in-out infinite 0.05s; }
+  .wave-bar:nth-child(4) { animation: wavePulse 0.8s ease-in-out infinite 0.4s; }
+  .wave-bar:nth-child(5) { animation: wavePulse 1.25s ease-in-out infinite 0.2s; }
+  .wave-bar:nth-child(6) { animation: wavePulse 0.7s ease-in-out infinite 0.5s; }
+  .wave-bar:nth-child(7) { animation: wavePulse 0.95s ease-in-out infinite 0.15s; }
+  .wave-bar:nth-child(8) { animation: wavePulse 1.15s ease-in-out infinite 0.35s; }
+
+  /* Custom scrollbar hiding */
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+</style>
+</head>
+<body class="max- w-full flex flex-col h-screen overflow-hidden bg-[#08111F] text-slate-100 relative antialiased selection:bg-primary-container selection:text-white">
+<!-- Ambient Dynamic Mesh Glow Underlays -->
+<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+<div class="aurora-orb-cyan absolute -top-24 -left-20 w-96 h-96 rounded-full bg-secondary-container/15 blur-[110px]"></div>
+<div class="aurora-orb-indigo absolute top-1/3 -right-24 w-[360px] h-[360px] rounded-full bg-tertiary-container/20 blur-[120px]"></div>
+<div class="aurora-orb-cyan absolute bottom-24 left-1/4 w-[380px] h-[300px] rounded-full bg-primary-container/15 blur-[130px]"></div>
+<div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:32px_32px]"></div>
+</div>
+<!-- 2. STICKY TOP APP BAR -->
+<header class="sticky top-0 z-40 bg-[#08111F]/80 backdrop-blur-md border-b border-white/5 shrink-0 px-6 py-3 pt-safe transition-all duration-300">
+<!-- Status Row -->
+<div class="flex justify-between items-center pb-2 text-on-surface-variant font-label-sm text-[11px] select-none tracking-wider">
+<div class="flex items-center gap-1.5 font-semibold text-on-surface">
+<span>09:41</span>
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-secondary animate-ping"></span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px] text-secondary">airplanemode_active</span>
+<span class="material-symbols-outlined text-[14px] text-secondary">bluetooth_searching</span>
+<span class="material-symbols-outlined text-[14px] text-secondary">hub</span>
+<div class="flex items-center gap-1 ml-0.5 px-1.5 py-0.5 rounded-full bg-surface-container-high/80 border border-white/10">
+<span class="text-[10px] text-on-surface font-label-sm font-semibold">92%</span>
+<span class="material-symbols-outlined text-[13px] text-secondary">battery_android</span>
+</div>
+</div>
+</div>
+<!-- Dynamic Island Mesh Badge Capsule -->
+<div class="w-full">
+<div class="glass-capsule w-full rounded-full px-3.5 py-2 flex items-center justify-between transition-all duration-300 cursor-pointer shadow-[0_8px_30px_rgba(0,0,0,0.5)] active:scale-[0.99] border border-white/15" id="dynamic-capsule">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="relative flex items-center justify-center w-7 h-7 rounded-full bg-secondary/15 border border-secondary/30 shrink-0">
+<span class="material-symbols-outlined text-[16px] text-secondary animate-pulse">cell_tower</span>
+<span class="absolute inset-0 rounded-full border border-secondary animate-ping opacity-60"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-[13px] font-bold text-on-surface tracking-tight leading-none truncate">OFFGRID MESH</span>
+<span class="px-1.5 py-[2px] rounded-full bg-emerald-500/20 text-emerald-400 font-label-sm text-[9px] font-semibold uppercase tracking-wider border border-emerald-500/30">LOCKED</span>
+</div>
+<span class="font-label-sm text-[10px] text-secondary-fixed-dim leading-tight truncate">18 Peers • 915MHz LoRa active</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<div class="flex items-center gap-[3px] h-4 px-2 py-0.5 rounded-full bg-surface-container-lowest/80 border border-white/10">
+<span class="wave-bar w-[2px] bg-secondary rounded-full inline-block"></span>
+<span class="wave-bar w-[2px] bg-secondary rounded-full inline-block"></span>
+<span class="wave-bar w-[2px] bg-secondary-container rounded-full inline-block"></span>
+<span class="wave-bar w-[2px] bg-tertiary rounded-full inline-block"></span>
+<span class="wave-bar w-[2px] bg-secondary rounded-full inline-block"></span>
+</div>
+<div class="w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant hover:text-white">
+<span class="material-symbols-outlined text-[16px] transition-transform duration-300" id="capsule-chevron">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Capsule Dropdown Drawer -->
+<div class="hidden overflow-hidden mt-2 p-3 glass-panel rounded-2xl border border-secondary/30 transition-all duration-300 space-y-2.5 shadow-2xl" id="capsule-drawer">
+<div class="flex items-center justify-between text-[11px] font-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1 text-secondary"><span class="material-symbols-outlined text-[14px]">sensors</span> RELAY HOPS: 4 VERIFIED</span>
+<span class="text-emerald-400 font-mono">LATENCY: 12ms</span>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<div class="p-2 rounded-xl bg-surface-container-lowest/80 border border-white/5 text-center">
+<span class="block text-[9px] text-on-surface-variant font-label-sm">BAND</span>
+<span class="text-[11px] font-bold text-on-surface font-mono">915 MHz</span>
+</div>
+<div class="p-2 rounded-xl bg-surface-container-lowest/80 border border-white/5 text-center">
+<span class="block text-[9px] text-on-surface-variant font-label-sm">THROUGHPUT</span>
+<span class="text-[11px] font-bold text-secondary font-mono">194 Kbps</span>
+</div>
+<div class="p-2 rounded-xl bg-surface-container-lowest/80 border border-white/5 text-center">
+<span class="block text-[9px] text-on-surface-variant font-label-sm">ENCRYPTION</span>
+<span class="text-[11px] font-bold text-tertiary font-mono">AES-GCM</span>
+</div>
+</div>
+</div>
+</div>
+<!-- OFFGRID OS Title & Sri Avatar Row -->
+<div class="flex items-center justify-between pt-2.5 select-none">
+<div class="flex items-center gap-2.5">
+<div class="relative w-8 h-8 rounded-xl p-1 bg-surface-container-high/90 border border-white/10 shadow-[0_0_15px_rgba(0,210,253,0.2)] flex items-center justify-center">
+<img alt="OFFGRID Emblem Logo" class="h-full w-full object-contain" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAgMTIwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJvZmZncmlkR3JhZCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwRDRGRiIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjMjU2M0ZGIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjN0I2MUZGIi8+PC9saW5lYXJHcmFkaWVudD48ZmlsdGVyIGlkPSJnbG93IiB4PSItMjAlIiB5PSItMjAlIiB3aWR0aD0iMTQwJSIgaGVpZ2h0PSIxNDAlIj48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI0IiByZXN1bHQ9ImJsdXIiLz48ZmVDb21wb3NpdGUgaW49IlNvdXJjZUdyYXBoaWMiIGluMj0iYmx1ciIgb3BlcmF0b3I9Im92ZXIiLz48L2ZpbHRlcj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEyMCIgaGVpZ2h0PSIxMjAiIHJ4PSIzMiIgZmlsbD0iIzBCMTUyOCIvPjxwYXRoIGQ9Ik02MCAxOCBMOTQgMzQgVjYwIEM5NCA4MiA3OSAxMDAgNjAgMTA2IEM0MSAxMDAgMjYgODIgMjYgNjAgVjM0IFoiIGZpbGw9Im5vbmUiIHN0cm9rZT0idXJsKCNvZmZncmlkR3JhZCkiIHN0cm9rZS13aWR0aD0iNCIgZmlsdGVyPSJ1cmwoI2dsb3cpIi8+PHBhdGggZD0iTTUyIDM4IEw2OCA1NCBMNjAgNjIgTDYwIDc2IE02MCA0NCBMNjggNTIgTDUyIDY4IEw2MCA3NiBNNjAgMzggVjgyIiBmaWxsPSJub25lIiBzdHJva2U9IiNGRkZGRkYiIHN0cm9rZS13aWR0aD0iNC41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48Y2lyY2xlIGN4PSI2MCIgY3k9IjYwIiByPSIzIiBmaWxsPSIjMDBENEZGIiBmaWx0ZXI9InVybCgjZ2xvdykiLz48Y2lyY2xlIGN4PSIzOCIgY3k9IjUwIiByPSIyLjUiIGZpbGw9IiMwMEQ0RkYiIG9wYWNpdHk9IjAuOCIvPjxjaXJjbGUgY3g9IjgyIiBjeT0iNTAiIHI9IjIuNSIgZmlsbD0iIzdCNjFGRiIgb3BhY2l0eT0iMC44Ii8+PC9zdmc+"/>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-[15px] tracking-tight font-black text-on-surface leading-tight">OFFGRID<span class="text-secondary ml-0.5">OS</span></span>
+<span class="font-label-sm text-[8.5px] text-secondary tracking-widest uppercase">Decentralized V4.2</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<!-- Tactical Stealth Mode Toggle -->
+<button class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high/80 border border-white/10 text-on-surface text-xs font-medium hover:border-secondary/40 active:scale-95 transition-all" id="tactical-mode-btn">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-label-sm text-[10px]">STEALTH ON</span>
+</button>
+<!-- Sri Avatar data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAgMTIwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJvZmZncmlkR3JhZCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwRDRGRiIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjMjU2M0ZGIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjN0I2MUZGIi8+PC9saW5lYXJHcmFkaWVudD48ZmlsdGVyIGlkPSJnbG93IiB4PSItMjAlIiB5PSItMjAlIiB3aWR0aD0iMTQwJSIgaGVpZ2h0PSIxNDAlIj48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI0IiByZXN1bHQ9ImJsdXIiLz48ZmVDb21wb3NpdGUgaW49IlNvdXJjZUdyYXBoaWMiIGluMj0iYmx1ciIgb3BlcmF0b3I9Im92ZXIiLz48L2ZpbHRlcj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEyMCIgaGVpZ2h0PSIxMjAiIHJ4PSIzMiIgZmlsbD0iIzBCMTUyOCIvPjxwYXRoIGQ9Ik02MCAxOCBMOTQgMzQgVjYwIEM5NCA4MiA3OSAxMDAgNjAgMTA2IEM0MSAxMDAgMjYgODIgMjYgNjAgVjM0IFoiIGZpbGw9Im5vbmUiIHN0cm9rZT0idXJsKCNvZmZncmlkR3JhZCkiIHN0cm9rZS13aWR0aD0iNCIgZmlsdGVyPSJ1cmwoI2dsb3cpIi8+PHBhdGggZD0iTTUyIDM4IEw2OCA1NCBMNjAgNjIgTDYwIDc2IE02MCA0NCBMNjggNTIgTDUyIDY4IEw2MCA3NiBNNjAgMzggVjgyIiBmaWxsPSJub25lIiBzdHJva2U9IiNGRkZGRkYiIHN0cm9rZS13aWR0aD0iNC41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48Y2lyY2xlIGN4PSI2MCIgY3k9IjYwIiByPSIzIiBmaWxsPSIjMDBENEZGIiBmaWx0ZXI9InVybCgjZ2xvdykiLz48Y2lyY2xlIGN4PSIzOCIgY3k9IjUwIiByPSIyLjUiIGZpbGw9IiMwMEQ0RkYiIG9wYWNpdHk9IjAuOCIvPjxjaXJjbGUgY3g9IjgyIiBjeT0iNTAiIHI9IjIuNSIgZmlsbD0iIzdCNjFGRiIgb3BhY2l0eT0iMC44Ii8+PC9zdmc+"relative w-8 h-8 rounded-full p-[1.5px] bg-gradient-to-tr from-secondary via-primary to-tertiary shrink-0 shadow-[0_0_12px_rgba(0,210,253,0.4)]">
+<img alt="Sri Avatar Portrait" class="w-full h-full rounded-full object-cover" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAgMTIwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJvZmZncmlkR3JhZCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwRDRGRiIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjMjU2M0ZGIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjN0I2MUZGIi8+PC9saW5lYXJHcmFkaWVudD48ZmlsdGVyIGlkPSJnbG93IiB4PSItMjAlIiB5PSItMjAlIiB3aWR0aD0iMTQwJSIgaGVpZ2h0PSIxNDAlIj48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI0IiByZXN1bHQ9ImJsdXIiLz48ZmVDb21wb3NpdGUgaW49IlNvdXJjZUdyYXBoaWMiIGluMj0iYmx1ciIgb3BlcmF0b3I9Im92ZXIiLz48L2ZpbHRlcj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEyMCIgaGVpZ2h0PSIxMjAiIHJ4PSIzMiIgZmlsbD0iIzBCMTUyOCIvPjxwYXRoIGQ9Ik02MCAxOCBMOTQgMzQgVjYwIEM5NCA4MiA3OSAxMDAgNjAgMTA2IEM0MSAxMDAgMjYgODIgMjYgNjAgVjM0IFoiIGZpbGw9Im5vbmUiIHN0cm9rZT0idXJsKCNvZmZncmlkR3JhZCkiIHN0cm9rZS13aWR0aD0iNCIgZmlsdGVyPSJ1cmwoI2dsb3cpIi8+PHBhdGggZD0iTTUyIDM4IEw2OCA1NCBMNjAgNjIgTDYwIDc2IE02MCA0NCBMNjggNTIgTDUyIDY4IEw2MCA3NiBNNjAgMzggVjgyIiBmaWxsPSJub25lIiBzdHJva2U9IiNGRkZGRkYiIHN0cm9rZS13aWR0aD0iNC41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48Y2lyY2xlIGN4PSI2MCIgY3k9IjYwIiByPSIzIiBmaWxsPSIjMDBENEZGIiBmaWx0ZXI9InVybCgjZ2xvdykiLz48Y2lyY2xlIGN4PSIzOCIgY3k9IjUwIiByPSIyLjUiIGZpbGw9IiMwMEQ0RkYiIG9wYWNpdHk9IjAuOCIvPjxjaXJjbGUgY3g9IjgyIiBjeT0iNTAiIHI9IjIuNSIgZmlsbD0iIzdCNjFGRiIgb3BhY2l0eT0iMC44Ii8+PC9zdmc+"/>
+</div>
+</div>
+</div>
+</header>
+<!-- 4. SMOOTH VERTICAL SCROLL FOR MAIN CONTENT -->
+<main class="flex-1 overflow-y-auto overscroll-contain px-6 py-4 space-y-4 pb-32 no-scrollbar relative z-10 w-full">
+<!-- Greeting & Quick Ambient Status Banner -->
+<div class="flex items-end justify-between pt-1 select-none">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<h1 class="font-display-lg text-2xl font-extrabold text-on-surface tracking-tight">System Online, Sri</h1>
+<span class="text-xl">⚡</span>
+</div>
+<p class="font-body-sm text-[13px] text-on-surface-variant flex items-center gap-1.5 mt-0.5">
+<span class="material-symbols-outlined text-[15px] text-secondary">wifi_off</span>
+        Zero Telco Required • 100% Peer Radiance
+      </p>
+</div>
+<!-- Tactile Network Ping Refresh Button -->
+<button class="flex items-center justify-center w-10 h-10 rounded-2xl glass-card-interactive text-secondary hover:text-white shadow-lg active:scale-90 transition-all border border-white/10" id="radar-pulse-trigger" title="Rescan Frequencies">
+<span class="material-symbols-outlined text-[20px]">radar</span>
+</button>
+</div>
+<!-- HERO TOPOLOGY & LIVE MESH VISUALIZER WIDGET -->
+<section class="relative w-full overflow-hidden rounded-3xl glass-panel p-4 shadow-[0_20px_50px_rgba(0,0,0,0.7)] border border-white/15">
+<div class="absolute -right-16 -top-16 w-52 h-52 rounded-full bg-primary-container/25 blur-3xl pointer-events-none"></div>
+<div class="absolute -left-12 -bottom-12 w-44 h-44 rounded-full bg-secondary-container/20 blur-3xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col space-y-3.5">
+<!-- Status + Protocol Pills -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-2.5 h-2.5 rounded-full bg-secondary shadow-[0_0_10px_#3cd7ff] animate-ping"></div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-base font-bold text-on-surface">Sub-GHz Mesh Grid</span>
+</div>
+<span class="font-label-sm text-[11px] text-secondary-fixed-dim">18 Relays Connected • 480m Radius</span>
+</div>
+</div>
+<!-- Zero Trust Crypto Pill -->
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-highest/90 border border-tertiary/30 shadow-[0_0_12px_rgba(112,85,243,0.25)]">
+<span class="material-symbols-outlined text-[13px] text-tertiary">verified</span>
+<span class="font-label-sm text-[10px] text-tertiary-fixed font-semibold tracking-wider">Ed25519 Signed</span>
+</div>
+</div>
+<!-- Vector Canvas Topology Display -->
+<div class="relative w-full h-44 rounded-2xl bg-surface-container-lowest/90 overflow-hidden border border-white/10 shadow-inner flex items-center justify-center">
+<div class="absolute inset-0 bg-[radial-gradient(#3cd7ff_1px,transparent_1px)] [background-size:18px_18px] opacity-15"></div>
+<svg class="w-full h-full" fill="none" viewbox="0 0 340 176" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<lineargradient id="gridBeamGrad" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#00d2fd" stop-opacity="0.8"></stop>
+<stop offset="100%" stop-color="#7055f3" stop-opacity="0.2"></stop>
+</lineargradient>
+<filter height="160%" id="neonPulse" width="160%" x="-30%" y="-30%">
+<fegaussianblur result="blur" stddeviation="3"></fegaussianblur>
+<fecomposite in="SourceGraphic" in2="blur" operator="over"></fecomposite>
+</filter>
+</defs>
+<circle cx="170" cy="88" r="74" stroke="#2563ff" stroke-dasharray="4 4" stroke-opacity="0.2" stroke-width="1"></circle>
+<circle cx="170" cy="88" r="48" stroke="#00d2fd" stroke-opacity="0.3" stroke-width="1"></circle>
+<circle cx="170" cy="88" r="24" stroke="#3cd7ff" stroke-opacity="0.45" stroke-width="1"></circle>
+<path d="M60 52 Q115 65 170 88 T280 48" fill="none" stroke="url(#gridBeamGrad)" stroke-width="1.8"></path>
+<path d="M170 88 Q220 135 270 120" fill="none" stroke="#3cd7ff" stroke-opacity="0.5" stroke-width="1.5"></path>
+<path d="M70 125 Q120 110 170 88" fill="none" stroke="#7055f3" stroke-opacity="0.5" stroke-width="1.5"></path>
+<path d="M115 35 Q145 60 170 88 T225 145" fill="none" stroke="#3cd7ff" stroke-dasharray="2 3" stroke-opacity="0.6" stroke-width="1.2"></path>
+<!-- Traveling Packets -->
+<circle cx="115" cy="72" fill="#ffffff" filter="url(#neonPulse)" r="2.5">
+<animate attributename="cx" dur="5s" repeatcount="indefinite" values="60;170;280;60"></animate>
+<animate attributename="cy" dur="5s" repeatcount="indefinite" values="52;88;48;52"></animate>
+</circle>
+<circle cx="210" cy="112" fill="#3cd7ff" filter="url(#neonPulse)" r="2.5">
+<animate attributename="cx" dur="3.5s" repeatcount="indefinite" values="170;270;170"></animate>
+<animate attributename="cy" dur="3.5s" repeatcount="indefinite" values="88;120;88"></animate>
+</circle>
+<!-- Peripheral Field Nodes -->
+<circle cx="60" cy="52" fill="#3cd7ff" filter="url(#neonPulse)" r="4.5"></circle>
+<circle cx="280" cy="48" fill="#a2e7ff" r="4"></circle>
+<circle cx="270" cy="120" fill="#7055f3" r="4.5"></circle>
+<circle cx="70" cy="125" fill="#3cd7ff" r="4"></circle>
+<circle cx="115" cy="35" fill="#b6c4ff" r="3.5"></circle>
+<circle cx="225" cy="145" fill="#00d2fd" r="3.5"></circle>
+<!-- Sri's Central Node -->
+<circle cx="170" cy="88" fill="#2563ff" fill-opacity="0.25" r="14" stroke="#3cd7ff" stroke-width="1.5">
+<animate attributename="r" dur="2.8s" repeatcount="indefinite" values="12;20;12"></animate>
+<animate attributename="opacity" dur="2.8s" repeatcount="indefinite" values="0.8;0.2;0.8"></animate>
+</circle>
+<circle cx="170" cy="88" fill="#2563ff" filter="url(#neonPulse)" r="7"></circle>
+<circle cx="170" cy="88" fill="#ffffff" r="3"></circle>
+</svg>
+<div class="absolute top-2.5 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high/90 border border-white/10 shadow-md">
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+<span class="font-label-sm text-[10px] text-on-surface font-mono">915MHz LoRa + BLE 5.4</span>
+</div>
+<div class="absolute bottom-2.5 right-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high/90 border border-white/10 shadow-md">
+<span class="material-symbols-outlined text-[13px] text-secondary">speed</span>
+<span class="font-label-sm text-[10px] text-secondary font-mono font-bold">12ms Latency</span>
+</div>
+</div>
+<!-- Frequency Switcher Chips -->
+<div class="grid grid-cols-3 gap-1.5 p-1 rounded-2xl bg-surface-container-low border border-white/5">
+<button class="py-1.5 px-2 rounded-xl text-xs font-label-sm font-semibold bg-surface-bright text-secondary border border-secondary/30 shadow-md transition-all">
+          LoRa 915M
+        </button>
+<button class="py-1.5 px-2 rounded-xl text-xs font-label-sm text-on-surface-variant hover:text-white transition-all">
+          BLE Mesh
+        </button>
+<button class="py-1.5 px-2 rounded-xl text-xs font-label-sm text-on-surface-variant hover:text-white transition-all">
+          Wi-Fi Direct
+        </button>
+</div>
+</div>
+</section>
+<!-- LIVE WALKIE-TALKIE & AUDIO WAVEFORM CARD -->
+<section class="relative w-full overflow-hidden rounded-3xl glass-panel p-4 border border-white/10 shadow-lg">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-xl bg-tertiary-container/30 border border-tertiary/40 flex items-center justify-center text-tertiary shadow-[0_0_12px_rgba(112,85,243,0.3)]">
+<span class="material-symbols-outlined text-[18px]">graphic_eq</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-title-md text-[14px] font-bold text-on-surface">Tactical Audio Link</span>
+<span class="px-2 py-0.5 rounded-full bg-tertiary/20 text-tertiary font-label-sm text-[9px] font-bold">LIVE CH 04</span>
+</div>
+<span class="font-body-sm text-[11px] text-on-surface-variant">Squad Alpha • 16-bit Opus Voice Codec</span>
+</div>
+</div>
+<span class="font-label-sm text-[11px] text-emerald-400 font-mono flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> PTT Ready
+      </span>
+</div>
+<!-- Real-time Equalizer Waveform Visualizer + PTT Button -->
+<div class="flex items-center justify-between gap-3 p-3 rounded-2xl bg-surface-container-low/90 border border-white/5">
+<div class="flex items-center gap-1 flex-1 h-9 px-2 overflow-hidden">
+<span class="wave-bar w-1 bg-gradient-to-t from-secondary to-primary rounded-full inline-block"></span>
+<span class="wave-bar w-1 bg-gradient-to-t from-secondary to-primary rounded-full inline-block"></span>
+<span class="wave-bar w-1 bg-gradient-to-t from-secondary to-tertiary rounded-full inline-block"></span>
+<span class="wave-bar w-1 bg-gradient-to-t from-secondary to-primary rounded-full inline-block"></span>
+<span class="wave-bar w-1 bg-gradient-to-t from-secondary to-primary rounded-full inline-block"></span>
+<span class="wave-bar w-1 bg-gradient-to-t from-tertiary to-secondary rounded-full inline-block"></span>
+<span class="wave-bar w-1 bg-gradient-to-t from-secondary to-primary rounded-full inline-block"></span>
+<span class="wave-bar w-1 bg-gradient-to-t from-primary to-tertiary rounded-full inline-block"></span>
+<span class="wave-bar w-1 bg-gradient-to-t from-secondary to-primary rounded-full inline-block"></span>
+<span class="wave-bar w-1 bg-gradient-to-t from-secondary to-primary rounded-full inline-block"></span>
+<span class="wave-bar w-1 bg-gradient-to-t from-tertiary to-secondary rounded-full inline-block"></span>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-secondary to-primary-container text-surface-container-lowest font-headline-sm text-xs font-bold shadow-[0_0_18px_rgba(0,210,253,0.4)] active:scale-90 transition-all cursor-pointer shrink-0" id="ptt-trigger-btn">
+<span class="material-symbols-outlined text-[16px]">mic</span>
+<span>HOLD PTT</span>
+</button>
+</div>
+</section>
+<!-- 4 TELEMETRY CHIPS -->
+<div class="grid grid-cols-2 gap-3.5 w-full">
+<div class="glass-card-interactive p-3 rounded-2xl flex items-center space-x-3">
+<div class="w-10 h-10 rounded-xl bg-surface-bright/70 text-secondary flex items-center justify-center border border-white/10 shrink-0">
+<span class="material-symbols-outlined text-[20px]">hub</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-[10px] text-on-surface-variant uppercase tracking-wider">Nearby Nodes</span>
+<span class="font-headline-sm text-[15px] text-on-surface font-bold truncate">18 Verified</span>
+</div>
+</div>
+<div class="glass-card-interactive p-3 rounded-2xl flex items-center space-x-3">
+<div class="w-10 h-10 rounded-xl bg-surface-bright/70 text-secondary-fixed-dim flex items-center justify-center border border-white/10 shrink-0">
+<span class="material-symbols-outlined text-[20px]">battery_charging_90</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-[10px] text-on-surface-variant uppercase tracking-wider">Battery Mesh</span>
+<span class="font-headline-sm text-[15px] text-secondary font-bold truncate">92% <span class="text-[10px] font-normal text-on-surface-variant">Eco-Run</span></span>
+</div>
+</div>
+<div class="glass-card-interactive p-3 rounded-2xl flex items-center space-x-3">
+<div class="w-10 h-10 rounded-xl bg-surface-bright/70 text-primary flex items-center justify-center border border-white/10 shrink-0">
+<span class="material-symbols-outlined text-[20px]">radar</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-[10px] text-on-surface-variant uppercase tracking-wider">Mesh Range</span>
+<span class="font-headline-sm text-[15px] text-on-surface font-bold truncate">480m Direct</span>
+</div>
+</div>
+<div class="glass-card-interactive p-3 rounded-2xl flex items-center space-x-3">
+<div class="w-10 h-10 rounded-xl bg-surface-bright/70 text-tertiary flex items-center justify-center border border-white/10 shrink-0">
+<span class="material-symbols-outlined text-[20px]">alt_route</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-[10px] text-on-surface-variant uppercase tracking-wider">P2P Relays</span>
+<span class="font-headline-sm text-[15px] text-tertiary-fixed font-bold truncate">4 Hops Solid</span>
+</div>
+</div>
+</div>
+<!-- DECENTRALIZED SERVICES (2x3 Grid) -->
+<section class="flex flex-col space-y-2.5 pt-1 w-full">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-wider font-bold">Decentralized Services</span>
+</div>
+<span class="font-label-sm text-[10px] text-secondary font-mono">6 ENGINES RUNNING</span>
+</div>
+<div class="grid grid-cols-2 gap-3.5 w-full">
+<!-- 1. Offline Encrypted Chat -->
+<div class="glass-card-interactive p-3.5 rounded-2xl flex flex-col justify-between cursor-pointer group">
+<div class="flex items-start justify-between">
+<div class="w-10 h-10 rounded-xl bg-secondary-container/20 text-secondary-fixed-dim flex items-center justify-center border border-secondary/30 shadow-[0_0_14px_rgba(0,210,253,0.25)]">
+<span class="material-symbols-outlined text-[22px]">forum</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary text-surface font-label-sm text-[10px] font-extrabold shadow-[0_0_10px_rgba(0,210,253,0.5)]">3 unread</span>
+</div>
+<div class="mt-3">
+<span class="font-headline-sm text-[14px] text-on-surface font-bold block leading-tight">Offline Chat</span>
+<p class="font-body-sm text-[11px] text-on-surface-variant line-clamp-2 mt-1">Alpha-1: Path clear at pass 3</p>
+</div>
+</div>
+<!-- 2. Voice P2P Calling -->
+<div class="glass-card-interactive p-3.5 rounded-2xl flex flex-col justify-between cursor-pointer group">
+<div class="flex items-start justify-between">
+<div class="w-10 h-10 rounded-xl bg-primary-container/20 text-primary flex items-center justify-center border border-primary/30 shadow-[0_0_14px_rgba(37,99,255,0.25)]">
+<span class="material-symbols-outlined text-[22px]">phone_in_talk</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-bright text-secondary font-label-sm text-[10px] font-semibold border border-secondary/20">Direct</span>
+</div>
+<div class="mt-3">
+<span class="font-headline-sm text-[14px] text-on-surface font-bold block leading-tight">P2P Voice Call</span>
+<p class="font-body-sm text-[11px] text-on-surface-variant line-clamp-2 mt-1">Zero internet or cellular needed</p>
+</div>
+</div>
+<!-- 3. Offline Vector Maps -->
+<div class="glass-card-interactive p-3.5 rounded-2xl flex flex-col justify-between cursor-pointer group">
+<div class="flex items-start justify-between">
+<div class="w-10 h-10 rounded-xl bg-secondary-container/20 text-secondary flex items-center justify-center border border-secondary/30 shadow-[0_0_14px_rgba(0,210,253,0.25)]">
+<span class="material-symbols-outlined text-[22px]">explore</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-bright text-on-surface-variant font-label-sm text-[10px]">24km² DEM</span>
+</div>
+<div class="mt-3">
+<span class="font-headline-sm text-[14px] text-on-surface font-bold block leading-tight">Offline Vector Map</span>
+<p class="font-body-sm text-[11px] text-on-surface-variant line-clamp-2 mt-1">Local cached terrain &amp; waypoints</p>
+</div>
+</div>
+<!-- 4. Tactical Gemma AI Copilot -->
+<div class="glass-card-interactive p-3.5 rounded-2xl flex flex-col justify-between cursor-pointer group">
+<div class="flex items-start justify-between">
+<div class="w-10 h-10 rounded-xl bg-tertiary-container/30 text-tertiary flex items-center justify-center border border-tertiary/40 shadow-[0_0_14px_rgba(112,85,243,0.3)]">
+<span class="material-symbols-outlined text-[22px]">psychology</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-tertiary/20 text-tertiary-fixed font-label-sm text-[10px] font-bold border border-tertiary/30">GEMMA 2B</span>
+</div>
+<div class="mt-3">
+<span class="font-headline-sm text-[14px] text-on-surface font-bold block leading-tight">Tactical AI Copilot</span>
+<p class="font-body-sm text-[11px] text-on-surface-variant line-clamp-2 mt-1">Hindi, Telugu, English offline</p>
+</div>
+</div>
+<!-- 5. Emergency SOS Beacon -->
+<div class="glass-card-interactive p-3.5 rounded-2xl flex flex-col justify-between cursor-pointer group border-error/30 bg-error-container/20">
+<div class="flex items-start justify-between">
+<div class="w-10 h-10 rounded-xl bg-error/20 text-error flex items-center justify-center border border-error/40 shadow-[0_0_16px_rgba(255,107,126,0.3)]">
+<span class="material-symbols-outlined text-[22px] animate-pulse">crisis_alert</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-error text-white font-label-sm text-[10px] font-black tracking-wider">BEACON</span>
+</div>
+<div class="mt-3">
+<span class="font-headline-sm text-[14px] text-error font-bold block leading-tight">Emergency SOS</span>
+<p class="font-body-sm text-[11px] text-on-surface-variant line-clamp-2 mt-1">High-priority distress omni-relay</p>
+</div>
+</div>
+<!-- 6. Sensor Telemetry Sync -->
+<div class="glass-card-interactive p-3.5 rounded-2xl flex flex-col justify-between cursor-pointer group">
+<div class="flex items-start justify-between">
+<div class="w-10 h-10 rounded-xl bg-surface-bright/80 text-secondary flex items-center justify-center border border-white/10">
+<span class="material-symbols-outlined text-[22px]">vital_signs</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-bright text-emerald-400 font-label-sm text-[10px] font-semibold">100% OK</span>
+</div>
+<div class="mt-3">
+<span class="font-headline-sm text-[14px] text-on-surface font-bold block leading-tight">Vitals &amp; Weather</span>
+<p class="font-body-sm text-[11px] text-on-surface-variant line-clamp-2 mt-1">Barometer 1013hPa • Heart: 72bpm</p>
+</div>
+</div>
+</div>
+</section>
+<!-- NOCTURNAL FIELD RELAYS SECTOR MAP CARD -->
+<section class="relative w-full overflow-hidden rounded-3xl glass-panel p-3.5 border border-white/10 shadow-xl">
+<div class="flex items-center justify-between mb-2.5 px-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary">satellite_alt</span>
+<span class="font-headline-sm text-[14px] text-on-surface font-bold">Nocturnal Field Relays</span>
+</div>
+<span class="font-label-sm text-[10px] text-secondary font-mono tracking-wider">SECTOR 04-EAST</span>
+</div>
+<div class="relative w-full h-36 rounded-2xl overflow-hidden border border-white/10 shadow-inner">
+<img class="w-full h-full object-cover" data-alt="Tactical nocturnal field map view" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgMTUwIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjE1MCIgZmlsbD0iIzE3MjAyRSIvPjxwYXRoIGQ9Ik0wLDc1IEw1MCw2MCBMMTAwLDgwIEwxNTAsNDAgTDIwMCw5MCBMMjUwLDUwIEwzMDAsNzAgTDM1MCwzMCBMNDAwLDYwIiBmaWxsPSJub25lIiBzdHJva2U9IiMyNTYzRkYiIHN0cm9rZS13aWR0aD0iMiIvPjxjaXJjbGUgY3g9IjIwMCIgY3k9IjkwIiByPSI0IiBmaWxsPSIjMDBENEZGIi8+PGNpcmNsZSBjeD0iMTAwIiBjeT0iODAiIHI9IjQiIGZpbGw9IiMwMEQ0RkYiLz48dGV4dCB4PSIyMDAiIHk9IjgwIiBmaWxsPSIjM2NkN2ZmIiBmb250LWZhbWlseT0ibW9ub3NwYWNlIiBmb250LXNpemU9IjEyIj5UYWN0aWNhbCBNYXAgT2ZmbGluZTwvdGV4dD48L3N2Zz4="/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-90"></div>
+<div class="absolute bottom-2.5 left-2.5 flex items-center gap-2 px-3 py-1 rounded-xl bg-surface-container-lowest/85 backdrop-blur-md border border-white/10 shadow-md">
+<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+<span class="font-label-sm text-[10px] text-on-surface font-mono">17 GPS Anchors Locked • RTK Fix</span>
+</div>
+</div>
+</section>
+<!-- DISTRESS QUICK RELAY BANNER -->
+<div class="relative w-full flex items-center justify-between p-3 rounded-2xl bg-gradient-to-r from-error-container via-surface-container-high to-surface-container-high border border-error/40 shadow-[0_8px_30px_rgba(255,107,126,0.25)] select-none">
+<div class="flex items-center space-x-3">
+<div class="relative flex items-center justify-center w-10 h-10 rounded-2xl bg-error text-white shadow-[0_0_16px_#ff6b7e] shrink-0">
+<span class="material-symbols-outlined text-[22px] animate-ping opacity-75 absolute">e911_emergency</span>
+<span class="material-symbols-outlined text-[22px] relative z-10">e911_emergency</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-[14px] text-on-surface font-bold leading-tight">Distress Quick Relay</span>
+<span class="font-label-sm text-[10px] text-error font-mono">Instant omni-packet broadcast</span>
+</div>
+</div>
+<button class="px-4 py-2 rounded-xl bg-gradient-to-r from-error to-rose-600 text-white font-headline-sm text-xs font-black tracking-wider active:scale-90 transition-all shadow-[0_0_16px_rgba(255,107,126,0.5)] cursor-pointer shrink-0" id="quick-sos-btn">
+      BROADCAST
+    </button>
+</div>
+</main>
+<!-- 3. FIXED BOTTOM NAVIGATION -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 bg-[#08111F]/90 backdrop-blur-xl border-t border-white/10 px-6 pb-6 pt-3 shrink-0 pb-safe pointer-events-auto">
+<div class="relative flex items-center justify-around h-14 rounded-full glass-capsule px-2 border border-white/15 shadow-[0_12px_40px_rgba(0,0,0,0.8)]">
+<!-- Home Active -->
+<a aria-current="page" class="flex flex-col items-center justify-center min-w-[50px] h-11 rounded-full transition-all duration-300 text-secondary bg-surface-bright/50 shadow-[0_0_16px_rgba(0,210,253,0.35)]" data-path="network-dashboard" href="#">
+<span class="material-symbols-outlined text-[20px]">home</span>
+<span class="font-label-sm text-[9px] font-semibold mt-0.5">Home</span>
+</a>
+<!-- Radar -->
+<a class="flex flex-col items-center justify-center min-w-[50px] h-11 rounded-full text-on-surface-variant hover:text-white transition-all duration-300" data-path="radar-mesh" href="#">
+<span class="material-symbols-outlined text-[20px]">radar</span>
+<span class="font-label-sm text-[9px] mt-0.5">Radar</span>
+</a>
+<!-- Center Glowing SOS Beacon Trigger -->
+<div class="relative flex items-center justify-center -mt-6 px-1">
+<a class="relative w-14 h-14 rounded-full bg-gradient-to-tr from-rose-600 to-red-500 text-white flex items-center justify-center shadow-[0_0_28px_rgba(255,107,126,0.6)] active:scale-90 transition-transform duration-200 border-2 border-white/20" data-path="emergency-sos" href="#">
+<span class="material-symbols-outlined text-[28px] font-black">sos</span>
+<span class="absolute inset-0 rounded-full border border-red-400 animate-ping opacity-50 pointer-events-none"></span>
+</a>
+</div>
+<!-- Map -->
+<a class="flex flex-col items-center justify-center min-w-[50px] h-11 rounded-full text-on-surface-variant hover:text-white transition-all duration-300" data-path="offline-map" href="#">
+<span class="material-symbols-outlined text-[20px]">map</span>
+<span class="font-label-sm text-[9px] mt-0.5">Map</span>
+</a>
+<!-- AI Assistant -->
+<a class="flex flex-col items-center justify-center min-w-[50px] h-11 rounded-full text-on-surface-variant hover:text-white transition-all duration-300" data-path="tactical-ai-assistant" href="#">
+<span class="material-symbols-outlined text-[20px]">smart_toy</span>
+<span class="font-label-sm text-[9px] mt-0.5">Gemma AI</span>
+</a>
+</div>
+</nav>
+<!-- MICRO-INTERACTIONS SCRIPT -->
+<script>
+  const dynamicCapsule = document.getElementById('dynamic-capsule');
+  const capsuleDrawer = document.getElementById('capsule-drawer');
+  const capsuleChevron = document.getElementById('capsule-chevron');
+
+  if (dynamicCapsule && capsuleDrawer) {
+    dynamicCapsule.addEventListener('click', () => {
+      const isHidden = capsuleDrawer.classList.contains('hidden');
+      if (isHidden) {
+        capsuleDrawer.classList.remove('hidden');
+        if (capsuleChevron) capsuleChevron.style.transform = 'rotate(180deg)';
+      } else {
+        capsuleDrawer.classList.add('hidden');
+        if (capsuleChevron) capsuleChevron.style.transform = 'rotate(0deg)';
+      }
+    });
+  }
+
+  const tacticalBtn = document.getElementById('tactical-mode-btn');
+  if (tacticalBtn) {
+    tacticalBtn.addEventListener('click', () => {
+      const label = tacticalBtn.querySelector('span:last-child');
+      if (label && label.innerText === 'STEALTH ON') {
+        label.innerText = 'BEACON ON';
+        tacticalBtn.classList.replace('text-on-surface', 'text-secondary');
+      } else if (label) {
+        label.innerText = 'STEALTH ON';
+        tacticalBtn.classList.replace('text-secondary', 'text-on-surface');
+      }
+    });
+  }
+
+  const radarTrigger = document.getElementById('radar-pulse-trigger');
+  if (radarTrigger) {
+    radarTrigger.addEventListener('click', function() {
+      const icon = this.querySelector('.material-symbols-outlined');
+      if (icon) {
+        icon.classList.add('animate-spin');
+        setTimeout(() => icon.classList.remove('animate-spin'), 1000);
+      }
+    });
+  }
+
+  const pttBtn = document.getElementById('ptt-trigger-btn');
+  if (pttBtn) {
+    ['mousedown', 'touchstart'].forEach(evt => {
+      pttBtn.addEventListener(evt, () => pttBtn.classList.add('brightness-125', 'scale-95'));
+    });
+    ['mouseup', 'mouseleave', 'touchend'].forEach(evt => {
+      pttBtn.addEventListener(evt, () => pttBtn.classList.remove('brightness-125', 'scale-95'));
+    });
+  }
+
+  const quickSosBtn = document.getElementById('quick-sos-btn');
+  if (quickSosBtn) {
+    quickSosBtn.addEventListener('click', () => {
+      quickSosBtn.classList.add('scale-90');
+      setTimeout(() => {
+        quickSosBtn.classList.remove('scale-90');
+        alert("High-Priority Distress Beacon Broadcast: Signal relayed to 18 peer nodes.");
+      }, 180);
+    });
+  }
+</script>
+</body></html>

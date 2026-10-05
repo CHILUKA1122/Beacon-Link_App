@@ -1,0 +1,68 @@
+import java.util.regex.Pattern
+
+rootProject {
+    def dirs = [
+        file("app/src/main/assets/frontend"),
+        file("extracted_frontend/stitch_offgrid_emergency_network_app")
+    ]
+    
+    dirs.each { dir ->
+        if (dir.exists()) {
+            dir.eachFileRecurse(groovy.io.FileType.FILES) { f ->
+                if (f.name == "code.html") {
+                    def content = f.text
+                    def changed = false
+                    
+                    // Cleanup function for class strings
+                    def updateClasses = { String classStr, List<String> toRemove, List<String> toAdd ->
+                        def classes = classStr.split("\\s+").findAll { it.trim() != "" } as Set
+                        toRemove.each { classes.remove(it) }
+                        toAdd.each { classes.add(it) }
+                        
+                        // Fix 'max-' which might have been left over from previous script
+                        classes.remove("max-")
+                        
+                        return classes.join(" ")
+                    }
+
+                    // Body
+                    def mBody = content =~ /(?s)(<body[^>]*class=")([^"]*)(")/
+                    if (mBody.find()) {
+                        def newCls = updateClasses(mBody.group(2), ["min-h-screen"], ["h-screen", "flex", "flex-col"])
+                        content = content.replaceFirst(/(?s)(<body[^>]*class=")([^"]*)(")/, "\$1" + newCls + "\$3")
+                        changed = true
+                    }
+                    
+                    // Main
+                    def mMain = content =~ /(?s)(<main[^>]*class=")([^"]*)(")/
+                    if (mMain.find()) {
+                        def newCls = updateClasses(mMain.group(2), ["overflow-hidden"], ["flex-1", "overflow-y-auto"])
+                        content = content.replaceFirst(/(?s)(<main[^>]*class=")([^"]*)(")/, "\$1" + newCls + "\$3")
+                        changed = true
+                    }
+                    
+                    // Header
+                    def mHeader = content =~ /(?s)(<header[^>]*class=")([^"]*)(")/
+                    if (mHeader.find()) {
+                        def newCls = updateClasses(mHeader.group(2), [], ["shrink-0"])
+                        content = content.replaceFirst(/(?s)(<header[^>]*class=")([^"]*)(")/, "\$1" + newCls + "\$3")
+                        changed = true
+                    }
+                    
+                    // Nav
+                    def mNav = content =~ /(?s)(<nav[^>]*class=")([^"]*)(")/
+                    if (mNav.find()) {
+                        def newCls = updateClasses(mNav.group(2), ["absolute"], ["fixed", "bottom-0", "z-50"])
+                        content = content.replaceFirst(/(?s)(<nav[^>]*class=")([^"]*)(")/, "\$1" + newCls + "\$3")
+                        changed = true
+                    }
+                    
+                    if (changed) {
+                        f.text = content
+                        println("Cleaned ${f.absolutePath}")
+                    }
+                }
+            }
+        }
+    }
+}

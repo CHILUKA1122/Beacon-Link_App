@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    @layer base {
+      html, body {
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+        background-color: #040914;
+        color: #dae3f7;
+      }
+      body {
+        overscroll-behavior: none;
+        -webkit-tap-highlight-color: transparent;
+        font-family: 'Inter', sans-serif;
+      }
+      .pb-safe { padding-bottom: env(safe-area-inset-bottom, 16px); }
+      .pt-safe { padding-top: env(safe-area-inset-top, 12px); }
+    }
+    ::-webkit-scrollbar { display: none; }
+
+    /* Material 3 Expressive Spring Motion Variables */
+    :root {
+      --motion-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+      --motion-standard: cubic-bezier(0.2, 0, 0, 1);
+      --motion-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);
+    }
+
+    /* Ultra Glass & Holographic Card Gradients */
+    .glass-panel {
+      background: linear-gradient(145deg, rgba(23, 32, 46, 0.75) 0%, rgba(11, 20, 36, 0.88) 100%);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(0, 210, 253, 0.06) inset;
+    }
+    .glass-card-interactive {
+      background: linear-gradient(135deg, rgba(34, 42, 57, 0.65) 0%, rgba(19, 28, 42, 0.8) 100%);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: transform 0.35s var(--motion-spring), box-shadow 0.35s ease, border-color 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .glass-card-interactive:hover {
+      transform: translateY(-2px);
+      border-color: rgba(60, 215, 255, 0.3);
+      box-shadow: 0 12px 28px -6px rgba(0, 210, 253, 0.18);
+    }
+    .glass-card-interactive:active {
+      transform: scale(0.96) translateY(0px) !important;
+      border-color: rgba(60, 215, 255, 0.45);
+      box-shadow: 0 4px 14px -2px rgba(0, 210, 253, 0.3);
+    }
+    .glass-capsule {
+      background: linear-gradient(180deg, rgba(16, 25, 41, 0.88) 0%, rgba(6, 14, 28, 0.94) 100%);
+      backdrop-filter: blur(32px);
+      -webkit-backdrop-filter: blur(32px);
+      border: 1px solid rgba(60, 215, 255, 0.18);
+      box-shadow: 0 12px 32px -4px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 210, 253, 0.12);
+    }
+
+    /* Ambient Floating Levitation */
+    @keyframes subtleFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-4px); }
+    }
+    .animate-float-1 { animation: subtleFloat 6s ease-in-out infinite; }
+    .animate-float-2 { animation: subtleFloat 7.5s ease-in-out infinite 1.2s; }
+    .animate-float-3 { animation: subtleFloat 6.8s ease-in-out infinite 0.7s; }
+
+    /* Material Ripple Wave Effect */
+    .ripple-effect {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(60, 215, 255, 0.45) 0%, rgba(60, 215, 255, 0) 70%);
+      transform: scale(0);
+      animation: rippleAnim 0.7s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+      pointer-events: none;
+    }
+    @keyframes rippleAnim {
+      to {
+        transform: scale(3.5);
+        opacity: 0;
+      }
+    }
+
+    /* Holographic AI Breathing Glow */
+    @keyframes aiBreathe {
+      0%, 100% {
+        box-shadow: 0 0 12px rgba(112, 85, 243, 0.25), inset 0 0 8px rgba(112, 85, 243, 0.15);
+        border-color: rgba(112, 85, 243, 0.35);
+      }
+      50% {
+        box-shadow: 0 0 26px rgba(112, 85, 243, 0.65), 0 0 45px rgba(0, 210, 253, 0.35), inset 0 0 18px rgba(112, 85, 243, 0.3);
+        border-color: rgba(201, 191, 255, 0.75);
+      }
+    }
+    .ai-hologram-glow {
+      animation: aiBreathe 3.6s ease-in-out infinite;
+    }
+
+    /* Intense SOS Beacon Shockwave Breathing */
+    @keyframes sosPulseShockwave {
+      0% {
+        box-shadow: 0 0 0 0 rgba(255, 107, 126, 0.6), 0 0 18px rgba(255, 107, 126, 0.4);
+      }
+      70% {
+        box-shadow: 0 0 0 16px rgba(255, 107, 126, 0), 0 0 35px rgba(255, 107, 126, 0.8);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(255, 107, 126, 0), 0 0 18px rgba(255, 107, 126, 0.4);
+      }
+    }
+    .sos-breathing-core {
+      animation: sosPulseShockwave 2.2s infinite var(--motion-standard);
+    }
+
+    /* Material Skeleton Shimmer Overlay */
+    @keyframes shimmerAnim {
+      0% { transform: translateX(-150%); }
+      100% { transform: translateX(150%); }
+    }
+    .shimmer-active {
+      position: relative;
+      overflow: hidden !important;
+    }
+    .shimmer-active::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent 0%, rgba(60, 215, 255, 0.15) 50%, transparent 100%);
+      animation: shimmerAnim 1.6s infinite;
+      z-index: 20;
+      pointer-events: none;
+    }
+
+    /* Radar Sweep Beam Animation */
+    @keyframes radarSweep {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .radar-beam {
+      transform-origin: 170px 88px;
+      animation: radarSweep 4s linear infinite;
+    }
+
+    /* Dynamic Circuit Packet Flight */
+    .traveling-packet-1 {
+      stroke-dasharray: 8 160;
+      stroke-dashoffset: 0;
+      animation: packetRush1 3.2s linear infinite;
+    }
+    .traveling-packet-2 {
+      stroke-dasharray: 10 120;
+      stroke-dashoffset: 0;
+      animation: packetRush2 2.6s linear infinite;
+    }
+    @keyframes packetRush1 {
+      from { stroke-dashoffset: 340; }
+      to { stroke-dashoffset: 0; }
+    }
+    @keyframes packetRush2 {
+      from { stroke-dashoffset: 0; }
+      to { stroke-dashoffset: -260; }
+    }
+
+    /* PTT Soundwave expanding shockwave ring */
+    @keyframes pttRing {
+      0% { transform: scale(0.85); opacity: 0.8; }
+      100% { transform: scale(1.6); opacity: 0; }
+    }
+    .ptt-active-ring {
+      animation: pttRing 1.2s cubic-bezier(0, 0.7, 0.2, 1) infinite;
+    }
+
+    /* Confetti Particle Spark */
+    .spark-particle {
+      position: fixed;
+      pointer-events: none;
+      z-index: 100;
+      border-radius: 50%;
+      animation: sparkFly 0.85s cubic-bezier(0.12, 0.8, 0.32, 1) forwards;
+    }
+    @keyframes sparkFly {
+      0% { transform: translate(0, 0) scale(1); opacity: 1; }
+      100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; }
+    }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface": "#040914",
+            "surface-dim": "#040914",
+            "surface-container": "#0e1828",
+            "surface-container-low": "#08101c",
+            "surface-container-high": "#162338",
+            "surface-container-highest": "#1f2f48",
+            "surface-container-lowest": "#02050b",
+            "surface-bright": "#283b57",
+            "on-surface": "#e4ecff",
+            "on-surface-variant": "#92a0b8",
+            "primary": "#b6c4ff",
+            "primary-container": "#2563ff",
+            "on-primary": "#00287d",
+            "secondary": "#3cd7ff",
+            "secondary-container": "#00d2fd",
+            "secondary-fixed-dim": "#3cd7ff",
+            "tertiary": "#c9bfff",
+            "tertiary-container": "#7055f3",
+            "tertiary-fixed": "#e5deff",
+            "error": "#ff6b7e",
+            "error-container": "#700416",
+            "on-error": "#ffffff",
+            "outline": "#4a5a78",
+            "outline-variant": "#2a374f"
+          },
+          fontFamily: {
+            "display-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-md": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "title-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "title-md": ["Inter", "sans-serif"],
+            "body-lg": ["Inter", "sans-serif"],
+            "body-md": ["Inter", "sans-serif"],
+            "body-sm": ["Inter", "sans-serif"],
+            "label-lg": ["JetBrains Mono", "monospace"],
+            "label-md": ["JetBrains Mono", "monospace"],
+            "label-sm": ["JetBrains Mono", "monospace"]
+          },
+          borderRadius: {
+            "2xl": "1.25rem",
+            "3xl": "1.75rem"
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md flex flex-col antialiased selection:bg-primary-container selection:text-white relative overflow-x-hidden flex flex-col h-screen flex flex-col">
+<!-- Ambient Dynamic Mesh Glow Underlays (Android 16 Aurora Optics) -->
+<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+<div class="aurora-orb-cyan absolute -top-24 -left-20 w-96 h-96 rounded-full bg-secondary-container/20 blur-[110px]"></div>
+<div class="aurora-orb-indigo absolute top-1/3 -right-24 w-[380px] h-[380px] rounded-full bg-tertiary-container/25 blur-[120px]"></div>
+<div class="aurora-orb-cyan absolute bottom-28 left-1/4 w-[420px] h-[320px] rounded-full bg-primary-container/20 blur-[130px]"></div>
+<!-- Subtlest scanline grid texture -->
+<div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:32px_32px]"></div>
+</div>
+<!-- TOP PULL-TO-REFRESH EXPRESSIVE INDICATOR -->
+<div class="fixed top-0 inset-x-0 z-50 pointer-events-none flex justify-center transform -translate-y-16 transition-transform duration-500" id="pull-refresh-indicator">
+<div class="flex items-center gap-2.5 px-4 py-2 rounded-full glass-capsule border border-secondary/40 shadow-[0_8px_24px_rgba(0,210,253,0.35)]">
+<span class="material-symbols-outlined text-[18px] text-secondary animate-spin">sync</span>
+<span class="font-label-sm text-[11px] text-on-surface font-semibold">Resyncing Sub-GHz Mesh...</span>
+</div>
+</div>
+<!-- DYNAMIC TOAST / SNACKBAR CONTAINER (Spring Slide-In) -->
+<div class="fixed top-20 inset-x-4 z-50 pointer-events-none flex flex-col items-center gap-2" id="toast-container"></div>
+<!-- FIXED APP CHROME (System Status & Dynamic Island Capsule) -->
+<header class="fixed top-0 w-full z-40 pt-safe transition-all duration-300 pointer-events-auto shrink-0">
+<!-- Clean Android 16 Status Row -->
+<div class="flex justify-between items-center px-6 pt-1 pb-1 text-on-surface-variant font-label-sm text-[11px] select-none tracking-wider">
+<div class="flex items-center gap-1.5 font-semibold text-on-surface">
+<span>09:41</span>
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-secondary animate-ping"></span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px] text-secondary">airplanemode_active</span>
+<span class="material-symbols-outlined text-[14px] text-secondary">bluetooth_searching</span>
+<span class="material-symbols-outlined text-[14px] text-secondary">hub</span>
+<div class="flex items-center gap-1 ml-0.5 px-1.5 py-0.5 rounded-full bg-surface-container-high/80 border border-white/10">
+<span class="text-[10px] text-on-surface font-label-sm font-semibold">92%</span>
+<span class="material-symbols-outlined text-[13px] text-secondary">battery_android</span>
+</div>
+</div>
+</div>
+<!-- DYNAMIC ISLAND CAPSULE (Interactive Tactical Telemetry Hub) -->
+<div class="px-4 mt-1.5">
+<div class="glass-capsule w-full rounded-full px-3.5 py-2 flex items-center justify-between transition-all duration-500 cursor-pointer shadow-[0_8px_30px_rgba(0,0,0,0.5)] active:scale-[0.98] border border-white/15 hover:border-secondary/40" id="dynamic-capsule">
+<!-- Capsule Left: Dynamic Signal Ripple + Mode -->
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="relative flex items-center justify-center w-7 h-7 rounded-full bg-secondary/15 border border-secondary/30 shrink-0">
+<span class="material-symbols-outlined text-[16px] text-secondary animate-pulse">cell_tower</span>
+<span class="absolute inset-0 rounded-full border border-secondary animate-ping opacity-60"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-[13px] font-bold text-on-surface tracking-tight leading-none truncate">OFFGRID MESH</span>
+<span class="px-1.5 py-[2px] rounded-full bg-emerald-500/20 text-emerald-400 font-label-sm text-[9px] font-semibold uppercase tracking-wider border border-emerald-500/30">LOCKED</span>
+</div>
+<span class="font-label-sm text-[10px] text-secondary-fixed-dim leading-tight truncate">18 Peers • 915MHz LoRa active</span>
+</div>
+</div>
+<!-- Capsule Right: Real-time LoRa+BLE radio waveform + Expand Drawer Trigger -->
+<div class="flex items-center gap-2.5">
+<!-- Animated Audio/RF Waveform bars with live bouncing heights -->
+<div class="flex items-center gap-[3px] h-4 px-2 py-0.5 rounded-full bg-surface-container-lowest/80 border border-white/10" id="capsule-waveforms">
+<span class="wave-bar w-[2px] h-3 bg-secondary rounded-full inline-block transition-all duration-300"></span>
+<span class="wave-bar w-[2px] h-2 bg-secondary rounded-full inline-block transition-all duration-300"></span>
+<span class="wave-bar w-[2px] h-4 bg-secondary-container rounded-full inline-block transition-all duration-300"></span>
+<span class="wave-bar w-[2px] h-2.5 bg-tertiary rounded-full inline-block transition-all duration-300"></span>
+<span class="wave-bar w-[2px] h-3.5 bg-secondary rounded-full inline-block transition-all duration-300"></span>
+<span class="wave-bar w-[2px] h-2 bg-secondary-container rounded-full inline-block transition-all duration-300"></span>
+</div>
+<div class="w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[16px] transition-transform duration-500" id="capsule-chevron">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Expandable Telemetry Drawer with Spring Physics -->
+<div class="hidden overflow-hidden mt-2 p-3.5 glass-panel rounded-2xl border border-secondary/30 transition-all duration-500 space-y-3 shadow-2xl" id="capsule-drawer">
+<div class="flex items-center justify-between text-[11px] font-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1 text-secondary"><span class="material-symbols-outlined text-[14px] animate-spin">sensors</span> RELAY HOPS: 4 VERIFIED</span>
+<span class="text-emerald-400 font-mono">LATENCY: 12ms</span>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<div class="p-2 rounded-xl bg-surface-container-lowest/80 border border-white/5 text-center transition-transform hover:scale-105 duration-300">
+<span class="block text-[10px] text-on-surface-variant font-label-sm">BAND</span>
+<span class="text-[12px] font-bold text-on-surface font-mono">915 MHz</span>
+</div>
+<div class="p-2 rounded-xl bg-surface-container-lowest/80 border border-white/5 text-center transition-transform hover:scale-105 duration-300">
+<span class="block text-[10px] text-on-surface-variant font-label-sm">THROUGHPUT</span>
+<span class="text-[12px] font-bold text-secondary font-mono">194 Kbps</span>
+</div>
+<div class="p-2 rounded-xl bg-surface-container-lowest/80 border border-white/5 text-center transition-transform hover:scale-105 duration-300">
+<span class="block text-[10px] text-on-surface-variant font-label-sm">ENCRYPTION</span>
+<span class="text-[12px] font-bold text-tertiary font-mono">AES-GCM</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Sub-Brand / User Row -->
+<div class="flex items-center justify-between px-5 pt-3 pb-1 select-none">
+<div class="flex items-center gap-2.5">
+<div class="relative w-9 h-9 rounded-2xl p-1.5 bg-surface-container-high/90 border border-white/10 shadow-[0_0_15px_rgba(0,210,253,0.2)] flex items-center justify-center transition-transform duration-300 hover:rotate-6">
+<img alt="OFFGRID Emblem Logo" class="h-full w-full object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1W1UO3PQHgzib33NT8zog8migShUE78Om_OV9GEgx5rwxYniV9l0LUqeItxdIouGv1gE1-xC9qqqVdpqsMK1PIFbBuQVYxHF1AwY2oCU6CnOpkBAkk3-Rkel-KjTmpH8sMqNusl2mU7UW9KzgQ6FVR-zqWIeIXnCP5qWNFu_CHKW666wlmSo-0fJ-NdbW65vnzvNJatZrOjOFvLdimq9qeTHyGEKqsnOttnp0jYbI1jC9LWnAuHMvOeN8K1"/>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-[16px] tracking-tight font-black text-on-surface leading-tight">OFFGRID<span class="text-secondary ml-0.5">OS</span></span>
+<span class="font-label-sm text-[9px] text-secondary tracking-widest uppercase">Decentralized V4.2</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<!-- Tactical Frequency Quick Toggle -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-high/80 border border-white/10 text-on-surface text-xs font-medium hover:border-secondary/40 active:scale-95 transition-all shadow-md" id="tactical-mode-btn">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-label-sm text-[10px]">STEALTH ON</span>
+</button>
+<!-- Skeleton Demo Switcher Button -->
+<button class="flex items-center justify-center w-8 h-8 rounded-full bg-surface-container-high/80 border border-white/10 text-on-surface-variant hover:text-secondary active:scale-90 transition-all" id="toggle-shimmer-btn" title="Toggle Skeleton Shimmer State">
+<span class="material-symbols-outlined text-[16px]">animation</span>
+</button>
+<!-- User Avatar with Neon Halo -->
+<div class="relative w-9 h-9 rounded-full p-[1.5px] bg-gradient-to-tr from-secondary via-primary to-tertiary shrink-0 shadow-[0_0_12px_rgba(0,210,253,0.4)] cursor-pointer active:scale-90 transition-transform">
+<img alt="Profile" class="w-full h-full rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1XD3jpUEXNZs2ZX8ohgUL_6gGjpmiTnoJpygKVw_yciAgKuSTbXH29IkVvrYExKbZO7ofr_xK0OfJ0gTcd9vi0aYZKu3wdG3TfzEh1sX1rDIUCj48dZn4t0hS-jXvcJwo-N14-md6aKDhh4rs9uvK_eAYVL5K2QSMS4j0WvRgIvUH6pIqZkWw_PE4g6AwP72O9V4uBQrHVkIUIw6WkMVqxZxYbIpgwQ0xA1gB_9hofOl32lySWQpNHZnDgP"/>
+</div>
+</div>
+</div>
+</header>
+<!-- MAIN SCROLLABLE DASHBOARD VIEW -->
+<main class="flex-1 flex flex-col relative w-full pt-[148px] pb-32 z-10 px-4 space-y-4 overflow-y-auto" id="main-content">
+<!-- Greeting & Quick Ambient Status Banner -->
+<div class="flex items-end justify-between pt-1 select-none">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<h1 class="font-display-lg text-2xl font-extrabold text-on-surface tracking-tight">System Online, Sri</h1>
+<span class="text-xl animate-bounce">⚡</span>
+</div>
+<p class="font-body-sm text-[13px] text-on-surface-variant flex items-center gap-1.5 mt-0.5">
+<span class="material-symbols-outlined text-[15px] text-secondary">wifi_off</span>
+          Zero Telco Required • 100% Peer Radiance
+        </p>
+</div>
+<!-- Tactile Network Ping Refresh Button -->
+<button class="flex items-center justify-center w-10 h-10 rounded-2xl glass-card-interactive text-secondary hover:text-white shadow-lg active:scale-90 transition-all border border-white/10" id="radar-pulse-trigger" title="Rescan Frequencies">
+<span class="material-symbols-outlined text-[20px] transition-transform">radar</span>
+</button>
+</div>
+<!-- HERO 2026 TOPOLOGY & LIVE MESH VISUALIZER WIDGET -->
+<section class="relative overflow-hidden rounded-3xl glass-panel p-4 shadow-[0_20px_50px_rgba(0,0,0,0.7)] border border-white/15 animate-float-1" id="topology-hero-card">
+<!-- Glow ambient accent -->
+<div class="absolute -right-16 -top-16 w-56 h-56 rounded-full bg-primary-container/25 blur-3xl pointer-events-none"></div>
+<div class="absolute -left-12 -bottom-12 w-48 h-48 rounded-full bg-secondary-container/20 blur-3xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col space-y-3.5">
+<!-- Card Top Bar: Status + Protocol Pills -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-2.5 h-2.5 rounded-full bg-secondary shadow-[0_0_10px_#3cd7ff] animate-ping"></div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-base font-bold text-on-surface">Sub-GHz Mesh Grid</span>
+</div>
+<span class="font-label-sm text-[11px] text-secondary-fixed-dim">18 Relays Connected • 480m Radius</span>
+</div>
+</div>
+<!-- Zero Trust Crypto Pill with Spring Haptic Button -->
+<button class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-highest/90 border border-tertiary/30 shadow-[0_0_12px_rgba(112,85,243,0.25)] hover:border-tertiary/60 active:scale-95 transition-all" id="ed25519-badge">
+<span class="material-symbols-outlined text-[13px] text-tertiary">verified</span>
+<span class="font-label-sm text-[10px] text-tertiary-fixed font-semibold tracking-wider">Ed25519 Signed</span>
+</button>
+</div>
+<!-- Interactive Vector Canvas / SVG Topology Visualizer with Radar Sweep -->
+<div class="relative w-full h-44 rounded-2xl bg-surface-container-lowest/90 overflow-hidden border border-white/10 shadow-inner flex items-center justify-center cursor-crosshair group" id="mesh-visualizer-box">
+<!-- Cyber HUD Grid Lines -->
+<div class="absolute inset-0 bg-[radial-gradient(#3cd7ff_1px,transparent_1px)] [background-size:18px_18px] opacity-15"></div>
+<!-- SVG Topology System -->
+<svg class="w-full h-full" fill="none" viewbox="0 0 340 176" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<lineargradient id="gridBeamGrad" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#00d2fd" stop-opacity="0.8"></stop>
+<stop offset="100%" stop-color="#7055f3" stop-opacity="0.2"></stop>
+</lineargradient>
+<filter height="160%" id="neonPulse" width="160%" x="-30%" y="-30%">
+<fegaussianblur result="blur" stddeviation="3"></fegaussianblur>
+<fecomposite in="SourceGraphic" in2="blur" operator="over"></fecomposite>
+</filter>
+<!-- Radial Radar Gradient for Sweep -->
+<lineargradient id="sweepGrad" x1="0" x2="1" y1="0" y2="1">
+<stop offset="0%" stop-color="#00d2fd" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="#00d2fd" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<!-- Radar Concentric Rings with subtle pulsing scale -->
+<circle cx="170" cy="88" opacity="0.2" r="74" stroke="#2563ff" stroke-dasharray="4 4" stroke-width="1"></circle>
+<circle cx="170" cy="88" opacity="0.3" r="48" stroke="#00d2fd" stroke-width="1"></circle>
+<circle cx="170" cy="88" opacity="0.45" r="24" stroke="#3cd7ff" stroke-width="1"></circle>
+<!-- Dynamic Rotating Radar Sweep Wedge -->
+<g class="radar-beam pointer-events-none opacity-40">
+<path d="M 170 88 L 244 88 A 74 74 0 0 1 222 138 Z" fill="url(#sweepGrad)"></path>
+<line stroke="#3cd7ff" stroke-width="1.5" x1="170" x2="244" y1="88" y2="88"></line>
+</g>
+<!-- Connecting Inter-Node Bezier Relays -->
+<path d="M60 52 Q115 65 170 88 T280 48" fill="none" stroke="url(#gridBeamGrad)" stroke-width="1.8"></path>
+<path d="M170 88 Q220 135 270 120" fill="none" stroke="#3cd7ff" stroke-opacity="0.5" stroke-width="1.5"></path>
+<path d="M70 125 Q120 110 170 88" fill="none" stroke="#7055f3" stroke-opacity="0.5" stroke-width="1.5"></path>
+<path d="M115 35 Q145 60 170 88 T225 145" fill="none" stroke="#3cd7ff" stroke-dasharray="2 3" stroke-opacity="0.6" stroke-width="1.2"></path>
+<!-- Traveling Electric Packets on lines -->
+<path class="traveling-packet-1" d="M60 52 Q115 65 170 88 T280 48" fill="none" stroke="#ffffff" stroke-width="2.5"></path>
+<path class="traveling-packet-2" d="M70 125 Q120 110 170 88" fill="none" stroke="#00d2fd" stroke-width="2.2"></path>
+<!-- Traveling Packets along paths (CSS/SVG Simulation) -->
+<circle cx="115" cy="72" fill="#ffffff" filter="url(#neonPulse)" r="2.5">
+<animate attributename="cx" dur="4.2s" repeatcount="indefinite" values="60;170;280;60"></animate>
+<animate attributename="cy" dur="4.2s" repeatcount="indefinite" values="52;88;48;52"></animate>
+</circle>
+<circle cx="210" cy="112" fill="#3cd7ff" filter="url(#neonPulse)" r="2.5">
+<animate attributename="cx" dur="3.2s" repeatcount="indefinite" values="170;270;170"></animate>
+<animate attributename="cy" dur="3.2s" repeatcount="indefinite" values="88;120;88"></animate>
+</circle>
+<!-- Peripheral Field Nodes with Pulsing Halos -->
+<g class="cursor-pointer">
+<circle cx="60" cy="52" fill="#3cd7ff" filter="url(#neonPulse)" r="4.5"></circle>
+<circle cx="60" cy="52" fill="none" opacity="0.6" r="8" stroke="#3cd7ff"><animate attributename="r" dur="2s" repeatcount="indefinite" values="5;14;5"></animate><animate attributename="opacity" dur="2s" repeatcount="indefinite" values="0.8;0;0.8"></animate></circle>
+</g>
+<circle cx="280" cy="48" fill="#a2e7ff" r="4"></circle>
+<circle cx="270" cy="120" fill="#7055f3" r="4.5"></circle>
+<circle cx="70" cy="125" fill="#3cd7ff" r="4"></circle>
+<circle cx="115" cy="35" fill="#b6c4ff" r="3.5"></circle>
+<circle cx="225" cy="145" fill="#00d2fd" r="3.5"></circle>
+<!-- Center Host Node: Sri's Device -->
+<circle cx="170" cy="88" fill="#2563ff" fill-opacity="0.25" r="14" stroke="#3cd7ff" stroke-width="1.5">
+<animate attributename="r" dur="2.8s" repeatcount="indefinite" values="12;20;12"></animate>
+<animate attributename="opacity" dur="2.8s" repeatcount="indefinite" values="0.8;0.2;0.8"></animate>
+</circle>
+<circle cx="170" cy="88" fill="#2563ff" filter="url(#neonPulse)" r="7"></circle>
+<circle cx="170" cy="88" fill="#ffffff" r="3"></circle>
+</svg>
+<!-- Floating Monospace Live Badges inside Topology Display -->
+<div class="absolute top-2.5 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high/90 border border-white/10 shadow-md">
+<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+<span class="font-label-sm text-[10px] text-on-surface font-mono">915MHz LoRa + BLE 5.4</span>
+</div>
+<div class="absolute bottom-2.5 right-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high/90 border border-white/10 shadow-md">
+<span class="material-symbols-outlined text-[13px] text-secondary">speed</span>
+<span class="font-label-sm text-[10px] text-secondary font-mono font-bold" id="live-ping-label">12ms Latency</span>
+</div>
+</div>
+<!-- Tactical Frequency Switcher Segmented Control -->
+<div class="grid grid-cols-3 gap-1.5 p-1 rounded-2xl bg-surface-container-low border border-white/5" id="frequency-tabs">
+<button class="py-1.5 px-2 rounded-xl text-xs font-label-sm font-semibold bg-surface-bright text-secondary border border-secondary/30 shadow-md transition-all active:scale-95 tab-active">
+            LoRa 915M
+          </button>
+<button class="py-1.5 px-2 rounded-xl text-xs font-label-sm text-on-surface-variant hover:text-white transition-all active:scale-95">
+            BLE Mesh
+          </button>
+<button class="py-1.5 px-2 rounded-xl text-xs font-label-sm text-on-surface-variant hover:text-white transition-all active:scale-95">
+            Wi-Fi Direct
+          </button>
+</div>
+</div>
+</section>
+<!-- LIVE WALKIE-TALKIE & AUDIO WAVEFORM CARD (Tactical Channel 04) -->
+<section class="relative overflow-hidden rounded-3xl glass-panel p-4 border border-white/10 shadow-lg animate-float-2" id="tactical-audio-card">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-xl bg-tertiary-container/30 border border-tertiary/40 flex items-center justify-center text-tertiary shadow-[0_0_12px_rgba(112,85,243,0.3)]">
+<span class="material-symbols-outlined text-[18px]">graphic_eq</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-title-md text-[14px] font-bold text-on-surface">Tactical Audio Link</span>
+<span class="px-2 py-0.5 rounded-full bg-tertiary/20 text-tertiary font-label-sm text-[9px] font-bold">LIVE CH 04</span>
+</div>
+<span class="font-body-sm text-[11px] text-on-surface-variant">Squad Alpha • 16-bit Opus Voice Codec</span>
+</div>
+</div>
+<span class="font-label-sm text-[11px] text-emerald-400 font-mono flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> PTT Ready
+        </span>
+</div>
+<!-- Real-time Equalizer Waveform Visualizer + PTT Button -->
+<div class="flex items-center justify-between gap-3 p-3 rounded-2xl bg-surface-container-low/90 border border-white/5 relative">
+<!-- Equalizer Bars Array with Live Animated Heights -->
+<div class="flex items-center gap-1.5 flex-1 h-9 px-2 overflow-hidden items-end" id="audio-eq-bars">
+<span class="wave-eq w-1 bg-gradient-to-t from-secondary to-primary rounded-full transition-all duration-150 h-3"></span>
+<span class="wave-eq w-1 bg-gradient-to-t from-secondary to-primary rounded-full transition-all duration-150 h-6"></span>
+<span class="wave-eq w-1 bg-gradient-to-t from-secondary to-tertiary rounded-full transition-all duration-150 h-4"></span>
+<span class="wave-eq w-1 bg-gradient-to-t from-secondary to-primary rounded-full transition-all duration-150 h-7"></span>
+<span class="wave-eq w-1 bg-gradient-to-t from-secondary to-primary rounded-full transition-all duration-150 h-2"></span>
+<span class="wave-eq w-1 bg-gradient-to-t from-tertiary to-secondary rounded-full transition-all duration-150 h-5"></span>
+<span class="wave-eq w-1 bg-gradient-to-t from-secondary to-primary rounded-full transition-all duration-150 h-8"></span>
+<span class="wave-eq w-1 bg-gradient-to-t from-primary to-tertiary rounded-full transition-all duration-150 h-4"></span>
+<span class="wave-eq w-1 bg-gradient-to-t from-secondary to-primary rounded-full transition-all duration-150 h-7"></span>
+<span class="wave-eq w-1 bg-gradient-to-t from-secondary to-primary rounded-full transition-all duration-150 h-3"></span>
+<span class="wave-eq w-1 bg-gradient-to-t from-tertiary to-secondary rounded-full transition-all duration-150 h-6"></span>
+<span class="wave-eq w-1 bg-gradient-to-t from-secondary to-primary rounded-full transition-all duration-150 h-2"></span>
+</div>
+<!-- Tactile Press-To-Talk Button with Shockwave Ripple -->
+<div class="relative">
+<div class="absolute inset-0 rounded-xl bg-secondary/40 -z-10 opacity-0 pointer-events-none" id="ptt-shockwave"></div>
+<button class="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-secondary to-primary-container text-surface-container-lowest font-headline-sm text-xs font-bold shadow-[0_0_18px_rgba(0,210,253,0.4)] active:scale-90 transition-all duration-200 cursor-pointer select-none" id="ptt-trigger-btn">
+<span class="material-symbols-outlined text-[16px]">mic</span>
+<span id="ptt-label">HOLD PTT</span>
+</button>
+</div>
+</div>
+</section>
+<!-- 4 DENSE TELEMETRY CHIPS -->
+<div class="grid grid-cols-2 gap-2.5" id="telemetry-chips">
+<div class="glass-card-interactive p-3 rounded-2xl flex items-center space-x-3 cursor-pointer">
+<div class="w-10 h-10 rounded-xl bg-surface-bright/70 text-secondary flex items-center justify-center border border-white/10 shrink-0">
+<span class="material-symbols-outlined text-[20px]">hub</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-[10px] text-on-surface-variant uppercase tracking-wider">Nearby Nodes</span>
+<span class="font-headline-sm text-[15px] text-on-surface font-bold truncate">18 Verified</span>
+</div>
+</div>
+<div class="glass-card-interactive p-3 rounded-2xl flex items-center space-x-3 cursor-pointer">
+<div class="w-10 h-10 rounded-xl bg-surface-bright/70 text-secondary-fixed-dim flex items-center justify-center border border-white/10 shrink-0">
+<span class="material-symbols-outlined text-[20px]">battery_charging_90</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-[10px] text-on-surface-variant uppercase tracking-wider">Battery Mesh</span>
+<span class="font-headline-sm text-[15px] text-secondary font-bold truncate">92% <span class="text-[10px] font-normal text-on-surface-variant">Eco-Run</span></span>
+</div>
+</div>
+<div class="glass-card-interactive p-3 rounded-2xl flex items-center space-x-3 cursor-pointer">
+<div class="w-10 h-10 rounded-xl bg-surface-bright/70 text-primary flex items-center justify-center border border-white/10 shrink-0">
+<span class="material-symbols-outlined text-[20px]">radar</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-[10px] text-on-surface-variant uppercase tracking-wider">Mesh Range</span>
+<span class="font-headline-sm text-[15px] text-on-surface font-bold truncate">480m Direct</span>
+</div>
+</div>
+<div class="glass-card-interactive p-3 rounded-2xl flex items-center space-x-3 cursor-pointer">
+<div class="w-10 h-10 rounded-xl bg-surface-bright/70 text-tertiary flex items-center justify-center border border-white/10 shrink-0">
+<span class="material-symbols-outlined text-[20px]">alt_route</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-[10px] text-on-surface-variant uppercase tracking-wider">P2P Relays</span>
+<span class="font-headline-sm text-[15px] text-tertiary-fixed font-bold truncate">4 Hops Solid</span>
+</div>
+</div>
+</div>
+<!-- 2x3 HOLOGRAPHIC FEATURE GRID (Decentralized Core Tools) -->
+<section class="flex flex-col space-y-2.5 pt-1">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-wider font-bold">Decentralized Services</span>
+</div>
+<span class="font-label-sm text-[10px] text-secondary font-mono">6 ENGINES RUNNING</span>
+</div>
+<div class="grid grid-cols-2 gap-2.5" id="services-grid">
+<!-- 1. Offline Encrypted Chat (SHARED ELEMENT HERO MODAL TRIGGER) -->
+<div class="glass-card-interactive p-3.5 rounded-2xl flex flex-col justify-between cursor-pointer group" id="open-chat-card">
+<div class="flex items-start justify-between">
+<div class="w-10 h-10 rounded-xl bg-secondary-container/20 text-secondary-fixed-dim flex items-center justify-center border border-secondary/30 shadow-[0_0_14px_rgba(0,210,253,0.25)] group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[22px]">forum</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary text-surface font-label-sm text-[10px] font-extrabold shadow-[0_0_10px_rgba(0,210,253,0.5)] animate-pulse">3 unread</span>
+</div>
+<div class="mt-3">
+<span class="font-headline-sm text-[14px] text-on-surface font-bold block leading-tight">Offline Chat</span>
+<p class="font-body-sm text-[11px] text-on-surface-variant line-clamp-2 mt-1">Alpha-1: Path clear at pass 3</p>
+</div>
+</div>
+<!-- 2. Voice P2P Calling -->
+<div class="glass-card-interactive p-3.5 rounded-2xl flex flex-col justify-between cursor-pointer group" onclick="triggerP2PCall()">
+<div class="flex items-start justify-between">
+<div class="w-10 h-10 rounded-xl bg-primary-container/20 text-primary flex items-center justify-center border border-primary/30 shadow-[0_0_14px_rgba(37,99,255,0.25)] group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[22px]">phone_in_talk</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-bright text-secondary font-label-sm text-[10px] font-semibold border border-secondary/20">Direct</span>
+</div>
+<div class="mt-3">
+<span class="font-headline-sm text-[14px] text-on-surface font-bold block leading-tight">P2P Voice Call</span>
+<p class="font-body-sm text-[11px] text-on-surface-variant line-clamp-2 mt-1">Zero internet or cellular needed</p>
+</div>
+</div>
+<!-- 3. Offline Vector Maps -->
+<div class="glass-card-interactive p-3.5 rounded-2xl flex flex-col justify-between cursor-pointer group" onclick="showToast('Loading 24km² Local Vector Tile Cache...')">
+<div class="flex items-start justify-between">
+<div class="w-10 h-10 rounded-xl bg-secondary-container/20 text-secondary flex items-center justify-center border border-secondary/30 shadow-[0_0_14px_rgba(0,210,253,0.25)] group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[22px]">explore</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-bright text-on-surface-variant font-label-sm text-[10px]">24km² DEM</span>
+</div>
+<div class="mt-3">
+<span class="font-headline-sm text-[14px] text-on-surface font-bold block leading-tight">Offline Vector Map</span>
+<p class="font-body-sm text-[11px] text-on-surface-variant line-clamp-2 mt-1">Local cached terrain &amp; waypoints</p>
+</div>
+</div>
+<!-- 4. Tactical Gemma AI Copilot (With Ethereal Holographic Breathing Glow) -->
+<div class="glass-card-interactive ai-hologram-glow p-3.5 rounded-2xl flex flex-col justify-between cursor-pointer group" onclick="showToast('Gemma 2B Tactical Copilot Initialized • 3 Languages Ready')">
+<div class="flex items-start justify-between">
+<div class="w-10 h-10 rounded-xl bg-tertiary-container/30 text-tertiary flex items-center justify-center border border-tertiary/40 shadow-[0_0_14px_rgba(112,85,243,0.3)] group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[22px]">psychology</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-tertiary/20 text-tertiary-fixed font-label-sm text-[10px] font-bold border border-tertiary/30">GEMMA 2B</span>
+</div>
+<div class="mt-3">
+<span class="font-headline-sm text-[14px] text-on-surface font-bold block leading-tight">Tactical AI Copilot</span>
+<p class="font-body-sm text-[11px] text-on-surface-variant line-clamp-2 mt-1">Hindi, Telugu, English offline</p>
+</div>
+</div>
+<!-- 5. Emergency SOS Beacon -->
+<div class="glass-card-interactive p-3.5 rounded-2xl flex flex-col justify-between cursor-pointer group border-error/40 bg-error-container/20 hover:border-error" onclick="triggerSOS()">
+<div class="flex items-start justify-between">
+<div class="w-10 h-10 rounded-xl bg-error/20 text-error flex items-center justify-center border border-error/40 shadow-[0_0_16px_rgba(255,107,126,0.3)] group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[22px] animate-pulse">crisis_alert</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-error text-white font-label-sm text-[10px] font-black tracking-wider">BEACON</span>
+</div>
+<div class="mt-3">
+<span class="font-headline-sm text-[14px] text-error font-bold block leading-tight">Emergency SOS</span>
+<p class="font-body-sm text-[11px] text-on-surface-variant line-clamp-2 mt-1">High-priority distress omni-relay</p>
+</div>
+</div>
+<!-- 6. Sensor Telemetry Sync -->
+<div class="glass-card-interactive p-3.5 rounded-2xl flex flex-col justify-between cursor-pointer group" onclick="showToast('Telemetry Synchronized: Baro 1013hPa | SpO2 99%')">
+<div class="flex items-start justify-between">
+<div class="w-10 h-10 rounded-xl bg-surface-bright/80 text-secondary flex items-center justify-center border border-white/10 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[22px]">vital_signs</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-bright text-emerald-400 font-label-sm text-[10px] font-semibold">100% OK</span>
+</div>
+<div class="mt-3">
+<span class="font-headline-sm text-[14px] text-on-surface font-bold block leading-tight">Vitals &amp; Weather</span>
+<p class="font-body-sm text-[11px] text-on-surface-variant line-clamp-2 mt-1">Barometer 1013hPa • Heart: 72bpm</p>
+</div>
+</div>
+</div>
+</section>
+<!-- TACTICAL IMAGE CONTEXT CARD (Field Operatives Active Sector) -->
+<section class="relative overflow-hidden rounded-3xl glass-panel p-3.5 border border-white/10 shadow-xl animate-float-3" id="tactical-sector-card">
+<div class="flex items-center justify-between mb-2.5 px-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary">satellite_alt</span>
+<span class="font-headline-sm text-[14px] text-on-surface font-bold">Nocturnal Field Relays</span>
+</div>
+<span class="font-label-sm text-[10px] text-secondary font-mono tracking-wider">SECTOR 04-EAST</span>
+</div>
+<div class="relative w-full h-36 rounded-2xl overflow-hidden border border-white/10 shadow-inner group cursor-pointer" onclick="showToast('Inspecting Sector 04-East Satellite Overlay...')">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A tactical nocturnal field map view illuminated by high-contrast neon cyan and electric blue mesh vectors connecting remote handheld radio stations and emergency responders in a rugged mountain valley under deep midnight twilight atmospheric lighting with subtle HUD telemetry overlays" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATIz4Z5jFoJXWHta9c56D_a3wS8zp9nH93Cs7maOnfNPrAMokSB4JoLPvP1nDq9iFmmzb1WDfi6ExyOhtK-vc_q35BrpoYI4L8bQcuOYRFb9cQxgqfkulAD18t4nmt6mqSc_22tAAsfF8A3qna6i2IH1NPag79X7ye6I0SkAqjP4vO5uBVTmZJAcZGEX7UpHbTqtZvXv-NXBXFe5-EsK9W_UsfbYxtvcyWVfHuKdrjWtqAf9bL4IEpmA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-90"></div>
+<div class="absolute bottom-2.5 left-2.5 flex items-center gap-2 px-3 py-1 rounded-xl bg-surface-container-lowest/85 backdrop-blur-md border border-white/10 shadow-md">
+<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+<span class="font-label-sm text-[10px] text-on-surface font-mono">17 GPS Anchors Locked • RTK Fix</span>
+</div>
+</div>
+</section>
+<!-- EMERGENCY QUICK SOS RELAY BAR (Material 3 Expressive Crimson Strip) -->
+<div class="relative flex items-center justify-between p-3 rounded-2xl bg-gradient-to-r from-error-container via-surface-container-high to-surface-container-high border border-error/40 shadow-[0_8px_30px_rgba(255,107,126,0.25)] select-none" id="quick-sos-strip">
+<div class="flex items-center space-x-3">
+<div class="relative flex items-center justify-center w-10 h-10 rounded-2xl bg-error text-white shadow-[0_0_16px_#ff6b7e] sos-breathing-core">
+<span class="material-symbols-outlined text-[22px] animate-ping opacity-75 absolute">e911_emergency</span>
+<span class="material-symbols-outlined text-[22px] relative z-10">e911_emergency</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-[14px] text-on-surface font-bold leading-tight">Distress Quick Relay</span>
+<span class="font-label-sm text-[10px] text-error font-mono">Instant omni-packet broadcast</span>
+</div>
+</div>
+<button class="px-4 py-2 rounded-xl bg-gradient-to-r from-error to-rose-600 text-white font-headline-sm text-xs font-black tracking-wider active:scale-90 transition-all shadow-[0_0_16px_rgba(255,107,126,0.5)] cursor-pointer" id="quick-sos-btn">
+        BROADCAST
+      </button>
+</div>
+</main>
+<!-- SHARED ELEMENT HERO MODAL: OFFLINE ENCRYPTED CHAT -->
+<div class="fixed inset-0 z-50 pointer-events-none flex items-end justify-center transition-opacity duration-300 opacity-0" id="chat-modal-backdrop">
+<!-- Backdrop filter overlay -->
+<div class="absolute inset-0 bg-black/70 backdrop-blur-md cursor-pointer" id="chat-modal-overlay"></div>
+<!-- Sliding / Expanding Modal Card (Material 3 Spring Sheet) -->
+<div class="relative w-full max-w-md h-[88vh] rounded-t-3xl glass-panel border border-white/20 shadow-2xl flex flex-col transform translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] overflow-hidden" id="chat-modal-sheet">
+<!-- Header -->
+<div class="p-4 border-b border-white/10 flex items-center justify-between bg-surface-container/60">
+<div class="flex items-center gap-3">
+<div class="relative w-10 h-10 rounded-xl bg-secondary-container/20 text-secondary border border-secondary/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">forum</span>
+<span class="w-2.5 h-2.5 rounded-full bg-emerald-400 absolute -top-0.5 -right-0.5 border-2 border-surface"></span>
+</div>
+<div>
+<h2 class="font-headline-sm text-sm font-bold text-on-surface">Alpha-1 Squad (LoRa Mesh)</h2>
+<p class="font-label-sm text-[10px] text-secondary font-mono">3 Hops • AES-GCM Encrypted</p>
+</div>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-white active:scale-90 transition-all" id="chat-modal-close">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Chat Bubbles Stream with Staggered Slide In -->
+<div class="flex-1 p-4 overflow-y-auto space-y-3" id="chat-stream">
+<div class="flex flex-col items-start max-w-[80%]">
+<span class="font-label-sm text-[9px] text-on-surface-variant mb-1 ml-1">Alpha-1 • 09:38</span>
+<div class="p-3 rounded-2xl rounded-tl-sm bg-surface-container-high border border-white/10 text-xs text-on-surface shadow-md">
+            All tactical nodes online. Path clear at pass 3. Advancing to waypoint Beta.
+          </div>
+</div>
+<div class="flex flex-col items-end max-w-[80%] ml-auto">
+<span class="font-label-sm text-[9px] text-secondary mb-1 mr-1">You • 09:39</span>
+<div class="p-3 rounded-2xl rounded-tr-sm bg-primary-container text-white text-xs shadow-lg">
+            Acknowledged. Sub-GHz telemetry locked at 915MHz.
+          </div>
+</div>
+<div class="flex flex-col items-start max-w-[80%]">
+<span class="font-label-sm text-[9px] text-on-surface-variant mb-1 ml-1">Bravo-2 • 09:40</span>
+<div class="p-3 rounded-2xl rounded-tl-sm bg-surface-container-high border border-white/10 text-xs text-on-surface shadow-md">
+            Receiving telemetry relay. Battery 92% eco-run.
+          </div>
+</div>
+</div>
+<!-- Input Bar -->
+<div class="p-3 border-t border-white/10 bg-surface-container-low/90 flex items-center gap-2 pb-safe">
+<input class="flex-1 bg-surface-container-highest/60 border border-white/10 rounded-xl px-3 py-2 text-xs text-on-surface placeholder-on-surface-variant/60 focus:outline-none focus:border-secondary transition-colors" id="chat-input" placeholder="Type offline LoRa packet..." type="text"/>
+<button class="w-9 h-9 rounded-xl bg-secondary text-surface font-bold flex items-center justify-center active:scale-90 transition-transform shadow-[0_0_12px_rgba(0,210,253,0.5)]" id="chat-send-btn">
+<span class="material-symbols-outlined text-[18px]">send</span>
+</button>
+</div>
+</div>
+</div>
+<!-- INTEGRATED FLOATING BOTTOM NAVIGATION (Ultra-Glass Pill Dock) -->
+<nav class="fixed bottom-0 w-full z-40 pb-safe pointer-events-none">
+<div class="px-4 pb-2 pointer-events-auto">
+<div class="relative flex items-center justify-around h-16 rounded-full glass-capsule px-2 border border-white/15 shadow-[0_12px_40px_rgba(0,0,0,0.8)]">
+<!-- Tab 1: Home Active -->
+<a aria-current="page" class="flex flex-col items-center justify-center min-w-[50px] h-12 rounded-full transition-all duration-300 text-secondary bg-surface-bright/50 shadow-[0_0_16px_rgba(0,210,253,0.35)] active:scale-90" data-path="network-dashboard" href="#" onclick="showToast('Dashboard refreshed'); return false;">
+<span class="material-symbols-outlined text-[22px]">home</span>
+<span class="font-label-sm text-[9px] font-semibold mt-0.5">Home</span>
+</a>
+<!-- Tab 2: Radar -->
+<a class="flex flex-col items-center justify-center min-w-[50px] h-12 rounded-full text-on-surface-variant hover:text-white transition-all duration-300 active:scale-90" data-path="radar-mesh" href="#" onclick="triggerRadarPulse(); return false;">
+<span class="material-symbols-outlined text-[22px]">radar</span>
+<span class="font-label-sm text-[9px] mt-0.5">Radar</span>
+</a>
+<!-- Center SOS Beacon Button (Breathing Crimson Haptic Core) -->
+<div class="relative flex items-center justify-center -mt-6 px-1">
+<a class="relative w-14 h-14 rounded-full bg-gradient-to-tr from-rose-600 to-red-500 text-white flex items-center justify-center shadow-[0_0_28px_rgba(255,107,126,0.6)] active:scale-90 transition-transform duration-200 border-2 border-white/20 sos-breathing-core" data-path="emergency-sos" href="#" id="center-sos-button" onclick="triggerSOS(); return false;">
+<span class="material-symbols-outlined text-[30px] font-black">sos</span>
+<span class="absolute inset-0 rounded-full border border-red-400 animate-ping opacity-50 pointer-events-none"></span>
+</a>
+</div>
+<!-- Tab 4: Map -->
+<a class="flex flex-col items-center justify-center min-w-[50px] h-12 rounded-full text-on-surface-variant hover:text-white transition-all duration-300 active:scale-90" data-path="offline-map" href="#" onclick="showToast('Offline Terrain 3D Map view loading...'); return false;">
+<span class="material-symbols-outlined text-[22px]">map</span>
+<span class="font-label-sm text-[9px] mt-0.5">Map</span>
+</a>
+<!-- Tab 5: AI Assistant -->
+<a class="flex flex-col items-center justify-center min-w-[50px] h-12 rounded-full text-on-surface-variant hover:text-white transition-all duration-300 active:scale-90" data-path="tactical-ai-assistant" href="#" onclick="showToast('Gemma Copilot ready for voice prompts'); return false;">
+<span class="material-symbols-outlined text-[22px]">smart_toy</span>
+<span class="font-label-sm text-[9px] mt-0.5">Gemma AI</span>
+</a>
+</div>
+</div>
+</nav>
+<!-- COMPREHENSIVE MATERIAL MOTION MICRO-INTERACTIONS ENGINE -->
+<script>
+    // 1. Material Ripple Generator on any interactive click
+    document.addEventListener('click', function(e) {
+      const target = e.target.closest('.glass-card-interactive, button, .glass-capsule, nav a');
+      if (!target) return;
+
+      const rect = target.getBoundingClientRect();
+      const ripple = document.createElement('span');
+      ripple.className = 'ripple-effect';
+      const size = Math.max(rect.width, rect.height);
+      ripple.style.width = ripple.style.height = `${size}px`;
+      ripple.style.left = `${e.clientX - rect.left - size / 2}px`;
+      ripple.style.top = `${e.clientY - rect.top - size / 2}px`;
+
+      target.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 750);
+    });
+
+    // 2. Dynamic Island Capsule Drawer expand/collapse
+    const dynamicCapsule = document.getElementById('dynamic-capsule');
+    const capsuleDrawer = document.getElementById('capsule-drawer');
+    const capsuleChevron = document.getElementById('capsule-chevron');
+
+    if (dynamicCapsule && capsuleDrawer) {
+      dynamicCapsule.addEventListener('click', (e) => {
+        const isHidden = capsuleDrawer.classList.contains('hidden');
+        if (isHidden) {
+          capsuleDrawer.classList.remove('hidden');
+          capsuleChevron.style.transform = 'rotate(180deg)';
+          showToast("Dynamic Island: Expanded 915MHz Telemetry Metrics");
+        } else {
+          capsuleDrawer.classList.add('hidden');
+          capsuleChevron.style.transform = 'rotate(0deg)';
+        }
+      });
+    }
+
+    // 3. Frequency Tabs Interactive Switcher
+    const freqTabs = document.querySelectorAll('#frequency-tabs button');
+    freqTabs.forEach(btn => {
+      btn.addEventListener('click', function() {
+        freqTabs.forEach(b => {
+          b.className = "py-1.5 px-2 rounded-xl text-xs font-label-sm text-on-surface-variant hover:text-white transition-all active:scale-95";
+        });
+        this.className = "py-1.5 px-2 rounded-xl text-xs font-label-sm font-semibold bg-surface-bright text-secondary border border-secondary/30 shadow-md transition-all active:scale-95 tab-active";
+        showToast(`Switched protocol frequency: ${this.innerText.trim()}`);
+        triggerConfetti(window.innerWidth / 2, 280);
+      });
+    });
+
+    // 4. Tactical Audio Link: Equalizer Live Fluctuation
+    const eqBars = document.querySelectorAll('#audio-eq-bars .wave-eq');
+    setInterval(() => {
+      eqBars.forEach(bar => {
+        const h = Math.floor(Math.random() * 26) + 4;
+        bar.style.height = `${h}px`;
+      });
+    }, 180);
+
+    // 5. Tactical PTT Button Hold Shockwave & Voice Stream
+    const pttBtn = document.getElementById('ptt-trigger-btn');
+    const pttLabel = document.getElementById('ptt-label');
+    const pttShockwave = document.getElementById('ptt-shockwave');
+    let pttTimer = null;
+
+    function startPTT() {
+      pttBtn.classList.add('scale-90', 'ring-4', 'ring-secondary/50');
+      pttLabel.innerText = "TRANSMITTING...";
+      if (pttShockwave) pttShockwave.classList.add('ptt-active-ring');
+      eqBars.forEach(bar => bar.classList.add('bg-error'));
+    }
+
+    function endPTT() {
+      pttBtn.classList.remove('scale-90', 'ring-4', 'ring-secondary/50');
+      pttLabel.innerText = "HOLD PTT";
+      if (pttShockwave) pttShockwave.classList.remove('ptt-active-ring');
+      eqBars.forEach(bar => bar.classList.remove('bg-error'));
+      showToast("Voice packet encrypted & broadcast over Squad Alpha");
+    }
+
+    if (pttBtn) {
+      pttBtn.addEventListener('mousedown', startPTT);
+      pttBtn.addEventListener('mouseup', endPTT);
+      pttBtn.addEventListener('touchstart', (e) => { e.preventDefault(); startPTT(); });
+      pttBtn.addEventListener('touchend', (e) => { e.preventDefault(); endPTT(); });
+    }
+
+    // 6. Tactical stealth toggle micro-interaction
+    const tacticalBtn = document.getElementById('tactical-mode-btn');
+    if (tacticalBtn) {
+      tacticalBtn.addEventListener('click', () => {
+        const label = tacticalBtn.querySelector('span:last-child');
+        if (label.innerText === 'STEALTH ON') {
+          label.innerText = 'BEACON ON';
+          tacticalBtn.classList.replace('text-on-surface', 'text-secondary');
+          showToast('Tactical Stealth disabled: Beacon broadcasting 915MHz telemetry');
+        } else {
+          label.innerText = 'STEALTH ON';
+          tacticalBtn.classList.replace('text-secondary', 'text-on-surface');
+          showToast('Tactical Stealth enabled: RF emissions dampened');
+        }
+      });
+    }
+
+    // 7. Radar Pulse Trigger & Confetti Sparks
+    const radarTrigger = document.getElementById('radar-pulse-trigger');
+    function triggerRadarPulse() {
+      const icon = radarTrigger ? radarTrigger.querySelector('.material-symbols-outlined') : null;
+      if (icon) {
+        icon.classList.add('animate-spin');
+        setTimeout(() => icon.classList.remove('animate-spin'), 1000);
+      }
+      showPullRefreshIndicator();
+      showToast('Swarm Mesh scan active: 18 nodes verified at 480m');
+      triggerConfetti(window.innerWidth / 2, 260);
+    }
+    if (radarTrigger) radarTrigger.addEventListener('click', triggerRadarPulse);
+
+    // 8. Pull-to-refresh Visual Indicator Trigger
+    function showPullRefreshIndicator() {
+      const ind = document.getElementById('pull-refresh-indicator');
+      if (!ind) return;
+      ind.classList.remove('-translate-y-16');
+      ind.classList.add('translate-y-4');
+      setTimeout(() => {
+        ind.classList.remove('translate-y-4');
+        ind.classList.add('-translate-y-16');
+      }, 1600);
+    }
+
+    // 9. Toast / Snackbar System with Spring In-Out
+    function showToast(message) {
+      const container = document.getElementById('toast-container');
+      if (!container) return;
+
+      const toast = document.createElement('div');
+      toast.className = "flex items-center gap-2.5 px-4 py-2.5 rounded-2xl glass-capsule border border-secondary/40 text-on-surface shadow-2xl pointer-events-auto transform translate-y-[-20px] opacity-0 transition-all duration-300";
+      toast.innerHTML = `
+        <span class="w-2 h-2 rounded-full bg-secondary animate-ping shrink-0"></span>
+        <span class="font-label-sm text-xs font-semibold text-on-surface tracking-wide">${message}</span>
+      `;
+      container.appendChild(toast);
+
+      requestAnimationFrame(() => {
+        toast.classList.remove('translate-y-[-20px]', 'opacity-0');
+      });
+
+      setTimeout(() => {
+        toast.classList.add('translate-y-[-20px]', 'opacity-0');
+        setTimeout(() => toast.remove(), 350);
+      }, 2800);
+    }
+
+    // 10. Shimmer Skeleton State Demonstrator
+    const shimmerBtn = document.getElementById('toggle-shimmer-btn');
+    let isShimmering = false;
+    if (shimmerBtn) {
+      shimmerBtn.addEventListener('click', () => {
+        isShimmering = !isShimmering;
+        const targets = document.querySelectorAll('.glass-card-interactive, #tactical-audio-card');
+        targets.forEach(el => {
+          if (isShimmering) {
+            el.classList.add('shimmer-active');
+          } else {
+            el.classList.remove('shimmer-active');
+          }
+        });
+        showToast(isShimmering ? "Tactical Skeleton Shimmer Preview: Active" : "Tactical Live Data Stream: Restored");
+      });
+    }
+
+    // 11. Shared Element Hero Modal (Offline Encrypted Chat)
+    const openChatCard = document.getElementById('open-chat-card');
+    const chatModalBackdrop = document.getElementById('chat-modal-backdrop');
+    const chatModalOverlay = document.getElementById('chat-modal-overlay');
+    const chatModalSheet = document.getElementById('chat-modal-sheet');
+    const chatModalClose = document.getElementById('chat-modal-close');
+    const chatInput = document.getElementById('chat-input');
+    const chatSendBtn = document.getElementById('chat-send-btn');
+    const chatStream = document.getElementById('chat-stream');
+
+    function openChat() {
+      chatModalBackdrop.classList.remove('pointer-events-none', 'opacity-0');
+      chatModalBackdrop.classList.add('pointer-events-auto', 'opacity-100');
+      chatModalSheet.classList.remove('translate-y-full');
+    }
+
+    function closeChat() {
+      chatModalSheet.classList.add('translate-y-full');
+      setTimeout(() => {
+        chatModalBackdrop.classList.remove('pointer-events-auto', 'opacity-100');
+        chatModalBackdrop.classList.add('pointer-events-none', 'opacity-0');
+      }, 350);
+    }
+
+    if (openChatCard) openChatCard.addEventListener('click', openChat);
+    if (chatModalOverlay) chatModalOverlay.addEventListener('click', closeChat);
+    if (chatModalClose) chatModalClose.addEventListener('click', closeChat);
+
+    function sendChatMessage() {
+      if (!chatInput || !chatInput.value.trim()) return;
+      const text = chatInput.value.trim();
+      chatInput.value = '';
+
+      const bubble = document.createElement('div');
+      bubble.className = "flex flex-col items-end max-w-[80%] ml-auto animate-float-1";
+      bubble.innerHTML = `
+        <span class="font-label-sm text-[9px] text-secondary mb-1 mr-1">You • Just now</span>
+        <div class="p-3 rounded-2xl rounded-tr-sm bg-primary-container text-white text-xs shadow-lg">
+          ${text}
+        </div>
+      `;
+      chatStream.appendChild(bubble);
+      chatStream.scrollTop = chatStream.scrollHeight;
+      showToast("Encrypted LoRa packet transmitted (18 relays)");
+    }
+
+    if (chatSendBtn) chatSendBtn.addEventListener('click', sendChatMessage);
+    if (chatInput) {
+      chatInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') sendChatMessage();
+      });
+    }
+
+    // 12. Confetti Particle Burst for Swarm Ping / SOS
+    function triggerConfetti(originX, originY) {
+      const colors = ['#3cd7ff', '#00d2fd', '#7055f3', '#c9bfff', '#ffffff'];
+      for (let i = 0; i < 28; i++) {
+        const p = document.createElement('div');
+        p.className = 'spark-particle';
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        const size = Math.floor(Math.random() * 6) + 4;
+        const angle = Math.random() * 2 * Math.PI;
+        const dist = Math.floor(Math.random() * 120) + 40;
+        const tx = Math.cos(angle) * dist + 'px';
+        const ty = Math.sin(angle) * dist + 'px';
+
+        p.style.width = `${size}px`;
+        p.style.height = `${size}px`;
+        p.style.backgroundColor = color;
+        p.style.boxShadow = `0 0 10px ${color}`;
+        p.style.left = `${originX}px`;
+        p.style.top = `${originY}px`;
+        p.style.setProperty('--tx', tx);
+        p.style.setProperty('--ty', ty);
+
+        document.body.appendChild(p);
+        setTimeout(() => p.remove(), 900);
+      }
+    }
+
+    // 13. Emergency SOS Broadcast
+    function triggerSOS() {
+      showToast("🚨 HIGH PRIORITY DISTRESS RELAY BROADCASTED TO 18 PEERS");
+      triggerConfetti(window.innerWidth / 2, window.innerHeight / 2);
+    }
+    const quickSosBtn = document.getElementById('quick-sos-btn');
+    if (quickSosBtn) quickSosBtn.addEventListener('click', triggerSOS);
+
+    // 14. P2P Call Trigger
+    function triggerP2PCall() {
+      showToast("Establishing Direct Sub-GHz Voice Tunnel to Alpha-1...");
+    }
+  </script>
+</body></html>

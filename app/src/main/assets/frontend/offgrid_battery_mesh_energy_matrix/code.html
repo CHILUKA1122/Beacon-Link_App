@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500;600&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#0b1422;color:#dae3f7;}body{overscroll-behavior:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface": "#0b1422", "on-secondary-fixed": "#001f27", "secondary-fixed-dim": "#3cd7ff", "tertiary-fixed": "#e5deff", "inverse-on-surface": "#283140", "error-container": "#93000a", "on-secondary-container": "#005669", "secondary": "#a2e7ff", "error": "#ffb4ab", "on-error": "#690005", "primary-fixed": "#dce1ff", "on-error-container": "#ffdad6", "on-surface": "#dae3f7", "primary-container": "#2563ff", "on-secondary": "#003642", "surface-variant": "#2c3544", "surface-container": "#17202e", "surface-bright": "#313949", "surface-container-highest": "#2c3544", "surface-container-high": "#222a39", "outline-variant": "#434656", "inverse-surface": "#dae3f7", "on-primary-fixed": "#00164f", "on-primary-container": "#f7f6ff", "on-surface-variant": "#c3c5d8", "tertiary-container": "#7055f3", "secondary-container": "#00d2fd", "on-background": "#dae3f7", "surface-tint": "#b6c4ff", "background": "#0b1422", "on-tertiary-fixed-variant": "#441cc8", "outline": "#8d90a2", "tertiary": "#c9bfff", "surface-container-low": "#131c2a", "primary": "#b6c4ff", "on-tertiary-fixed": "#1a0063", "on-primary": "#00287d", "surface-dim": "#0b1422", "on-tertiary-container": "#faf5ff", "tertiary-fixed-dim": "#c9bfff", "on-primary-fixed-variant": "#003baf", "inverse-primary": "#004fe5", "surface-container-lowest": "#060e1c", "primary-fixed-dim": "#b6c4ff", "secondary-fixed": "#b4ebff", "on-tertiary": "#2e009c", "on-secondary-fixed-variant": "#004e5f" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "margin": "1rem", "space-lg": "1.5rem", "space-md": "1rem", "space-sm": "0.5rem", "space-xs": "0.25rem", "gutter": "1rem", "space-xl": "2rem" }, fontFamily: { "label-md": ["JetBrains Mono"], "headline-sm": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "label-sm": ["JetBrains Mono"], "headline-lg": ["Plus Jakarta Sans"], "title-md": ["Inter"], "body-sm": ["Inter"], "title-lg": ["Plus Jakarta Sans"], "label-lg": ["JetBrains Mono"], "headline-md": ["Plus Jakarta Sans"], "body-md": ["Inter"], "display-lg": ["Plus Jakarta Sans"] }, fontSize: { "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" }], "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "600" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "title-lg": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500" }], "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }] } } } };</script></head><body class="bg-surface text-on-surface font-body-md flex flex-col antialiased selection:bg-primary-container selection:text-on-primary-container flex flex-col h-screen flex flex-col"><header class="fixed top-0 w-full z-50 bg-surface-container-lowest/80 backdrop-blur-xl shadow-[0_4px_20px_rgba(0,0,0,0.4)] shrink-0"><div class="pt-safe"><div class="flex justify-between items-center px-margin h-6 text-on-surface-variant font-label-sm text-label-sm select-none"><span class="tracking-wider text-on-surface font-semibold">09:41</span><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[14px] text-secondary">airplanemode_active</span><span class="material-symbols-outlined text-[14px] text-secondary">bluetooth</span><span class="material-symbols-outlined text-[14px] text-secondary">hub</span><div class="flex items-center gap-0.5 ml-1"><span class="text-[10px] text-on-surface font-label-sm">89%</span><span class="material-symbols-outlined text-[14px] text-on-surface">battery_charging_80</span></div></div></div><div class="h-14 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm"><img alt="OFFGRID Emblem Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1W1UO3PQHgzib33NT8zog8migShUE78Om_OV9GEgx5rwxYniV9l0LUqeItxdIouGv1gE1-xC9qqqVdpqsMK1PIFbBuQVYxHF1AwY2oCU6CnOpkBAkk3-Rkel-KjTmpH8sMqNusl2mU7UW9KzgQ6FVR-zqWIeIXnCP5qWNFu_CHKW666wlmSo-0fJ-NdbW65vnzvNJatZrOjOFvLdimq9qeTHyGEKqsnOttnp0jYbI1jC9LWnAuHMvOeN8K1"/><div class="flex flex-col"><span class="font-title-lg text-title-lg tracking-tight font-bold text-on-surface leading-tight">OFFGRID</span><span class="font-label-sm text-label-sm text-secondary tracking-widest uppercase">Network Dashboard</span></div></div><div class="flex items-center gap-space-sm"><div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high/90 shadow-[0_0_12px_rgba(0,210,253,0.15)]"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span class="font-label-sm text-label-sm text-secondary font-medium whitespace-nowrap">Mesh Active (14 nodes)</span></div><div class="w-8 h-8 rounded-full p-0.5 bg-gradient-to-tr from-secondary to-primary-container shrink-0 flex items-center justify-center"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBicInjDpQSxL6H_1VIkNE0ww9tTlWtPwtTZc-ZKVCQvM_DVHVBMQK1ZQIDLItsl7QpiEaKIc1oYhIlFiYB3HUDjbteWzpS5n99XGgoy7CpVFOpNpDA5_f3seNVOHIknhSUGr6StTRDOgUb20EuxmDTZ9bFJwbmZQR-VI3SzNm3EMUynpstt1YoBqfO0WYB2Y_4OG9ShEt5QC5gnhn1TKv5oT-K-VtG_uv8E5JuhzBGmHaEFaqXNZsSZw"/></div></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-20 pb-28 bg-surface overflow-y-auto"><div class="flex flex-col w-full pb-6 px-margin space-y-space-md">
+<!-- Header Section with Navigation & Node Status -->
+<section class="flex flex-col space-y-space-xs pt-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<a class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface shadow-md active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-xl">arrow_back</span>
+</a>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight">Mesh Energy Matrix</span>
+<div class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container animate-ping"></span>
+<span class="font-label-sm text-label-sm text-secondary font-medium tracking-wide uppercase">Autonomous Eco-Cycle Active</span>
+</div>
+</div>
+</div>
+<div class="w-10 h-10 rounded-full p-0.5 bg-gradient-to-tr from-secondary to-primary-container shadow-md shrink-0">
+<img alt="Sri's Mesh Profile" class="w-full h-full rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1XD3jpUEXNZs2ZX8ohgUL_6gGjpmiTnoJpygKVw_yciAgKuSTbXH29IkVvrYExKbZO7ofr_xK0OfJ0gTcd9vi0aYZKu3wdG3TfzEh1sX1rDIUCj48dZn4t0hS-jXvcJwo-N14-md6aKDhh4rs9uvK_eAYVL5K2QSMS4j0WvRgIvUH6pIqZkWw_PE4g6AwP72O9V4uBQrHVkIUIw6WkMVqxZxYbIpgwQ0xA1gB_9hofOl32lySWQpNHZnDgP"/>
+</div>
+</div>
+</section>
+<!-- Hero Power Gauge Card (Level 2 Tactical Glass) -->
+<section class="w-full rounded-xl bg-surface-container-high/70 backdrop-blur-xl p-space-md relative overflow-hidden shadow-xl">
+<!-- Ambient glowing radial backdrop -->
+<div class="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-secondary-container/10 blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-10 -left-10 w-40 h-40 rounded-full bg-primary-container/10 blur-2xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col items-center text-center">
+<!-- Top Badges -->
+<div class="w-full flex items-center justify-between pb-space-sm">
+<div class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-lowest text-secondary shadow-sm">
+<span class="material-symbols-outlined text-[13px]">verified_user</span>
+<span class="font-label-sm text-label-sm tracking-wider">Ed25519 VERIFIED</span>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-lowest text-on-surface-variant shadow-sm">
+<span class="material-symbols-outlined text-[13px] text-secondary">bolt</span>
+<span class="font-label-sm text-label-sm text-on-surface" id="live-draw-val">142 mW</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container animate-pulse"></span>
+</div>
+</div>
+<!-- Holographic Radial Dial SVG -->
+<div class="relative my-2 w-48 h-48 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 160 160">
+<!-- Background track -->
+<circle class="text-surface-variant/40" cx="80" cy="80" fill="transparent" r="68" stroke="currentColor" stroke-linecap="round" stroke-width="8"></circle>
+<!-- Active Gradient Progress Track (92%) -->
+<defs>
+<lineargradient id="batteryGrad" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#00d2fd"></stop>
+<stop offset="60%" stop-color="#2563ff"></stop>
+<stop offset="100%" stop-color="#a2e7ff"></stop>
+</lineargradient>
+<filter height="140%" id="glow" width="140%" x="-20%" y="-20%">
+<fegaussianblur result="glow" stddeviation="3"></fegaussianblur>
+<femerge>
+<femergenode in="glow"></femergenode>
+<femergenode in="SourceGraphic"></femergenode>
+</femerge>
+</filter>
+</defs>
+<circle class="transition-all duration-700 ease-out" cx="80" cy="80" fill="transparent" filter="url(#glow)" r="68" stroke="url(#batteryGrad)" stroke-dasharray="427.26" stroke-dashoffset="34.18" stroke-linecap="round" stroke-width="8"></circle>
+<!-- Subtle inner dashed telemetry ring -->
+<circle class="text-secondary/30" cx="80" cy="80" fill="transparent" r="54" stroke="currentColor" stroke-dasharray="4 6" stroke-width="1.5"></circle>
+</svg>
+<!-- Center Numerical readout -->
+<div class="absolute inset-0 flex flex-col items-center justify-center select-none">
+<span class="font-label-sm text-label-sm text-secondary tracking-widest uppercase">Internal LiFePO4</span>
+<div class="flex items-baseline">
+<span class="font-display-lg text-display-lg font-extrabold text-on-surface tracking-tight" id="bat-pct-display">92</span>
+<span class="font-title-lg text-title-lg font-bold text-secondary ml-0.5">%</span>
+</div>
+<span class="font-label-md text-label-md text-secondary font-medium mt-0.5">3.88V · 31.4°C</span>
+</div>
+</div>
+<!-- Runtime Prediction Banner -->
+<div class="w-full mt-2 grid grid-cols-2 gap-space-sm">
+<div class="rounded-xl bg-surface-container-lowest/80 p-3 flex flex-col items-start shadow-inner">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary">eco</span>
+            Eco-Mesh Runtime
+          </span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold mt-1">74h 12m</span>
+<span class="font-label-sm text-label-sm text-secondary">Cooperative Sleeping Active</span>
+</div>
+<div class="rounded-xl bg-surface-container-lowest/80 p-3 flex flex-col items-start shadow-inner">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">sensors</span>
+            Full LoRa High-TX
+          </span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold mt-1">18h 40m</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Continuous 22dBm Burst</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Adaptive Radio Power Budgets -->
+<section class="w-full flex flex-col space-y-space-sm">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-lg">podcasts</span>
+<h2 class="font-title-lg text-title-lg font-bold text-on-surface">Adaptive Radio Budgets</h2>
+</div>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Dynamic Scaling</span>
+</div>
+<!-- Telemetry Cards Grid -->
+<div class="space-y-space-xs">
+<!-- LoRa SX1262 Card -->
+<div class="rounded-xl bg-surface-container p-space-md flex flex-col space-y-space-xs shadow-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap- space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-lg">wifi_tethering</span>
+</div>
+<div>
+<div class="font-title-md text-title-md font-semibold text-on-surface">LoRa 915MHz (SX1262)</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">TX 14dBm · Duty Cycle 1.2% · Range ~4.2km</div>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-lg text-label-lg font-bold text-secondary">42 mW</span>
+<div class="font-label-sm text-label-sm text-secondary/70">Mesh Link Primary</div>
+</div>
+</div>
+<!-- Adaptive TX Slider Widget -->
+<div class="pt-2 flex items-center gap-3">
+<span class="font-label-sm text-label-sm text-on-surface-variant">10dBm</span>
+<div class="relative w-full h-2 rounded-full bg-surface-container-highest flex items-center cursor-pointer" id="tx-slider-track">
+<div class="absolute left-0 top-0 h-full w-2/3 rounded-full bg-gradient-to-r from-secondary-container to-primary-container"></div>
+<div class="absolute left-2/3 -translate-x-1/2 w-4 h-4 rounded-full bg-on-surface shadow-[0_0_8px_rgba(0,210,253,0.8)]"></div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-bold">14dBm (Auto)</span>
+</div>
+</div>
+<!-- BLE 5.4 Mesh Beacon -->
+<div class="rounded-xl bg-surface-container p-space-md flex items-center justify-between shadow-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg">bluetooth_searching</span>
+</div>
+<div>
+<div class="font-title-md text-title-md font-semibold text-on-surface">BLE 5.4 Proximity Mesh</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Periodic Sync 250ms · 18 Active Peers</div>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">18 mW</span>
+<div class="font-label-sm text-label-sm text-secondary">Intermittent</div>
+</div>
+</div>
+<!-- Wi-Fi Direct P2P -->
+<div class="rounded-xl bg-surface-container p-space-md flex items-center justify-between shadow-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-lg">wifi</span>
+</div>
+<div>
+<div class="font-title-md text-title-md font-semibold text-on-surface">Wi-Fi Direct Tactical P2P</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Dormant standby · Bursts on audio cache sync</div>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-lg text-label-lg font-bold text-on-surface-variant">0 mW</span>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Sleeping</div>
+</div>
+</div>
+<!-- Edge Tactical AI NPU (Gemma-2B) -->
+<div class="rounded-xl bg-surface-container p-space-md flex items-center justify-between shadow-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-lg">neurology</span>
+</div>
+<div>
+<div class="font-title-md text-title-md font-semibold text-on-surface">Edge NPU (Gemma-2B Mesh Engine)</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Triage prompt accelerator · 0.4mW sleep baseline</div>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-lg text-label-lg font-bold text-tertiary">82 mW</span>
+<div class="font-label-sm text-label-sm text-tertiary/70">Active Burst</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Node Energy Topology & Peer Harvest -->
+<section class="w-full flex flex-col space-y-space-sm">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-lg">hub</span>
+<h2 class="font-title-lg text-title-lg font-bold text-on-surface">Local Swarm Energy Health</h2>
+</div>
+<span class="font-label-sm text-label-sm text-secondary">4 Nodes Synced</span>
+</div>
+<!-- Cooperative Mesh Duty Cycling Banner -->
+<div class="rounded-xl bg-surface-container-high/60 p-space-sm flex items-center gap-space-sm shadow-sm">
+<div class="w-7 h-7 rounded-full bg-secondary-container/20 text-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-base">sync</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-medium text-on-surface">Cooperative Duty Cycling Engaged</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant leading-tight">Peers rotate sleep intervals (800ms) with zero packet drop across relay rings.</span>
+</div>
+</div>
+<!-- Swarm Nodes List -->
+<div class="grid grid-cols-2 gap-space-sm">
+<!-- Node 1: Base Station -->
+<div class="rounded-xl bg-surface-container p-3 flex flex-col justify-between space-y-2 shadow-md">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md font-semibold text-on-surface truncate">Base Relay 04</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold">94%</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-secondary w-[94%]"></div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-0.5"><span class="material-symbols-outlined text-[13px] text-secondary">wb_sunny</span> Solar Anchor</span>
+<span class="text-secondary font-medium">Relay #1</span>
+</div>
+</div>
+<!-- Node 2: Priya Sharma -->
+<div class="rounded-xl bg-surface-container p-3 flex flex-col justify-between space-y-2 shadow-md">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md font-semibold text-on-surface truncate">Priya Sharma</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">76%</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-primary w-[76%]"></div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span>2-Hop Hopway</span>
+<span class="text-on-surface">Stable</span>
+</div>
+</div>
+<!-- Node 3: Rahul Verma -->
+<div class="rounded-xl bg-surface-container p-3 flex flex-col justify-between space-y-2 shadow-md">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md font-semibold text-on-surface truncate">Rahul Verma</span>
+<span class="font-label-sm text-label-sm text-on-surface font-bold">48%</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-on-surface-variant w-[48%]"></div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span>Saver Mode</span>
+<span class="text-secondary">Low Draw</span>
+</div>
+</div>
+<!-- Node 4: Drone Delta (Low Power Alert) -->
+<div class="rounded-xl bg-surface-container p-3 flex flex-col justify-between space-y-2 shadow-md relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md font-semibold text-error truncate">Drone Delta</span>
+<span class="font-label-sm text-label-sm text-error font-bold">31%</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-error w-[31%]"></div>
+</div>
+<div class="flex items-center justify-between text-error font-label-sm text-label-sm">
+<span class="flex items-center gap-0.5"><span class="material-symbols-outlined text-[13px]">warning</span> Low Alert</span>
+<span class="underline">Bypass</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Emergency Power Preservation Controls -->
+<section class="w-full flex flex-col space-y-space-sm">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-lg">shield_with_heart</span>
+<h2 class="font-title-lg text-title-lg font-bold text-on-surface">Emergency Endurance Directives</h2>
+</div>
+<span class="font-label-sm text-label-sm text-secondary">Fail-Safe</span>
+</div>
+<!-- Stealth Survival Mode Switch Card -->
+<div class="w-full rounded-xl bg-surface-container-high p-space-md flex items-center justify-between shadow-md">
+<div class="flex items-start gap-space-sm pr-2">
+<div class="w-10 h-10 rounded-xl bg-surface-container-highest flex items-center justify-center text-secondary shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-2xl">visibility_off</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md font-semibold text-on-surface">Ultra-Stealth Survival Mode</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container/20 text-secondary font-label-sm text-[9px] font-bold uppercase">7 Days+</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Disables refresh animations, freezes non-essential radios, keeps SOS ping only.</span>
+</div>
+</div>
+<!-- Toggle button -->
+<button aria-label="Toggle Survival Mode" class="w-12 h-6 rounded-full bg-surface-container-highest relative flex items-center transition-colors duration-300 p-0.5 focus:outline-none shrink-0" id="toggle-stealth">
+<div class="w-5 h-5 rounded-full bg-on-surface shadow-md transform transition-transform duration-300" id="toggle-knob"></div>
+</button>
+</div>
+<!-- Reverse Wireless Mesh Share Card -->
+<div class="w-full rounded-xl bg-surface-container p-space-md flex items-center justify-between shadow-md">
+<div class="flex items-start gap-space-sm pr-2">
+<div class="w-10 h-10 rounded-xl bg-surface-container-highest flex items-center justify-center text-primary shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-2xl">battery_charging_full</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md font-semibold text-on-surface">Reverse Wireless Beacon Boost</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Transfer back-coil energy to rescue transponders or depleted peer hardware.</span>
+</div>
+</div>
+<button class="px-3 py-1.5 rounded-full bg-surface-container-highest text-secondary font-label-sm text-label-sm font-semibold hover:bg-surface-bright active:scale-95 transition-all shadow-sm">
+        ENGAGE
+      </button>
+</div>
+<!-- Solar & Kinetic Harvesting Diagnostics Card -->
+<div class="w-full rounded-xl bg-surface-container-low p-space-md flex flex-col space-y-space-xs shadow-inner">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined text-lg">solar_power</span>
+<span class="font-title-md text-title-md font-semibold">Harvester Input Telemetry</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary bg-surface-container-high px-2 py-0.5 rounded-full font-bold">+280 mW Net Charge</span>
+</div>
+<div class="flex items-center justify-between pt-1 text-on-surface-variant font-label-sm text-label-sm">
+<span>Tactical Panel (4-Fold): 18.2V @ 15.4mA</span>
+<span>MPPT Efficiency: 94.2%</span>
+</div>
+</div>
+</section>
+<!-- Tactical Actions Footer Section -->
+<section class="w-full pt-2 flex flex-col space-y-space-xs">
+<button class="w-full h-14 rounded-full bg-gradient-to-r from-primary-container via-secondary-container to-secondary text-on-primary-container font-title-md text-title-md font-bold flex items-center justify-center gap-2 shadow-[0_4px_24px_rgba(0,210,253,0.3)] active:scale-[0.98] transition-transform" id="optimize-btn">
+<span class="material-symbols-outlined text-2xl">energy_savings_leaf</span>
+<span>Optimize Mesh Power Matrix</span>
+</button>
+<button class="w-full h-11 rounded-full bg-surface-container-high text-secondary font-label-md text-label-md font-semibold flex items-center justify-center gap-1.5 hover:bg-surface-bright active:scale-[0.98] transition-colors shadow-sm" id="blackout-sim-btn">
+<span class="material-symbols-outlined text-lg">troubleshoot</span>
+<span>Simulate 72h Blackout Endurance</span>
+</button>
+</section>
+<!-- Interactive Client-side Script -->
+<script>
+    (function() {
+      // Toggle Stealth Mode State
+      const toggleStealth = document.getElementById('toggle-stealth');
+      const toggleKnob = document.getElementById('toggle-knob');
+      let stealthActive = false;
+
+      if (toggleStealth && toggleKnob) {
+        toggleStealth.addEventListener('click', () => {
+          stealthActive = !stealthActive;
+          if (stealthActive) {
+            toggleStealth.classList.remove('bg-surface-container-highest');
+            toggleStealth.classList.add('bg-secondary-container');
+            toggleKnob.classList.add('translate-x-6');
+            toggleKnob.classList.remove('bg-on-surface');
+            toggleKnob.classList.add('bg-on-secondary-container');
+          } else {
+            toggleStealth.classList.add('bg-surface-container-highest');
+            toggleStealth.classList.remove('bg-secondary-container');
+            toggleKnob.classList.remove('translate-x-6');
+            toggleKnob.classList.add('bg-on-surface');
+            toggleKnob.classList.remove('bg-on-secondary-container');
+          }
+        });
+      }
+
+      // Live power micro-fluctuation simulator
+      const drawVal = document.getElementById('live-draw-val');
+      if (drawVal) {
+        setInterval(() => {
+          const delta = Math.floor(Math.random() * 9) - 4;
+          const base = 142;
+          drawVal.innerText = `${base + delta} mW`;
+        }, 3200);
+      }
+
+      // Optimize Matrix tactile feedback
+      const optimizeBtn = document.getElementById('optimize-btn');
+      if (optimizeBtn) {
+        optimizeBtn.addEventListener('click', () => {
+          optimizeBtn.innerHTML = '<span class="material-symbols-outlined text-2xl animate-spin">autorenew</span><span>Optimizing Routing Topologies...</span>';
+          setTimeout(() => {
+            optimizeBtn.innerHTML = '<span class="material-symbols-outlined text-2xl">check_circle</span><span>Swarm Power Balanced (+14h Gain)</span>';
+            setTimeout(() => {
+              optimizeBtn.innerHTML = '<span class="material-symbols-outlined text-2xl">energy_savings_leaf</span><span>Optimize Mesh Power Matrix</span>';
+            }, 3000);
+          }, 1200);
+        });
+      }
+    })();
+  </script>
+</div></main><nav class="fixed bottom-0 w-full z-50 pb-safe pointer-events-none" data-active-classes="text-secondary bg-surface-bright/40 shadow-[0_0_16px_rgba(0,210,253,0.35)]"><div class="px-margin pb-3 pt-1 pointer-events-auto"><div class="relative flex items-center justify-around h-16 rounded-full bg-surface-container-high/90 backdrop-blur-2xl shadow-[0_8px_32px_-4px_rgba(0,0,0,0.6)] px-2"><a aria-current="page" class="flex flex-col items-center justify-center min-w-[48px] h-12 rounded-full transition-all duration-300 text-secondary bg-surface-bright/40 shadow-[0_0_16px_rgba(0,210,253,0.35)]" data-path="network-dashboard" href="#"><span class="material-symbols-outlined text-2xl">home</span><span class="font-label-sm text-[9px] mt-0.5">Home</span></a><a class="flex flex-col items-center justify-center min-w-[48px] h-12 rounded-full text-on-surface-variant hover:text-on-surface transition-all duration-300" data-path="radar-mesh" href="#"><span class="material-symbols-outlined text-2xl">radar</span><span class="font-label-sm text-[9px] mt-0.5">Radar</span></a><div class="relative flex items-center justify-center -mt-6 px-1"><a class="w-14 h-14 rounded-full bg-error-container text-on-error-container flex items-center justify-center shadow-[0_0_24px_rgba(255,59,92,0.55)] active:scale-95 transition-transform duration-200 animate-pulse" data-path="emergency-sos" href="#"><span class="material-symbols-outlined text-3xl font-bold text-on-error">sos</span></a></div><a class="flex flex-col items-center justify-center min-w-[48px] h-12 rounded-full text-on-surface-variant hover:text-on-surface transition-all duration-300" data-path="offline-map" href="#"><span class="material-symbols-outlined text-2xl">map</span><span class="font-label-sm text-[9px] mt-0.5">Map</span></a><a class="flex flex-col items-center justify-center min-w-[48px] h-12 rounded-full text-on-surface-variant hover:text-on-surface transition-all duration-300" data-path="tactical-ai-assistant" href="#"><span class="material-symbols-outlined text-2xl">smart_toy</span><span class="font-label-sm text-[9px] mt-0.5">Tactical AI</span></a></div></div></nav></body></html>

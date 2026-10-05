@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500;600&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#0b1422;color:#dae3f7;}body{overscroll-behavior:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface": "#0b1422", "on-secondary-fixed": "#001f27", "secondary-fixed-dim": "#3cd7ff", "tertiary-fixed": "#e5deff", "inverse-on-surface": "#283140", "error-container": "#93000a", "on-secondary-container": "#005669", "secondary": "#a2e7ff", "error": "#ffb4ab", "on-error": "#690005", "primary-fixed": "#dce1ff", "on-error-container": "#ffdad6", "on-surface": "#dae3f7", "primary-container": "#2563ff", "on-secondary": "#003642", "surface-variant": "#2c3544", "surface-container": "#17202e", "surface-bright": "#313949", "surface-container-highest": "#2c3544", "surface-container-high": "#222a39", "outline-variant": "#434656", "inverse-surface": "#dae3f7", "on-primary-fixed": "#00164f", "on-primary-container": "#f7f6ff", "on-surface-variant": "#c3c5d8", "tertiary-container": "#7055f3", "secondary-container": "#00d2fd", "on-background": "#dae3f7", "surface-tint": "#b6c4ff", "background": "#0b1422", "on-tertiary-fixed-variant": "#441cc8", "outline": "#8d90a2", "tertiary": "#c9bfff", "surface-container-low": "#131c2a", "primary": "#b6c4ff", "on-tertiary-fixed": "#1a0063", "on-primary": "#00287d", "surface-dim": "#0b1422", "on-tertiary-container": "#faf5ff", "tertiary-fixed-dim": "#c9bfff", "on-primary-fixed-variant": "#003baf", "inverse-primary": "#004fe5", "surface-container-lowest": "#060e1c", "primary-fixed-dim": "#b6c4ff", "secondary-fixed": "#b4ebff", "on-tertiary": "#2e009c", "on-secondary-fixed-variant": "#004e5f" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "margin": "1rem", "space-lg": "1.5rem", "space-md": "1rem", "space-sm": "0.5rem", "space-xs": "0.25rem", "gutter": "1rem", "space-xl": "2rem" }, fontFamily: { "label-md": ["JetBrains Mono"], "headline-sm": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "label-sm": ["JetBrains Mono"], "headline-lg": ["Plus Jakarta Sans"], "title-md": ["Inter"], "body-sm": ["Inter"], "title-lg": ["Plus Jakarta Sans"], "label-lg": ["JetBrains Mono"], "headline-md": ["Plus Jakarta Sans"], "body-md": ["Inter"], "display-lg": ["Plus Jakarta Sans"] }, fontSize: { "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" }], "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "600" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "title-lg": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500" }], "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface text-on-surface font-body-md flex flex-col antialiased selection:bg-primary-container selection:text-on-primary-container flex flex-col h-screen flex flex-col"><header class="fixed top-0 w-full z-50 bg-surface-container-lowest/80 backdrop-blur-xl shadow-[0_4px_20px_rgba(0,0,0,0.4)] shrink-0"><div class="pt-safe"><div class="flex justify-between items-center px-margin h-6 text-on-surface-variant font-label-sm text-label-sm select-none"><span class="tracking-wider text-on-surface font-semibold">09:41</span><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[14px] text-secondary">airplanemode_active</span><span class="material-symbols-outlined text-[14px] text-secondary">bluetooth</span><span class="material-symbols-outlined text-[14px] text-secondary">hub</span><div class="flex items-center gap-0.5 ml-1"><span class="text-[10px] text-on-surface font-label-sm">89%</span><span class="material-symbols-outlined text-[14px] text-on-surface">battery_charging_80</span></div></div></div><div class="h-14 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm"><img alt="OFFGRID Emblem Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1W1UO3PQHgzib33NT8zog8migShUE78Om_OV9GEgx5rwxYniV9l0LUqeItxdIouGv1gE1-xC9qqqVdpqsMK1PIFbBuQVYxHF1AwY2oCU6CnOpkBAkk3-Rkel-KjTmpH8sMqNusl2mU7UW9KzgQ6FVR-zqWIeIXnCP5qWNFu_CHKW666wlmSo-0fJ-NdbW65vnzvNJatZrOjOFvLdimq9qeTHyGEKqsnOttnp0jYbI1jC9LWnAuHMvOeN8K1"/><div class="flex flex-col"><span class="font-title-lg text-title-lg tracking-tight font-bold text-on-surface leading-tight">OFFGRID</span><span class="font-label-sm text-label-sm text-secondary tracking-widest uppercase">Radar Mesh</span></div></div><div class="flex items-center gap-space-sm"><div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high/90 shadow-[0_0_12px_rgba(0,210,253,0.15)]"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span class="font-label-sm text-label-sm text-secondary font-medium whitespace-nowrap">Mesh Active (14 nodes)</span></div><div class="w-8 h-8 rounded-full p-0.5 bg-gradient-to-tr from-secondary to-primary-container shrink-0 flex items-center justify-center"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBicInjDpQSxL6H_1VIkNE0ww9tTlWtPwtTZc-ZKVCQvM_DVHVBMQK1ZQIDLItsl7QpiEaKIc1oYhIlFiYB3HUDjbteWzpS5n99XGgoy7CpVFOpNpDA5_f3seNVOHIknhSUGr6StTRDOgUb20EuxmDTZ9bFJwbmZQR-VI3SzNm3EMUynpstt1YoBqfO0WYB2Y_4OG9ShEt5QC5gnhn1TKv5oT-K-VtG_uv8E5JuhzBGmHaEFaqXNZsSZw"/></div></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-20 pb-28 bg-surface overflow-y-auto"><div class="flex flex-col w-full relative select-none">
+<!-- Top Tactical Sub-Header / Peer Telemetry Bar -->
+<div class="sticky top-0 z-40 px-margin py-2.5 bg-surface-container-high/90 backdrop-blur-2xl shadow-md flex items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-sm min-w-0">
+<a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:text-secondary active:scale-95 transition-all" data-path="network-dashboard" href="#">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+</a>
+<div class="relative shrink-0">
+<div class="w-10 h-10 rounded-full p-0.5 bg-gradient-to-tr from-secondary to-primary-container flex items-center justify-center shadow-[0_0_12px_rgba(0,210,253,0.3)]">
+<img class="w-full h-full rounded-full object-cover" data-alt="Close-up portrait of Dr. Priya Sharma, a South Asian female emergency trauma medic wearing tactical high-visibility navy search-and-rescue gear with field stethoscopes and glowing cyan communication earpiece, rugged cinematic lighting, neon edge highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBT_0Urrt7j1DP6Fo8troOLrifQf-fAX1vEXK67AnFEXoGewMU1gysu69jDOk1f_TIbhe2AimVHJ0k3lQoCSoaPNrFpShmaB5dx0hgQxCuF53mz-o9yFzdPysDVCq2ek38h8_jcHB9_AZ7q-LE8_40YY5e5GFztZvi9X3AXLrGycWWRgV7FY8LX0MrYNGI6hSrDesVsgSB2Maf7IAM0Evn3PQVFXktKleZ5SvOuJJGDlNAGj71DOEvIYg"/>
+</div>
+<span class="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-secondary-container shadow-[0_0_8px_rgba(0,210,253,0.8)] ring-2 ring-surface"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-title-md font-bold text-on-surface truncate">Dr. Priya Sharma</span>
+<span class="material-symbols-outlined text-secondary text-[16px]" style="font-variation-settings: 'FILL' 1;" title="Verified Field Medic">verified</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm truncate">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+<span class="text-secondary font-semibold">Direct BLE 5.4</span>
+<span>•</span>
+<span>110m away</span>
+<span>•</span>
+<span class="text-primary-fixed">18ms</span>
+</div>
+</div>
+</div>
+<!-- Actions: Call, PTT, Encryption -->
+<div class="flex items-center gap-1.5 shrink-0">
+<button class="px-2.5 py-1.5 rounded-full bg-surface-container hover:bg-surface-bright text-on-surface-variant flex items-center gap-1 text-label-sm font-label-sm transition-all active:scale-95 shadow-sm" id="pttToggleBtn" title="Push-to-talk Walkie Talkie">
+<span class="material-symbols-outlined text-[16px] text-secondary">radio</span>
+<span class="hidden sm:inline">PTT</span>
+</button>
+<a class="w-9 h-9 rounded-full bg-primary-container text-on-primary flex items-center justify-center shadow-[0_0_16px_rgba(37,99,255,0.4)] active:scale-95 transition-transform" data-path="radar-mesh" href="#" title="Initiate P2P Tactical Audio Call">
+<span class="material-symbols-outlined text-[18px]">call</span>
+</a>
+<button class="w-9 h-9 rounded-full bg-surface-container hover:bg-surface-bright flex items-center justify-center text-secondary transition-all" id="cryptoBadgeBtn" title="Ed25519 Encryption Details">
+<span class="material-symbols-outlined text-[18px]">lock</span>
+</button>
+</div>
+</div>
+<!-- Encryption Assurance Banner -->
+<div class="px-margin py-2 bg-surface-container-low flex items-center justify-between gap-space-sm text-label-sm font-label-sm shadow-inner" id="cryptoBanner">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-[14px]">shield_lock</span>
+<span>Zero-cloud link: <strong class="text-secondary font-mono">Ed25519 Verified</strong> (Double Ratchet)</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-mono text-[10px]">HOP:0</span>
+</div>
+</div>
+<!-- Chat History & Interactive Message Feed -->
+<div class="flex-1 px-margin py-4 space-y-4 overflow-y-auto" id="messagesContainer">
+<!-- Day Divider -->
+<div class="flex items-center justify-center my-2">
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm shadow-sm">
+        Today • Mesh Cluster Sector-04
+      </span>
+</div>
+<!-- Message 1: Priya with Mini Location Card -->
+<div class="flex flex-col items-start max-w-[88%] group">
+<div class="flex items-center gap-1.5 mb-1 px-1">
+<span class="font-label-sm text-label-sm font-semibold text-secondary">Dr. Priya (Medic-02)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">09:34 AM</span>
+</div>
+<div class="bg-surface-container-high rounded-2xl rounded-tl-sm p-3.5 shadow-md space-y-2.5">
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+          Alpha-1 team: Path clear at pass 3. Medical pack deployed at Ridge Point B.
+        </p>
+<!-- Location mini-card preview -->
+<a class="block rounded-xl overflow-hidden bg-surface-container-lowest active:opacity-90 transition-opacity" data-path="offline-map" href="#">
+<div class="w-full h-24 bg-cover bg-center relative flex flex-col justify-end p-2.5" data-location="Ridge Point Pass 3 Alpine Base" style="background-image: url('https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg');">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/40 to-transparent"></div>
+<div class="relative z-10 flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-secondary text-[16px]">location_on</span>
+<span class="font-title-md text-body-sm font-semibold truncate">Ridge Point B (Cache #4)</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary/20 text-secondary font-label-sm text-[10px]">Open Map</span>
+</div>
+</div>
+</a>
+<!-- Packet Relayed Metadata -->
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-[10px] pt-1">
+<span class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[12px]">sensors</span> Relayed via 1-Hop
+          </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-secondary">verified_user</span> Decrypted on Device
+          </span>
+</div>
+</div>
+</div>
+<!-- Message 2: Sent by Current User -->
+<div class="flex flex-col items-end self-end max-w-[85%] ml-auto group">
+<div class="flex items-center gap-1.5 mb-1 px-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">09:36 AM</span>
+<span class="font-label-sm text-label-sm font-semibold text-primary">You (Team Lead)</span>
+</div>
+<div class="bg-primary-container text-on-primary-container rounded-2xl rounded-tr-sm p-3.5 shadow-[0_4px_16px_rgba(37,99,255,0.25)] space-y-1.5">
+<p class="font-body-md text-body-md text-on-primary-container leading-relaxed">
+          Received Priya. We detected water level surge near the crossing. Rerouting via waypoint 04.
+        </p>
+<div class="flex items-center justify-end gap-1.5 text-on-primary font-label-sm text-[10px]">
+<span>Direct LoRa link</span>
+<span class="material-symbols-outlined text-[14px]">done_all</span>
+</div>
+</div>
+</div>
+<!-- Message 3: Audio Message from Priya with Waveform -->
+<div class="flex flex-col items-start max-w-[90%]">
+<div class="flex items-center gap-1.5 mb-1 px-1">
+<span class="font-label-sm text-label-sm font-semibold text-secondary">Dr. Priya (Medic-02)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">09:38 AM</span>
+</div>
+<div class="bg-surface-container-high rounded-2xl rounded-tl-sm p-3.5 shadow-md w-full space-y-2.5">
+<!-- Interactive Player Bar -->
+<div class="flex items-center gap-3 p-2 rounded-xl bg-surface-container-low">
+<button class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0 shadow-[0_0_12px_rgba(0,210,253,0.4)] active:scale-95 transition-transform" id="voicePlayBtn">
+<span class="material-symbols-outlined text-[22px]" id="playIcon">play_arrow</span>
+</button>
+<div class="flex-1 flex flex-col justify-center gap-1">
+<!-- Simulated Audio Visualizer Waveform -->
+<div class="flex items-center gap-0.5 h-6 px-1" id="waveformBars">
+<span class="w-1 bg-secondary rounded-full h-2 transition-all duration-150"></span>
+<span class="w-1 bg-secondary rounded-full h-4 transition-all duration-150"></span>
+<span class="w-1 bg-secondary rounded-full h-6 transition-all duration-150"></span>
+<span class="w-1 bg-secondary rounded-full h-3 transition-all duration-150"></span>
+<span class="w-1 bg-secondary rounded-full h-5 transition-all duration-150"></span>
+<span class="w-1 bg-secondary rounded-full h-2 transition-all duration-150"></span>
+<span class="w-1 bg-secondary rounded-full h-4 transition-all duration-150"></span>
+<span class="w-1 bg-secondary/50 rounded-full h-6 transition-all duration-150"></span>
+<span class="w-1 bg-secondary/50 rounded-full h-3 transition-all duration-150"></span>
+<span class="w-1 bg-secondary/40 rounded-full h-5 transition-all duration-150"></span>
+<span class="w-1 bg-secondary/30 rounded-full h-2 transition-all duration-150"></span>
+<span class="w-1 bg-secondary/30 rounded-full h-4 transition-all duration-150"></span>
+<span class="w-1 bg-secondary/30 rounded-full h-3 transition-all duration-150"></span>
+<span class="w-1 bg-secondary/20 rounded-full h-1 transition-all duration-150"></span>
+<span class="w-1 bg-secondary/20 rounded-full h-2 transition-all duration-150"></span>
+</div>
+<div class="flex justify-between items-center text-[10px] font-label-sm text-on-surface-variant">
+<span class="text-secondary font-mono" id="audioTimer">0:00</span>
+<span class="font-mono">0:14s • Opus 12kbps</span>
+</div>
+</div>
+</div>
+<!-- Audio Transcription -->
+<div class="p-2 rounded-lg bg-surface-container text-body-sm font-body-sm text-on-surface-variant">
+<div class="flex items-center gap-1 text-[10px] font-label-sm text-primary mb-0.5">
+<span class="material-symbols-outlined text-[12px]">transcribe</span>
+<span>Offline Edge Transcription</span>
+</div>
+<p class="italic text-on-surface">"Copy that Sri. Bring extra trauma dressings if you can."</p>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-[10px]">
+<span class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[12px]">podcasts</span> BLE Peer-Mesh Broadcast
+          </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-secondary">check</span> Delivered
+          </span>
+</div>
+</div>
+</div>
+<!-- Message 4: Distress Telemetry & Waypoint Ping -->
+<div class="flex flex-col items-start max-w-[92%]">
+<div class="flex items-center gap-1.5 mb-1 px-1">
+<span class="font-label-sm text-label-sm font-semibold text-secondary">Dr. Priya (Medic-02)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">09:40 AM</span>
+</div>
+<div class="bg-surface-container-high rounded-2xl rounded-tl-sm p-3.5 shadow-md w-full space-y-3">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-[18px]">emergency_share</span>
+</div>
+<div>
+<div class="font-title-md text-title-md font-bold text-on-surface">Target Rendezvous Point</div>
+<div class="text-label-sm font-label-sm text-secondary">Telemetry Beacon Pinged</div>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container font-label-sm text-[10px] text-primary-fixed">GPS FIX 3D</span>
+</div>
+<!-- Tactical Waypoint Chip -->
+<div class="p-3 rounded-xl bg-surface-container flex flex-col gap-2">
+<div class="flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-on-surface font-semibold">Ridge Point B</span>
+<span class="text-secondary font-mono font-bold">545m Elev</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1 font-mono text-[11px]">
+<span class="material-symbols-outlined text-[14px] text-secondary">explore</span> 47.3821° N, 8.5391° E
+            </span>
+<span class="font-label-sm text-label-sm text-primary font-bold">620m NE</span>
+</div>
+</div>
+<div class="flex gap-2 pt-1">
+<a class="flex-1 py-2 rounded-xl bg-primary-container text-on-primary font-title-md text-body-sm font-semibold flex items-center justify-center gap-1.5 shadow-[0_0_12px_rgba(37,99,255,0.3)] active:scale-95 transition-transform" data-path="offline-map" href="#">
+<span class="material-symbols-outlined text-[16px]">navigation</span>
+<span>View On Map</span>
+</a>
+<button class="px-3 py-2 rounded-xl bg-surface-container hover:bg-surface-bright text-on-surface font-label-sm text-label-sm flex items-center gap-1 active:scale-95 transition-all" id="lockBearingBtn">
+<span class="material-symbols-outlined text-[16px] text-secondary">screen_rotation</span>
+<span>Lock Bearing</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Live incoming transmission indicator (Interactive simulated) -->
+<div class="hidden items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-high w-fit mx-auto shadow-md" id="liveIncomingPill">
+<span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
+<span class="font-label-sm text-label-sm text-secondary">Receiving mesh packet chunks...</span>
+</div>
+</div>
+<!-- Expandable Tactical Attachment Drawer (Modal / Floating Menu) -->
+<div class="hidden mx-margin mb-2 p-3 rounded-2xl bg-surface-container-high/95 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.6)] space-y-2" id="attachmentDrawer">
+<div class="flex items-center justify-between px-1">
+<span class="font-label-sm text-label-sm uppercase text-secondary tracking-wider font-semibold">Mesh Attachments</span>
+<button class="w-6 h-6 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface" id="closeDrawerBtn">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="grid grid-cols-4 gap-2 text-center">
+<button class="attachment-item p-2.5 rounded-xl bg-surface-container hover:bg-surface-bright flex flex-col items-center gap-1 text-on-surface active:scale-95 transition-all" data-type="Coordinates">
+<div class="w-10 h-10 rounded-full bg-secondary-container/20 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">pin_drop</span>
+</div>
+<span class="font-label-sm text-[10px]">Location</span>
+</button>
+<button class="attachment-item p-2.5 rounded-xl bg-surface-container hover:bg-surface-bright flex flex-col items-center gap-1 text-on-surface active:scale-95 transition-all" data-type="Photo">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">photo_camera</span>
+</div>
+<span class="font-label-sm text-[10px]">Photo</span>
+</button>
+<button class="attachment-item p-2.5 rounded-xl bg-surface-container hover:bg-surface-bright flex flex-col items-center gap-1 text-on-surface active:scale-95 transition-all" data-type="Telemetry">
+<div class="w-10 h-10 rounded-full bg-tertiary-container/20 text-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">ecg_heart</span>
+</div>
+<span class="font-label-sm text-[10px]">Vitals</span>
+</button>
+<button class="attachment-item p-2.5 rounded-xl bg-surface-container hover:bg-surface-bright flex flex-col items-center gap-1 text-on-surface active:scale-95 transition-all" data-type="Triage">
+<div class="w-10 h-10 rounded-full bg-error-container/30 text-error flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">medical_services</span>
+</div>
+<span class="font-label-sm text-[10px]">Triage</span>
+</button>
+</div>
+</div>
+<!-- Interactive Input Dock & Bottom Controls -->
+<div class="sticky bottom-20 z-30 px-margin pb-2 pt-1 bg-gradient-to-t from-surface via-surface/90 to-transparent">
+<!-- Quick Action Tactical Pills -->
+<div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1 mb-2">
+<button class="quick-pill shrink-0 px-3 py-1 rounded-full bg-surface-container-high/90 hover:bg-surface-bright text-on-surface-variant hover:text-secondary font-label-sm text-label-sm flex items-center gap-1 transition-all active:scale-95" data-text="📍 Current Lat/Long: 47.3812N, 8.5377E">
+<span class="material-symbols-outlined text-[14px] text-secondary">my_location</span>
+<span>Share Coordinates</span>
+</button>
+<button class="quick-pill shrink-0 px-3 py-1 rounded-full bg-surface-container-high/90 hover:bg-surface-bright text-on-surface-variant hover:text-secondary font-label-sm text-label-sm flex items-center gap-1 transition-all active:scale-95" data-text="Pulse and SpO2 telemetry requested. Stand by for link.">
+<span class="material-symbols-outlined text-[14px] text-secondary">monitor_heart</span>
+<span>Request Vitals</span>
+</button>
+<button class="quick-pill shrink-0 px-3 py-1 rounded-full bg-surface-container-high/90 hover:bg-surface-bright text-on-surface-variant hover:text-secondary font-label-sm text-label-sm flex items-center gap-1 transition-all active:scale-95" id="quickVoiceNoteBtn">
+<span class="material-symbols-outlined text-[14px] text-secondary">mic</span>
+<span>Voice Note</span>
+</button>
+</div>
+<!-- Input Bar Box -->
+<div class="p-1.5 rounded-2xl bg-surface-container-high/90 backdrop-blur-xl shadow-lg flex items-center gap-1.5">
+<button class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-secondary active:scale-95 transition-all" id="attachmentToggleBtn" title="Attach Tactical Payload">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+</button>
+<input class="flex-1 bg-transparent px-2 py-2 text-body-md font-body-md text-on-surface placeholder:text-outline focus:outline-none min-w-0" id="chatInput" placeholder="Type encrypted mesh message..." type="text"/>
+<!-- Hold to Talk / Record Voice Note -->
+<button class="w-10 h-10 rounded-xl bg-surface-container hover:bg-surface-bright flex items-center justify-center text-on-surface-variant hover:text-secondary active:scale-95 transition-all" id="micBtn" title="Hold to record voice packet">
+<span class="material-symbols-outlined text-[20px]" id="micIcon">mic</span>
+</button>
+<!-- Send Button -->
+<button class="w-10 h-10 rounded-xl bg-primary-container hover:bg-primary-container/90 text-on-primary-container flex items-center justify-center shadow-[0_0_12px_rgba(37,99,255,0.4)] active:scale-95 transition-transform" id="sendBtn" title="Send mesh packet">
+<span class="material-symbols-outlined text-[20px]">send</span>
+</button>
+</div>
+<div class="flex items-center justify-between px-2 pt-1.5 text-[10px] font-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> LoRa 868MHz • 250mW TX
+      </span>
+<span class="font-mono">MTU: 240 bytes</span>
+</div>
+</div>
+<!-- Client-side Micro-Interactions Script -->
+<script>
+    (function initOfflineChat() {
+      const chatInput = document.getElementById('chatInput');
+      const sendBtn = document.getElementById('sendBtn');
+      const messagesContainer = document.getElementById('messagesContainer');
+      const attachmentToggleBtn = document.getElementById('attachmentToggleBtn');
+      const attachmentDrawer = document.getElementById('attachmentDrawer');
+      const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+      const voicePlayBtn = document.getElementById('voicePlayBtn');
+      const playIcon = document.getElementById('playIcon');
+      const audioTimer = document.getElementById('audioTimer');
+      const micBtn = document.getElementById('micBtn');
+      const micIcon = document.getElementById('micIcon');
+      const pttToggleBtn = document.getElementById('pttToggleBtn');
+      const cryptoBadgeBtn = document.getElementById('cryptoBadgeBtn');
+      const cryptoBanner = document.getElementById('cryptoBanner');
+      const liveIncomingPill = document.getElementById('liveIncomingPill');
+      const quickPills = document.querySelectorAll('.quick-pill');
+      const attachmentItems = document.querySelectorAll('.attachment-item');
+      const lockBearingBtn = document.getElementById('lockBearingBtn');
+
+      let isPlayingAudio = false;
+      let audioProgress = 0;
+      let audioInterval = null;
+      let isRecording = false;
+
+      // Toggle Attachment Drawer
+      attachmentToggleBtn.addEventListener('click', () => {
+        attachmentDrawer.classList.toggle('hidden');
+      });
+
+      closeDrawerBtn.addEventListener('click', () => {
+        attachmentDrawer.classList.add('hidden');
+      });
+
+      // Quick Action Pills
+      quickPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          const text = pill.getAttribute('data-text');
+          if (text) {
+            chatInput.value = text;
+            chatInput.focus();
+          }
+        });
+      });
+
+      // Attachment Selection micro-flow
+      attachmentItems.forEach(item => {
+        item.addEventListener('click', () => {
+          const type = item.getAttribute('data-type');
+          chatInput.value = `[Attaching ${type} payload...]`;
+          attachmentDrawer.classList.add('hidden');
+          chatInput.focus();
+        });
+      });
+
+      // Send Message Interaction
+      function sendMessage() {
+        const text = chatInput.value.trim();
+        if (!text) return;
+
+        const timeStr = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        const bubble = document.createElement('div');
+        bubble.className = 'flex flex-col items-end self-end max-w-[85%] ml-auto group animate-in fade-in duration-200';
+        bubble.innerHTML = `
+          <div class="flex items-center gap-1.5 mb-1 px-1">
+            <span class="font-label-sm text-label-sm text-on-surface-variant">${timeStr}</span>
+            <span class="font-label-sm text-label-sm font-semibold text-primary">You (Team Lead)</span>
+          </div>
+          <div class="bg-primary-container text-on-primary-container rounded-2xl rounded-tr-sm p-3.5 shadow-[0_4px_16px_rgba(37,99,255,0.25)] space-y-1.5">
+            <p class="font-body-md text-body-md text-on-primary-container leading-relaxed break-words">${escapeHTML(text)}</p>
+            <div class="flex items-center justify-end gap-1.5 text-on-primary font-label-sm text-[10px]">
+              <span>Direct LoRa link</span>
+              <span class="material-symbols-outlined text-[14px]">done</span>
+            </div>
+          </div>
+        `;
+
+        messagesContainer.appendChild(bubble);
+        chatInput.value = '';
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+        // Simulate delivery tick upgrade & peer response pulse
+        setTimeout(() => {
+          const checkIcon = bubble.querySelector('.material-symbols-outlined');
+          if (checkIcon) checkIcon.textContent = 'done_all';
+          triggerPeerResponseSimulation();
+        }, 1200);
+      }
+
+      function escapeHTML(str) {
+        const div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+      }
+
+      sendBtn.addEventListener('click', sendMessage);
+      chatInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          sendMessage();
+        }
+      });
+
+      // Interactive Voice Message Simulation
+      voicePlayBtn.addEventListener('click', () => {
+        isPlayingAudio = !isPlayingAudio;
+        if (isPlayingAudio) {
+          playIcon.textContent = 'pause';
+          audioInterval = setInterval(() => {
+            audioProgress += 1;
+            const sec = audioProgress < 10 ? `0:0${audioProgress}` : `0:${audioProgress}`;
+            audioTimer.textContent = sec;
+            if (audioProgress >= 14) {
+              clearInterval(audioInterval);
+              isPlayingAudio = false;
+              playIcon.textContent = 'play_arrow';
+              audioProgress = 0;
+              audioTimer.textContent = '0:00';
+            }
+          }, 1000);
+        } else {
+          playIcon.textContent = 'play_arrow';
+          clearInterval(audioInterval);
+        }
+      });
+
+      // Push to Talk / Hold to Record Mic Action
+      micBtn.addEventListener('mousedown', startRecording);
+      micBtn.addEventListener('mouseup', stopRecording);
+      micBtn.addEventListener('touchstart', (e) => { e.preventDefault(); startRecording(); });
+      micBtn.addEventListener('touchend', (e) => { e.preventDefault(); stopRecording(); });
+
+      function startRecording() {
+        isRecording = true;
+        micBtn.classList.remove('bg-surface-container');
+        micBtn.classList.add('bg-error-container', 'text-on-error', 'animate-pulse');
+        micIcon.textContent = 'graphic_eq';
+        chatInput.setAttribute('placeholder', 'Recording encrypted voice note (Release to send)...');
+      }
+
+      function stopRecording() {
+        if (!isRecording) return;
+        isRecording = false;
+        micBtn.classList.add('bg-surface-container');
+        micBtn.classList.remove('bg-error-container', 'text-on-error', 'animate-pulse');
+        micIcon.textContent = 'mic';
+        chatInput.setAttribute('placeholder', 'Type encrypted mesh message...');
+
+        // Auto insert voice note sent payload
+        const timeStr = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        const voiceBubble = document.createElement('div');
+        voiceBubble.className = 'flex flex-col items-end self-end max-w-[85%] ml-auto group animate-in fade-in duration-200';
+        voiceBubble.innerHTML = `
+          <div class="flex items-center gap-1.5 mb-1 px-1">
+            <span class="font-label-sm text-label-sm text-on-surface-variant">${timeStr}</span>
+            <span class="font-label-sm text-label-sm font-semibold text-primary">You</span>
+          </div>
+          <div class="bg-primary-container text-on-primary-container rounded-2xl rounded-tr-sm p-3 shadow-[0_4px_16px_rgba(37,99,255,0.25)] space-y-1">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-[20px]">mic</span>
+              <span class="font-body-sm text-body-sm font-medium">Voice note sent (0:04s)</span>
+            </div>
+            <div class="flex items-center justify-end gap-1 text-on-primary font-label-sm text-[10px]">
+              <span>Direct LoRa link</span>
+              <span class="material-symbols-outlined text-[14px]">done_all</span>
+            </div>
+          </div>
+        `;
+        messagesContainer.appendChild(voiceBubble);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      }
+
+      // PTT Walkie-Talkie Button State Toggle
+      pttToggleBtn.addEventListener('click', () => {
+        const isPTT = pttToggleBtn.classList.toggle('bg-secondary-container');
+        if (isPTT) {
+          pttToggleBtn.classList.remove('bg-surface-container');
+          pttToggleBtn.classList.add('text-on-secondary-container');
+          pttToggleBtn.querySelector('span:last-child').textContent = 'PTT ON';
+        } else {
+          pttToggleBtn.classList.remove('text-on-secondary-container');
+          pttToggleBtn.classList.add('bg-surface-container');
+          pttToggleBtn.querySelector('span:last-child').textContent = 'PTT';
+        }
+      });
+
+      // Crypto Badge banner toggle
+      cryptoBadgeBtn.addEventListener('click', () => {
+        cryptoBanner.classList.toggle('hidden');
+      });
+
+      // Lock Bearing Notification
+      lockBearingBtn.addEventListener('click', () => {
+        lockBearingBtn.classList.toggle('bg-primary-container');
+        lockBearingBtn.classList.toggle('text-on-primary-container');
+        const isLocked = lockBearingBtn.classList.contains('bg-primary-container');
+        lockBearingBtn.querySelector('span:last-child').textContent = isLocked ? 'Bearing Locked' : 'Lock Bearing';
+      });
+
+      // Simulates peer packet reception
+      function triggerPeerResponseSimulation() {
+        liveIncomingPill.classList.remove('hidden');
+        liveIncomingPill.classList.add('flex');
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+        setTimeout(() => {
+          liveIncomingPill.classList.add('hidden');
+          liveIncomingPill.classList.remove('flex');
+
+          const responseBubble = document.createElement('div');
+          responseBubble.className = 'flex flex-col items-start max-w-[85%] group animate-in fade-in duration-200';
+          responseBubble.innerHTML = `
+            <div class="flex items-center gap-1.5 mb-1 px-1">
+              <span class="font-label-sm text-label-sm font-semibold text-secondary">Dr. Priya (Medic-02)</span>
+              <span class="font-label-sm text-label-sm text-on-surface-variant">Just now</span>
+            </div>
+            <div class="bg-surface-container-high rounded-2xl rounded-tl-sm p-3.5 shadow-md space-y-1.5">
+              <p class="font-body-md text-body-md text-on-surface leading-relaxed">
+                Affirmative. Beacon signal locked. Visual contact expected in 8 minutes.
+              </p>
+              <div class="flex items-center justify-between text-on-surface-variant font-label-sm text-[10px]">
+                <span class="flex items-center gap-1 text-secondary">
+                  <span class="material-symbols-outlined text-[12px]">sensors</span> Relayed via 1-Hop
+                </span>
+                <span class="flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[12px] text-secondary">verified_user</span> Decrypted on Device
+                </span>
+              </div>
+            </div>
+          `;
+          messagesContainer.appendChild(responseBubble);
+          messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }, 2200);
+      }
+    })();
+  </script>
+</div></main><nav class="fixed bottom-0 w-full z-50 pb-safe pointer-events-none" data-active-classes="text-secondary bg-surface-bright/40 shadow-[0_0_16px_rgba(0,210,253,0.35)]"><div class="px-margin pb-3 pt-1 pointer-events-auto"><div class="relative flex items-center justify-around h-16 rounded-full bg-surface-container-high/90 backdrop-blur-2xl shadow-[0_8px_32px_-4px_rgba(0,0,0,0.6)] px-2"><a class="flex flex-col items-center justify-center min-w-[48px] h-12 rounded-full text-on-surface-variant hover:text-on-surface transition-all duration-300" data-path="network-dashboard" href="#"><span class="material-symbols-outlined text-2xl">home</span><span class="font-label-sm text-[9px] mt-0.5">Home</span></a><a aria-current="page" class="flex flex-col items-center justify-center min-w-[48px] h-12 rounded-full transition-all duration-300 text-secondary bg-surface-bright/40 shadow-[0_0_16px_rgba(0,210,253,0.35)]" data-path="radar-mesh" href="#"><span class="material-symbols-outlined text-2xl">radar</span><span class="font-label-sm text-[9px] mt-0.5">Radar</span></a><div class="relative flex items-center justify-center -mt-6 px-1"><a class="w-14 h-14 rounded-full bg-error-container text-on-error-container flex items-center justify-center shadow-[0_0_24px_rgba(255,59,92,0.55)] active:scale-95 transition-transform duration-200 animate-pulse" data-path="emergency-sos" href="#"><span class="material-symbols-outlined text-3xl font-bold text-on-error">sos</span></a></div><a class="flex flex-col items-center justify-center min-w-[48px] h-12 rounded-full text-on-surface-variant hover:text-on-surface transition-all duration-300" data-path="offline-map" href="#"><span class="material-symbols-outlined text-2xl">map</span><span class="font-label-sm text-[9px] mt-0.5">Map</span></a><a class="flex flex-col items-center justify-center min-w-[48px] h-12 rounded-full text-on-surface-variant hover:text-on-surface transition-all duration-300" data-path="tactical-ai-assistant" href="#"><span class="material-symbols-outlined text-2xl">smart_toy</span><span class="font-label-sm text-[9px] mt-0.5">Tactical AI</span></a></div></div></nav></body></html>
